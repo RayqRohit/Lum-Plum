@@ -197,32 +197,51 @@ export default function Home() {
               </Link>
             </nav>
 
-            {/* Template Light / Dark Switch */}
+            {/* Template Light / Dark Switch: Exact framer-CxA1g (78px x 40px, padding 8px 12px, Highlight circle 28px) */}
             <div
               onClick={() => setIsDarkMode(!isDarkMode)}
-              className={`relative flex items-center justify-between w-[78px] h-[40px] px-3 rounded-full cursor-pointer transition-colors border select-none ${isDarkMode
-                ? "bg-[#141414] border-[#2d2d2d]"
-                : "bg-white border-[#e0e0e0]"
-                }`}
+              style={{
+                width: "78px",
+                height: "40px",
+                padding: "8px 12px",
+                borderRadius: "64px",
+                borderWidth: "1px",
+                borderStyle: "solid",
+                borderColor: isDarkMode ? "rgb(30, 30, 30)" : "rgb(240, 240, 240)",
+                backgroundColor: isDarkMode ? "rgb(20, 20, 20)" : "rgb(255, 255, 255)",
+              }}
+              className="relative flex items-center cursor-pointer select-none transition-colors duration-200"
             >
+              {/* Highlight Circle (28px x 28px, rounded-[64px]) */}
               <div
-                className={`absolute top-[4px] w-[30px] h-[30px] rounded-full transition-transform duration-300 flex items-center justify-center ${isDarkMode
-                  ? "left-[4px] bg-[#1e1e28] shadow-sm transform translate-x-[38px]"
-                  : "left-[4px] bg-[#f0f0f0] shadow-sm transform translate-x-0"
-                  }`}
+                style={{
+                  width: "28px",
+                  height: "28px",
+                  borderRadius: "64px",
+                  backgroundColor: isDarkMode ? "#ffffff" : "rgb(30, 30, 40)",
+                  transform: isDarkMode ? "translateX(36px)" : "translateX(0px)",
+                }}
+                className="absolute left-[6px] top-[5px] transition-transform duration-300 ease-out z-[1]"
               />
 
-              <div
-                className={`relative z-10 w-4 h-4 flex items-center justify-center transition-colors ${!isDarkMode ? "text-[#1e1e28]" : "text-[#717171]"
-                  }`}
-                dangerouslySetInnerHTML={{ __html: assets.svg11968413515 }}
-              />
+              {/* Icons Container (16px icons separated across 28px track) */}
+              <div className="relative z-[2] w-full flex items-center justify-between">
+                <div
+                  className="w-4 h-4 flex items-center justify-center transition-colors duration-200"
+                  style={{
+                    color: isDarkMode ? "#717171" : "#ffffff",
+                  }}
+                  dangerouslySetInnerHTML={{ __html: assets.svg11968413515 }}
+                />
 
-              <div
-                className={`relative z-10 w-4 h-4 flex items-center justify-center transition-colors ${isDarkMode ? "text-white" : "text-[#a0a0a0]"
-                  }`}
-                dangerouslySetInnerHTML={{ __html: assets.svg9163262485 }}
-              />
+                <div
+                  className="w-4 h-4 flex items-center justify-center transition-colors duration-200"
+                  style={{
+                    color: isDarkMode ? "#141414" : "#a0a0a0",
+                  }}
+                  dangerouslySetInnerHTML={{ __html: assets.svg9163262485 }}
+                />
+              </div>
             </div>
           </header>
 
@@ -251,7 +270,7 @@ export default function Home() {
                   I design &amp; build <br />
                   products that{" "}
                   <span
-                    className={isDarkMode ? "text-[#47474f]" : "text-[#9999a0]"}
+                    className={isDarkMode ? "text-[#717171]" : "text-[#9999a0]"}
                   >
                     inspire
                   </span>
