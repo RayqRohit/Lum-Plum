@@ -20,16 +20,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`dark ${inter.variable} h-full overflow-hidden`}>
-      <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Style+Script&display=swap"
-          rel="stylesheet"
-        />
-      </head>
-      <body className="font-sans bg-[#141414] text-[#fafafa] h-screen w-screen overflow-hidden antialiased selection:bg-white/20 selection:text-white">
+    <html lang="en" className={`dark ${inter.variable} min-h-screen`}>
+      <body className="font-sans bg-[#141414] text-[#fafafa] min-h-screen w-full antialiased selection:bg-white/20 selection:text-white">
         {children}
       </body>
     </html>
