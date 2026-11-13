@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect, useCallback } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import assets from "./theme-and-logos.json";
@@ -11,6 +11,8 @@ interface Slide {
   category: string;
   image: string;
 }
+
+const SLIDE_DURATION = 5000; // 5 seconds per slide autoplay matching standard Framer slideshows
 
 const slides: Slide[] = [
   {
@@ -46,9 +48,18 @@ export default function Home() {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isDarkMode, setIsDarkMode] = useState(true);
 
-  const nextSlide = () => {
+  const nextSlide = useCallback(() => {
     setCurrentSlide((prev) => (prev + 1) % slides.length);
-  };
+  }, []);
+
+  // Autoplay timer: smoothly fills up the active indicator pill over SLIDE_DURATION, then advances to next slide
+  useEffect(() => {
+    const timer = setInterval(() => {
+      nextSlide();
+    }, SLIDE_DURATION);
+
+    return () => clearInterval(timer);
+  }, [currentSlide, nextSlide]);
 
   const active = slides[currentSlide];
 
@@ -64,35 +75,48 @@ export default function Home() {
           className="h-full py-4 pl-4 pr-0 min-w-0 overflow-hidden flex"
         >
           <div className="relative w-full h-full rounded-[16px] overflow-hidden flex flex-col justify-between shadow-2xl group border border-white/5">
-            {/* Background Image Layer */}
+            {/* Background Image Layers - Stacked for smooth crossfade transitions */}
             <div className="absolute inset-0 z-0 rounded-[16px] overflow-hidden">
-              <Image
-                src={active.image}
-                alt={active.title}
-                fill
-                priority
-                className="object-cover object-center transition-all duration-700 ease-out rounded-[16px]"
-                sizes="58vw"
-              />
+              {slides.map((slide, index) => {
+                const isActive = currentSlide === index;
+                return (
+                  <div
+                    key={slide.id}
+                    className={`absolute inset-0 transition-all duration-700 ease-out ${isActive
+                        ? "opacity-100 scale-100 z-10"
+                        : "opacity-0 scale-[1.04] pointer-events-none z-0"
+                      }`}
+                  >
+                    <Image
+                      src={slide.image}
+                      alt={slide.title}
+                      fill
+                      priority={index === 0}
+                      className="object-cover object-center rounded-[16px]"
+                      sizes="58vw"
+                    />
+                  </div>
+                );
+              })}
               {/* Overlay with 40% darkness matching template */}
-              <div className="absolute inset-0 bg-black/40 pointer-events-none rounded-[16px]" />
+              <div className="absolute inset-0 bg-black/40 pointer-events-none rounded-[16px] z-20" />
             </div>
 
-            {/* Top Logo */}
-            <div className="relative z-10 pt-6 pl-6 md:pt-7 md:pl-7">
+            {/* Top Logo - Exact Framer Axel template styling (padding: 24px 0 0 24px, 32px font size, rotate(-22deg), Chaumont Script) */}
+            <div className="relative z-10 pt-6 pl-6">
               <Link
                 href="/"
-                className="inline-block transform -rotate-[22deg] origin-left transition-transform hover:scale-105"
+                className="inline-block transform -rotate-[22deg] origin-center transition-transform"
               >
-                <span className="font-script text-[36px] text-white font-bold drop-shadow-md select-none tracking-wide">
-                  Raya
+                <span className="font-script text-[32px] text-white select-none leading-none inline-block">
+                  Rayq
                 </span>
               </Link>
             </div>
 
-            {/* Bottom Project Details & Controls */}
-            <div className="relative z-10 px-8 pb-7 flex flex-col gap-6">
-              <div className="flex items-end justify-between">
+            {/* Bottom Project Details & Controls: matches axeltmpl (padding: 0 32px 24px, gap: 48px) */}
+            <div className="relative z-10 px-8 pb-6 flex flex-col gap-12">
+              <div className="flex items-center justify-between">
                 <div>
                   <h2 className="text-[21px] font-medium text-white tracking-normal leading-[1.4em] drop-shadow-sm">
                     {active.title}
@@ -103,10 +127,11 @@ export default function Home() {
                 </div>
 
                 {/* Arrow Button */}
+                {/* Arrow Button */}
                 <button
                   onClick={nextSlide}
                   aria-label="Next slide"
-                  className="w-10 h-10 rounded-full bg-white/20 hover:bg-white/30 backdrop-blur-sm flex items-center justify-center transition-all duration-200 active:scale-90 border border-white/20 text-white cursor-pointer"
+                  className="w-10 h-10 rounded-full bg-white/20 hover:bg-white/30 backdrop-blur-sm flex items-center justify-center transition-colors duration-200 border border-white/20 text-white cursor-pointer"
                 >
                   <svg
                     width="20"
@@ -124,19 +149,34 @@ export default function Home() {
                 </button>
               </div>
 
-              {/* Slide Indicator Pills */}
+              {/* Slide Indicator Pills - Matches Framer template (28px x 6px with backdrop blur and animated fill) */}
               <div className="flex items-center justify-center gap-2">
-                {slides.map((_, index) => (
-                  <button
-                    key={index}
-                    onClick={() => setCurrentSlide(index)}
-                    aria-label={`Go to slide ${index + 1}`}
-                    className={`h-[3px] rounded-full transition-all duration-300 cursor-pointer ${currentSlide === index
-                      ? "w-7 bg-white"
-                      : "w-3 bg-white/30 hover:bg-white/50"
-                      }`}
-                  />
-                ))}
+                {slides.map((_, index) => {
+                  const isActive = currentSlide === index;
+                  return (
+                    <button
+                      key={index}
+                      onClick={() => setCurrentSlide(index)}
+                      aria-label={`Go to slide ${index + 1}`}
+                      className="group relative w-[28px] h-[6px] rounded-full cursor-pointer overflow-hidden p-0 border-0 focus:outline-none"
+                      style={{
+                        backdropFilter: "blur(10px)",
+                        WebkitBackdropFilter: "blur(10px)",
+                      }}
+                    >
+                      {/* Standart track */}
+                      <span className="absolute inset-0 rounded-full bg-white/20 transition-colors duration-300 group-hover:bg-white/30" />
+                      {/* Animated active fill */}
+                      <span
+                        key={isActive ? `active-${currentSlide}` : `inactive-${index}`}
+                        className={`absolute inset-0 rounded-full bg-white origin-left ${isActive
+                            ? "w-full animate-pill-fill"
+                            : "w-0 opacity-0"
+                          }`}
+                      />
+                    </button>
+                  );
+                })}
               </div>
             </div>
           </div>

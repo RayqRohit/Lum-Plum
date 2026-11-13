@@ -1,5 +1,13 @@
 @import "tailwindcss";
 
+@font-face {
+  font-family: "Chaumont Script";
+  src: url("/ChaumontScript.woff2") format("woff2");
+  font-display: block;
+  font-style: normal;
+  font-weight: 400;
+}
+
 @layer base {
   :root {
     --font-inter: "Inter", "Inter Placeholder", sans-serif;
@@ -11,7 +19,7 @@ body {
 }
 
 .font-script {
-  font-family: "Style Script", cursive;
+  font-family: "Chaumont Script", sans-serif;
 }
 
 /* Hide scrollbar globally */
@@ -66,4 +74,21 @@ body::-webkit-scrollbar {
 * {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+/* Progressive fill animation for slide indicator pills */
+@keyframes pillFill {
+  0% {
+    transform: scaleX(0);
+    opacity: 1;
+  }
+  100% {
+    transform: scaleX(1);
+    opacity: 1;
+  }
+}
+
+.animate-pill-fill {
+  transform-origin: left;
+  animation: pillFill 5s linear forwards;
 }
