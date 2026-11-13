@@ -14,12 +14,6 @@ body {
   font-family: "Style Script", cursive;
 }
 
-/* Beautiful custom focus-visible ring for buttons */
-.btn-pill:focus-visible {
-  outline: none !important;
-  box-shadow: 0 0 0 3px #141414, 0 0 0 5px rgba(255, 255, 255, 0.8) !important;
-}
-
 /* Hide scrollbar globally */
 html,
 body {
@@ -33,6 +27,40 @@ body {
 html::-webkit-scrollbar,
 body::-webkit-scrollbar {
   display: none;
+}
+
+/* Continuous smooth marquee animation for partner logos */
+@keyframes marquee {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee 35s linear infinite;
+}
+
+/* Gradient fade mask on both edges matching axeltmpl */
+.logo-marquee-mask {
+  mask-image: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0) 0%,
+    rgba(0, 0, 0, 1) 25%,
+    rgba(0, 0, 0, 1) 75%,
+    rgba(0, 0, 0, 0) 100%
+  );
+  -webkit-mask-image: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0) 0%,
+    rgba(0, 0, 0, 1) 25%,
+    rgba(0, 0, 0, 1) 75%,
+    rgba(0, 0, 0, 0) 100%
+  );
 }
 
 * {

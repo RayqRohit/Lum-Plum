@@ -54,9 +54,8 @@ export default function Home() {
 
   return (
     <main
-      className={`h-screen w-screen overflow-hidden select-none transition-colors duration-300 ${
-        isDarkMode ? "bg-[#141414] text-[#fafafa]" : "bg-[#ffffff] text-[#1e1e28]"
-      }`}
+      className={`h-screen w-screen overflow-hidden select-none transition-colors duration-300 ${isDarkMode ? "bg-[#141414] text-[#fafafa]" : "bg-[#ffffff] text-[#1e1e28]"
+        }`}
     >
       <div className="flex flex-col lg:flex-row w-full h-screen overflow-hidden gap-8 lg:gap-[64px]">
         {/* LEFT SHOWCASE CARD */}
@@ -132,11 +131,10 @@ export default function Home() {
                     key={index}
                     onClick={() => setCurrentSlide(index)}
                     aria-label={`Go to slide ${index + 1}`}
-                    className={`h-[3px] rounded-full transition-all duration-300 cursor-pointer ${
-                      currentSlide === index
-                        ? "w-7 bg-white"
-                        : "w-3 bg-white/30 hover:bg-white/50"
-                    }`}
+                    className={`h-[3px] rounded-full transition-all duration-300 cursor-pointer ${currentSlide === index
+                      ? "w-7 bg-white"
+                      : "w-3 bg-white/30 hover:bg-white/50"
+                      }`}
                   />
                 ))}
               </div>
@@ -144,61 +142,56 @@ export default function Home() {
           </div>
         </section>
 
-        {/* RIGHT CONTENT SECTION - overflow-visible allows focus rings to render freely */}
+        {/* RIGHT CONTENT SECTION */}
         <section
           style={{ flex: "1 0 0px" }}
-          className="h-full pt-8 pb-7 pr-10 lg:pr-16 pl-0 min-w-0 flex flex-col justify-between overflow-visible"
+          className="h-full pt-8 pb-0 pr-10 lg:pr-16 pl-0 min-w-0 flex flex-col overflow-hidden"
         >
           {/* Top Header */}
           <header className="flex items-center justify-between w-full flex-shrink-0">
             <nav className="flex items-center gap-6 xl:gap-8">
               <Link
                 href="/"
-                className={`px-3.5 py-1.5 rounded-full text-[15px] font-medium transition-colors ${
-                  isDarkMode
-                    ? "bg-[#252528] text-white"
-                    : "bg-[#e5e5e5] text-black"
-                }`}
+                className={`px-3.5 py-1.5 rounded-full text-[15px] font-medium transition-colors ${isDarkMode
+                  ? "bg-[#252528] text-white"
+                  : "bg-[#e5e5e5] text-black"
+                  }`}
               >
                 Home
               </Link>
               <Link
                 href="#"
-                className={`text-[15px] font-medium transition-colors ${
-                  isDarkMode
-                    ? "text-[#a0a0a0] hover:text-white"
-                    : "text-[#666666] hover:text-black"
-                }`}
+                className={`text-[15px] font-medium transition-colors ${isDarkMode
+                  ? "text-[#a0a0a0] hover:text-white"
+                  : "text-[#666666] hover:text-black"
+                  }`}
               >
                 About
               </Link>
               <Link
                 href="#"
-                className={`text-[15px] font-medium transition-colors ${
-                  isDarkMode
-                    ? "text-[#a0a0a0] hover:text-white"
-                    : "text-[#666666] hover:text-black"
-                }`}
+                className={`text-[15px] font-medium transition-colors ${isDarkMode
+                  ? "text-[#a0a0a0] hover:text-white"
+                  : "text-[#666666] hover:text-black"
+                  }`}
               >
                 Projects
               </Link>
               <Link
                 href="#"
-                className={`text-[15px] font-medium transition-colors ${
-                  isDarkMode
-                    ? "text-[#a0a0a0] hover:text-white"
-                    : "text-[#666666] hover:text-black"
-                }`}
+                className={`text-[15px] font-medium transition-colors ${isDarkMode
+                  ? "text-[#a0a0a0] hover:text-white"
+                  : "text-[#666666] hover:text-black"
+                  }`}
               >
                 Blog
               </Link>
               <Link
                 href="#"
-                className={`text-[15px] font-medium transition-colors ${
-                  isDarkMode
-                    ? "text-[#a0a0a0] hover:text-white"
-                    : "text-[#666666] hover:text-black"
-                }`}
+                className={`text-[15px] font-medium transition-colors ${isDarkMode
+                  ? "text-[#a0a0a0] hover:text-white"
+                  : "text-[#666666] hover:text-black"
+                  }`}
               >
                 Contact
               </Link>
@@ -207,109 +200,168 @@ export default function Home() {
             {/* Template Light / Dark Switch */}
             <div
               onClick={() => setIsDarkMode(!isDarkMode)}
-              className={`relative flex items-center justify-between w-[78px] h-[40px] px-3 rounded-full cursor-pointer transition-colors border select-none ${
-                isDarkMode
-                  ? "bg-[#141414] border-[#2d2d2d]"
-                  : "bg-white border-[#e0e0e0]"
-              }`}
+              className={`relative flex items-center justify-between w-[78px] h-[40px] px-3 rounded-full cursor-pointer transition-colors border select-none ${isDarkMode
+                ? "bg-[#141414] border-[#2d2d2d]"
+                : "bg-white border-[#e0e0e0]"
+                }`}
             >
               <div
-                className={`absolute top-[4px] w-[30px] h-[30px] rounded-full transition-transform duration-300 flex items-center justify-center ${
-                  isDarkMode
-                    ? "left-[4px] bg-[#1e1e28] shadow-sm transform translate-x-[38px]"
-                    : "left-[4px] bg-[#f0f0f0] shadow-sm transform translate-x-0"
-                }`}
+                className={`absolute top-[4px] w-[30px] h-[30px] rounded-full transition-transform duration-300 flex items-center justify-center ${isDarkMode
+                  ? "left-[4px] bg-[#1e1e28] shadow-sm transform translate-x-[38px]"
+                  : "left-[4px] bg-[#f0f0f0] shadow-sm transform translate-x-0"
+                  }`}
               />
 
               <div
-                className={`relative z-10 w-4 h-4 flex items-center justify-center transition-colors ${
-                  !isDarkMode ? "text-[#1e1e28]" : "text-[#717171]"
-                }`}
+                className={`relative z-10 w-4 h-4 flex items-center justify-center transition-colors ${!isDarkMode ? "text-[#1e1e28]" : "text-[#717171]"
+                  }`}
                 dangerouslySetInnerHTML={{ __html: assets.svg11968413515 }}
               />
 
               <div
-                className={`relative z-10 w-4 h-4 flex items-center justify-center transition-colors ${
-                  isDarkMode ? "text-white" : "text-[#a0a0a0]"
-                }`}
+                className={`relative z-10 w-4 h-4 flex items-center justify-center transition-colors ${isDarkMode ? "text-white" : "text-[#a0a0a0]"
+                  }`}
                 dangerouslySetInnerHTML={{ __html: assets.svg9163262485 }}
               />
             </div>
           </header>
 
-          {/* Center Content - overflow-visible ensures no child outlines are clipped */}
-          <div className="my-auto flex flex-col items-start gap-8 max-w-xl overflow-visible">
-            {/* Status Pill */}
-            <div
-              className={`inline-flex items-center gap-2 h-8 px-4 rounded-full text-[14px] font-medium border ${
-                isDarkMode
+          {/* Center Content Wrapper: matches framer-1oe3eyy with flex-1 justify-center gap-[124px] */}
+          <div className="flex-1 flex flex-col justify-center gap-[124px] w-full min-h-0">
+            {/* Title Wrapper: matches framer-1kve0dn with gap-8 (32px) */}
+            <div className="flex flex-col items-start gap-8 max-w-xl">
+              {/* Status Pill */}
+              <div
+                className={`inline-flex items-center gap-2 h-8 px-4 rounded-full text-[14px] font-medium border ${isDarkMode
                   ? "bg-[#1c2b22] text-[#7eea9b] border-[#223d2b]"
                   : "bg-[#f5fbf7] text-[#008a1e] border-[#d4edd9]"
-              }`}
-            >
-              <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#7eea9b] opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-[#4ade80]"></span>
-              </span>
-              <span>Now booking</span>
+                  }`}
+              >
+                <span className="relative flex h-2 w-2">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#7eea9b] opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-[#4ade80]"></span>
+                </span>
+                <span>Now booking</span>
+              </div>
+
+              {/* Title & Buttons Wrapper: matches framer-1bip8km with exact gap-[64px] */}
+              <div className="flex flex-col items-start gap-16 w-full">
+                {/* Main Title: Exact 56px, Line-height 1.2em, Weight 600 */}
+                <h1 className="text-[44px] md:text-[52px] xl:text-[56px] font-semibold tracking-normal leading-[1.2em]">
+                  I design &amp; build <br />
+                  products that{" "}
+                  <span
+                    className={isDarkMode ? "text-[#47474f]" : "text-[#9999a0]"}
+                  >
+                    inspire
+                  </span>
+                </h1>
+
+                {/* Solid buttons: matches framer-1y3kbdw gap-4 (16px) */}
+                <div className="flex items-center gap-4">
+                  <Link
+                    href="#"
+                    style={{
+                      height: "48px",
+                      padding: "0 24px",
+                      borderRadius: "64px",
+                      backgroundColor: isDarkMode ? "#fafafa" : "#1e1e28",
+                      color: isDarkMode ? "#1e1e28" : "#ffffff",
+                    }}
+                    className="inline-flex items-center justify-center text-[15px] font-semibold tracking-normal leading-[48px] select-none text-center transition-opacity duration-150 hover:opacity-90"
+                  >
+                    <span className="leading-none">Book a call</span>
+                  </Link>
+                  <Link
+                    href="#"
+                    style={{
+                      height: "48px",
+                      padding: "0 24px",
+                      borderRadius: "64px",
+                      backgroundColor: isDarkMode ? "rgb(45, 45, 45)" : "rgb(240, 240, 240)",
+                      color: isDarkMode ? "#fafafa" : "#1e1e28",
+                    }}
+                    className="inline-flex items-center justify-center text-[15px] font-semibold tracking-normal leading-[48px] select-none text-center transition-opacity duration-150 hover:opacity-90"
+                  >
+                    <span className="leading-none">View projects</span>
+                  </Link>
+                </div>
+              </div>
             </div>
 
-            {/* Main Title: Exact 56px, Line-height 1.2em, Weight 600 */}
-            <h1 className="text-[44px] md:text-[52px] xl:text-[56px] font-semibold tracking-normal leading-[1.2em]">
-              I design &amp; build <br />
-              products that{" "}
-              <span
-                className={isDarkMode ? "text-[#47474f]" : "text-[#9999a0]"}
-              >
-                inspire
-              </span>
-            </h1>
+            {/* Bottom Brand SVGs Marquee: inside framer-1oe3eyy with exact 24px height */}
+            <div className="flex-shrink-0 w-full overflow-hidden h-[24px] select-none pointer-events-none">
+              <div className="logo-marquee-mask w-full overflow-hidden">
+                <div className="animate-marquee items-center gap-10">
+                  {/* 1st set */}
+                  {partners.map((partner, index) => {
+                    if (!partner?.svg) return null;
+                    return (
+                      <div
+                        key={`s1-${index}`}
+                        className="flex items-center flex-shrink-0"
+                        style={{
+                          height: `${partner.height}px`,
+                          width: `${partner.width}px`,
+                          color: isDarkMode ? "#717171" : "#797d85",
+                        }}
+                        dangerouslySetInnerHTML={{ __html: partner.svg }}
+                      />
+                    );
+                  })}
 
-            {/* Buttons Row with complete clearance and box-shadow ring */}
-            <div className="flex items-center gap-4 overflow-visible p-2 -m-2">
-              <Link
-                href="#"
-                style={{
-                  height: "48px",
-                  padding: "0 24px",
-                  borderRadius: "64px",
-                  backgroundColor: isDarkMode ? "#fafafa" : "#1e1e28",
-                  color: isDarkMode ? "#1e1e28" : "#ffffff",
-                }}
-                className="btn-pill inline-flex items-center justify-center text-[15px] font-semibold tracking-normal transition-transform duration-150 active:scale-95 hover:opacity-90"
-              >
-                Book a call
-              </Link>
-              <Link
-                href="#"
-                style={{
-                  height: "48px",
-                  padding: "0 24px",
-                  borderRadius: "64px",
-                  backgroundColor: isDarkMode ? "rgb(45, 45, 45)" : "rgb(240, 240, 240)",
-                  color: isDarkMode ? "#fafafa" : "#1e1e28",
-                }}
-                className="btn-pill inline-flex items-center justify-center text-[15px] font-semibold tracking-normal transition-transform duration-150 active:scale-95 hover:opacity-90"
-              >
-                View projects
-              </Link>
-            </div>
-          </div>
+                  {/* 2nd set */}
+                  {partners.map((partner, index) => {
+                    if (!partner?.svg) return null;
+                    return (
+                      <div
+                        key={`s2-${index}`}
+                        className="flex items-center flex-shrink-0"
+                        style={{
+                          height: `${partner.height}px`,
+                          width: `${partner.width}px`,
+                          color: isDarkMode ? "#717171" : "#797d85",
+                        }}
+                        dangerouslySetInnerHTML={{ __html: partner.svg }}
+                      />
+                    );
+                  })}
 
-          {/* Bottom Brand SVGs */}
-          <div className="flex-shrink-0 pt-4 overflow-hidden">
-            <div className="flex items-center gap-9 opacity-50 hover:opacity-85 transition-opacity overflow-x-hidden">
-              {partners.map((partner, index) => {
-                if (!partner?.svg) return null;
-                return (
-                  <div
-                    key={index}
-                    className="flex items-center text-[#717171] hover:text-[#a0a0a0] transition-colors flex-shrink-0"
-                    style={{ height: `${partner.height}px` }}
-                    dangerouslySetInnerHTML={{ __html: partner.svg }}
-                  />
-                );
-              })}
+                  {/* 3rd set */}
+                  {partners.map((partner, index) => {
+                    if (!partner?.svg) return null;
+                    return (
+                      <div
+                        key={`s3-${index}`}
+                        className="flex items-center flex-shrink-0"
+                        style={{
+                          height: `${partner.height}px`,
+                          width: `${partner.width}px`,
+                          color: isDarkMode ? "#717171" : "#797d85",
+                        }}
+                        dangerouslySetInnerHTML={{ __html: partner.svg }}
+                      />
+                    );
+                  })}
+
+                  {/* 4th set for seamless wide looping */}
+                  {partners.map((partner, index) => {
+                    if (!partner?.svg) return null;
+                    return (
+                      <div
+                        key={`s4-${index}`}
+                        className="flex items-center flex-shrink-0"
+                        style={{
+                          height: `${partner.height}px`,
+                          width: `${partner.width}px`,
+                          color: isDarkMode ? "#717171" : "#797d85",
+                        }}
+                        dangerouslySetInnerHTML={{ __html: partner.svg }}
+                      />
+                    );
+                  })}
+                </div>
+              </div>
             </div>
           </div>
         </section>
