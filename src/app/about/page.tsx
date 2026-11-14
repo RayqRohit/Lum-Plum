@@ -175,7 +175,7 @@ export default function AboutPage() {
                   Projects
                 </Link>
                 <Link
-                  href="#"
+                  href="/blog"
                   className={`relative z-10 text-[15px] font-medium leading-[1.2] flex-shrink-0 transition-colors ${
                     isDarkMode
                       ? "text-[#a0a0a0] hover:text-white"

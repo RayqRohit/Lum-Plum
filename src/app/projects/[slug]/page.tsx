@@ -18,9 +18,8 @@ export default function ProjectDetailPage() {
 
   return (
     <main
-      className={`min-h-screen w-full transition-colors duration-300 lg:h-screen lg:overflow-hidden ${
-        isDarkMode ? "bg-[#141414] text-[#fafafa]" : "bg-[#ffffff] text-[#1e1e28]"
-      }`}
+      className={`min-h-screen w-full transition-colors duration-300 lg:h-screen lg:overflow-hidden ${isDarkMode ? "bg-[#141414] text-[#fafafa]" : "bg-[#ffffff] text-[#1e1e28]"
+        }`}
     >
       <div className="flex flex-col lg:flex-row w-full min-h-screen lg:h-screen gap-4 lg:gap-[64px]">
         {/* LEFT SHOWCASE CARD: exact matches template (h-[460px] sm:h-[500px] md:h-[560px] lg:h-full, lg:flex-[1.3_0_0px]) */}
@@ -148,55 +147,49 @@ export default function ProjectDetailPage() {
               <nav className="relative flex items-center gap-8 flex-shrink-0 py-1">
                 {/* Active Backdrop Pill for Projects */}
                 <span
-                  className={`absolute left-[137px] -top-[4px] -bottom-[4px] w-[82px] rounded-full transition-colors pointer-events-none -z-0 ${
-                    isDarkMode ? "bg-[#1e1e1e]" : "bg-[#f0f0f0]"
-                  }`}
+                  className={`absolute left-[137px] -top-[4px] -bottom-[4px] w-[82px] rounded-full transition-colors pointer-events-none -z-0 ${isDarkMode ? "bg-[#1e1e1e]" : "bg-[#f0f0f0]"
+                    }`}
                 />
                 <Link
                   href="/"
-                  className={`relative z-10 text-[15px] font-medium leading-[1.2] flex-shrink-0 transition-colors ${
-                    isDarkMode
+                  className={`relative z-10 text-[15px] font-medium leading-[1.2] flex-shrink-0 transition-colors ${isDarkMode
                       ? "text-[#a0a0a0] hover:text-white"
                       : "text-[#666666] hover:text-black"
-                  }`}
+                    }`}
                 >
                   Home
                 </Link>
                 <Link
                   href="/about"
-                  className={`relative z-10 text-[15px] font-medium leading-[1.2] flex-shrink-0 transition-colors ${
-                    isDarkMode
+                  className={`relative z-10 text-[15px] font-medium leading-[1.2] flex-shrink-0 transition-colors ${isDarkMode
                       ? "text-[#a0a0a0] hover:text-white"
                       : "text-[#666666] hover:text-black"
-                  }`}
+                    }`}
                 >
                   About
                 </Link>
                 <Link
                   href="/projects"
-                  className={`relative z-10 text-[15px] font-medium leading-[1.2] flex-shrink-0 transition-colors ${
-                    isDarkMode ? "text-[#fafafa]" : "text-[#1e1e28]"
-                  }`}
+                  className={`relative z-10 text-[15px] font-medium leading-[1.2] flex-shrink-0 transition-colors ${isDarkMode ? "text-[#fafafa]" : "text-[#1e1e28]"
+                    }`}
                 >
                   Projects
                 </Link>
                 <Link
-                  href="#"
-                  className={`relative z-10 text-[15px] font-medium leading-[1.2] flex-shrink-0 transition-colors ${
-                    isDarkMode
+                  href="/blog"
+                  className={`relative z-10 text-[15px] font-medium leading-[1.2] flex-shrink-0 transition-colors ${isDarkMode
                       ? "text-[#a0a0a0] hover:text-white"
                       : "text-[#666666] hover:text-black"
-                  }`}
+                    }`}
                 >
                   Blog
                 </Link>
                 <Link
                   href="#"
-                  className={`relative z-10 text-[15px] font-medium leading-[1.2] flex-shrink-0 transition-colors ${
-                    isDarkMode
+                  className={`relative z-10 text-[15px] font-medium leading-[1.2] flex-shrink-0 transition-colors ${isDarkMode
                       ? "text-[#a0a0a0] hover:text-white"
                       : "text-[#666666] hover:text-black"
-                  }`}
+                    }`}
                 >
                   Contact
                 </Link>
@@ -208,25 +201,22 @@ export default function ProjectDetailPage() {
                 role="button"
                 tabIndex={0}
                 aria-label="Toggle dark mode"
-                className={`relative flex items-center justify-between w-[78px] h-[40px] px-[12px] py-[8px] rounded-full cursor-pointer transition-colors flex-shrink-0 ${
-                  isDarkMode ? "bg-[#1e1e1e]" : "bg-[#f0f0f0]"
-                }`}
+                className={`relative flex items-center justify-between w-[78px] h-[40px] px-[12px] py-[8px] rounded-full cursor-pointer transition-colors flex-shrink-0 ${isDarkMode ? "bg-[#1e1e1e]" : "bg-[#f0f0f0]"
+                  }`}
               >
                 <span
-                  className={`absolute top-[6px] w-[28px] h-[28px] rounded-full transition-all duration-300 shadow-sm pointer-events-none ${
-                    isDarkMode
+                  className={`absolute top-[6px] w-[28px] h-[28px] rounded-full transition-all duration-300 shadow-sm pointer-events-none ${isDarkMode
                       ? "left-[44px] bg-[#2d2d2d]"
                       : "left-[6px] bg-[#ffffff]"
-                  }`}
+                    }`}
                 />
 
                 {/* Sun Icon */}
                 <div
-                  className={`relative z-10 flex items-center justify-center w-[20px] h-[20px] transition-opacity duration-300 ${
-                    !isDarkMode
+                  className={`relative z-10 flex items-center justify-center w-[20px] h-[20px] transition-opacity duration-300 ${!isDarkMode
                       ? "opacity-100 text-[#1e1e28]"
                       : "opacity-40 text-[#ffffff] hover:opacity-70"
-                  }`}
+                    }`}
                 >
                   <svg
                     width="16"
@@ -252,11 +242,10 @@ export default function ProjectDetailPage() {
 
                 {/* Moon Icon */}
                 <div
-                  className={`relative z-10 flex items-center justify-center w-[20px] h-[20px] transition-opacity duration-300 ${
-                    isDarkMode
+                  className={`relative z-10 flex items-center justify-center w-[20px] h-[20px] transition-opacity duration-300 ${isDarkMode
                       ? "opacity-100 text-[#fafafa]"
                       : "opacity-40 text-[#1e1e28] hover:opacity-70"
-                  }`}
+                    }`}
                 >
                   <svg
                     width="15"
@@ -279,18 +268,16 @@ export default function ProjectDetailPage() {
           <div className="w-full max-w-[562px] flex flex-col gap-6 mt-14 sm:mt-16 md:mt-20 lg:mt-18 xl:mt-20 pb-24">
             {/* Title */}
             <h1
-              className={`text-[36px] sm:text-[44px] md:text-[52px] lg:text-[56px] font-semibold tracking-normal leading-[1.15] mb-2 ${
-                isDarkMode ? "text-[#fafafa]" : "text-[#1e1e28]"
-              }`}
+              className={`text-[36px] sm:text-[44px] md:text-[52px] lg:text-[56px] font-semibold tracking-normal leading-[1.15] mb-2 ${isDarkMode ? "text-[#fafafa]" : "text-[#1e1e28]"
+                }`}
             >
               {project.title}
             </h1>
 
             {/* Intro Paragraphs */}
             <div
-              className={`space-y-5 text-[16px] leading-[1.65] font-normal ${
-                isDarkMode ? "text-[#a0a0a0]" : "text-[#47474f]"
-              }`}
+              className={`space-y-5 text-[16px] leading-[1.65] font-normal ${isDarkMode ? "text-[#a0a0a0]" : "text-[#47474f]"
+                }`}
             >
               {project.introParagraphs.map((para, index) => (
                 <p key={index}>{para}</p>
@@ -301,17 +288,15 @@ export default function ProjectDetailPage() {
             {project.mainSection && (
               <div className="flex flex-col gap-5 mt-4">
                 <h2
-                  className={`text-[22px] sm:text-[24px] md:text-[28px] font-semibold tracking-normal leading-[1.3] ${
-                    isDarkMode ? "text-[#fafafa]" : "text-[#1e1e28]"
-                  }`}
+                  className={`text-[22px] sm:text-[24px] md:text-[28px] font-semibold tracking-normal leading-[1.3] ${isDarkMode ? "text-[#fafafa]" : "text-[#1e1e28]"
+                    }`}
                 >
                   {project.mainSection.heading}
                 </h2>
 
                 <div
-                  className={`space-y-5 text-[16px] leading-[1.65] font-normal ${
-                    isDarkMode ? "text-[#a0a0a0]" : "text-[#47474f]"
-                  }`}
+                  className={`space-y-5 text-[16px] leading-[1.65] font-normal ${isDarkMode ? "text-[#a0a0a0]" : "text-[#47474f]"
+                    }`}
                 >
                   {project.mainSection.paragraphsBeforeQuote.map((p, i) => (
                     <p key={i}>{p}</p>
@@ -321,20 +306,18 @@ export default function ProjectDetailPage() {
                 {/* Quote Block */}
                 {project.mainSection.quote && (
                   <blockquote
-                    className={`my-2 pl-5 border-l-2 py-1 ${
-                      isDarkMode
+                    className={`my-2 pl-5 border-l-2 py-1 ${isDarkMode
                         ? "border-[#fafafa] text-[#fafafa]"
                         : "border-[#1e1e28] text-[#1e1e28]"
-                    }`}
+                      }`}
                   >
                     <p className="text-[17px] sm:text-[18px] font-normal leading-[1.6] italic">
                       {project.mainSection.quote.text}
                     </p>
                     {project.mainSection.quote.author && (
                       <p
-                        className={`text-[15px] font-normal mt-1 not-italic ${
-                          isDarkMode ? "text-[#a0a0a0]" : "text-[#717179]"
-                        }`}
+                        className={`text-[15px] font-normal mt-1 not-italic ${isDarkMode ? "text-[#a0a0a0]" : "text-[#717179]"
+                          }`}
                       >
                         {project.mainSection.quote.author}
                       </p>
@@ -343,9 +326,8 @@ export default function ProjectDetailPage() {
                 )}
 
                 <div
-                  className={`space-y-5 text-[16px] leading-[1.65] font-normal ${
-                    isDarkMode ? "text-[#a0a0a0]" : "text-[#47474f]"
-                  }`}
+                  className={`space-y-5 text-[16px] leading-[1.65] font-normal ${isDarkMode ? "text-[#a0a0a0]" : "text-[#47474f]"
+                    }`}
                 >
                   {project.mainSection.paragraphsAfterQuote.map((p, i) => (
                     <p key={i}>{p}</p>
@@ -358,17 +340,15 @@ export default function ProjectDetailPage() {
             {project.impactSection && (
               <div className="flex flex-col gap-5 mt-4">
                 <h2
-                  className={`text-[22px] sm:text-[24px] md:text-[28px] font-semibold tracking-normal leading-[1.3] ${
-                    isDarkMode ? "text-[#fafafa]" : "text-[#1e1e28]"
-                  }`}
+                  className={`text-[22px] sm:text-[24px] md:text-[28px] font-semibold tracking-normal leading-[1.3] ${isDarkMode ? "text-[#fafafa]" : "text-[#1e1e28]"
+                    }`}
                 >
                   {project.impactSection.heading}
                 </h2>
 
                 <p
-                  className={`text-[16px] leading-[1.65] font-normal ${
-                    isDarkMode ? "text-[#a0a0a0]" : "text-[#47474f]"
-                  }`}
+                  className={`text-[16px] leading-[1.65] font-normal ${isDarkMode ? "text-[#a0a0a0]" : "text-[#47474f]"
+                    }`}
                 >
                   {project.impactSection.intro}
                 </p>
@@ -378,14 +358,12 @@ export default function ProjectDetailPage() {
                   {project.impactSection.bullets.map((bullet, idx) => (
                     <li
                       key={idx}
-                      className={`text-[16px] leading-[1.65] ${
-                        isDarkMode ? "text-[#a0a0a0]" : "text-[#47474f]"
-                      }`}
+                      className={`text-[16px] leading-[1.65] ${isDarkMode ? "text-[#a0a0a0]" : "text-[#47474f]"
+                        }`}
                     >
                       <strong
-                        className={`font-semibold ${
-                          isDarkMode ? "text-[#fafafa]" : "text-[#1e1e28]"
-                        }`}
+                        className={`font-semibold ${isDarkMode ? "text-[#fafafa]" : "text-[#1e1e28]"
+                          }`}
                       >
                         {bullet.label}
                       </strong>{" "}
@@ -395,9 +373,8 @@ export default function ProjectDetailPage() {
                 </ul>
 
                 <p
-                  className={`text-[16px] leading-[1.65] font-normal ${
-                    isDarkMode ? "text-[#a0a0a0]" : "text-[#47474f]"
-                  }`}
+                  className={`text-[16px] leading-[1.65] font-normal ${isDarkMode ? "text-[#a0a0a0]" : "text-[#47474f]"
+                    }`}
                 >
                   {project.impactSection.conclusion}
                 </p>
@@ -408,17 +385,15 @@ export default function ProjectDetailPage() {
             {project.nextSection && (
               <div className="flex flex-col gap-4 mt-4">
                 <h2
-                  className={`text-[22px] sm:text-[24px] md:text-[28px] font-semibold tracking-normal leading-[1.3] ${
-                    isDarkMode ? "text-[#fafafa]" : "text-[#1e1e28]"
-                  }`}
+                  className={`text-[22px] sm:text-[24px] md:text-[28px] font-semibold tracking-normal leading-[1.3] ${isDarkMode ? "text-[#fafafa]" : "text-[#1e1e28]"
+                    }`}
                 >
                   {project.nextSection.heading}
                 </h2>
 
                 <p
-                  className={`text-[16px] leading-[1.65] font-normal ${
-                    isDarkMode ? "text-[#a0a0a0]" : "text-[#47474f]"
-                  }`}
+                  className={`text-[16px] leading-[1.65] font-normal ${isDarkMode ? "text-[#a0a0a0]" : "text-[#47474f]"
+                    }`}
                 >
                   {project.nextSection.text}
                 </p>
