@@ -4,6 +4,7 @@ import { useState, useEffect, useCallback } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import assets from "./theme-and-logos.json";
+import ThemeToggle from "@/components/ThemeToggle";
 
 interface Slide {
   id: number;
@@ -81,11 +82,10 @@ export default function Home() {
                 return (
                   <div
                     key={slide.id}
-                    className={`absolute inset-0 transition-all duration-700 ease-out ${
-                      isActive
+                    className={`absolute inset-0 transition-all duration-700 ease-out ${isActive
                         ? "opacity-100 scale-100 z-10"
                         : "opacity-0 scale-[1.04] pointer-events-none z-0"
-                    }`}
+                      }`}
                   >
                     <Image
                       src={slide.image}
@@ -191,106 +191,56 @@ export default function Home() {
               <nav className="relative flex items-center gap-8 flex-shrink-0 py-1">
                 {/* Active Backdrop Pill: slim top/bottom padding (-top-[3px] -bottom-[3px]) */}
                 <span
-                  className={`absolute -left-3 -top-[3px] -bottom-[3px] w-[66px] rounded-full transition-colors pointer-events-none -z-0 ${
-                    isDarkMode ? "bg-[#1e1e1e]" : "bg-[#f0f0f0]"
-                  }`}
+                  className={`absolute -left-3 -top-[3px] -bottom-[3px] w-[66px] rounded-full transition-colors pointer-events-none -z-0 ${isDarkMode ? "bg-[#1e1e1e]" : "bg-[#f0f0f0]"
+                    }`}
                 />
                 <Link
                   href="/"
-                  className={`relative z-10 text-[15px] font-medium leading-[1.2] flex-shrink-0 transition-colors ${
-                    isDarkMode ? "text-white" : "text-black"
-                  }`}
+                  className={`relative z-10 text-[15px] font-medium leading-[1.2] flex-shrink-0 transition-colors ${isDarkMode ? "text-white" : "text-black"
+                    }`}
                 >
                   Home
                 </Link>
                 <Link
                   href="/about"
-                  className={`relative z-10 text-[15px] font-medium leading-[1.2] flex-shrink-0 transition-colors ${
-                    isDarkMode
+                  className={`relative z-10 text-[15px] font-medium leading-[1.2] flex-shrink-0 transition-colors ${isDarkMode
                       ? "text-[#a0a0a0] hover:text-white"
                       : "text-[#666666] hover:text-black"
-                  }`}
+                    }`}
                 >
                   About
                 </Link>
                 <Link
                   href="/projects"
-                  className={`relative z-10 text-[15px] font-medium leading-[1.2] flex-shrink-0 transition-colors ${
-                    isDarkMode
+                  className={`relative z-10 text-[15px] font-medium leading-[1.2] flex-shrink-0 transition-colors ${isDarkMode
                       ? "text-[#a0a0a0] hover:text-white"
                       : "text-[#666666] hover:text-black"
-                  }`}
+                    }`}
                 >
                   Projects
                 </Link>
                 <Link
                   href="/blog"
-                  className={`relative z-10 text-[15px] font-medium leading-[1.2] flex-shrink-0 transition-colors ${
-                    isDarkMode
+                  className={`relative z-10 text-[15px] font-medium leading-[1.2] flex-shrink-0 transition-colors ${isDarkMode
                       ? "text-[#a0a0a0] hover:text-white"
                       : "text-[#666666] hover:text-black"
-                  }`}
+                    }`}
                 >
                   Blog
                 </Link>
                 <Link
                   href="#"
-                  className={`relative z-10 text-[15px] font-medium leading-[1.2] flex-shrink-0 transition-colors ${
-                    isDarkMode
+                  className={`relative z-10 text-[15px] font-medium leading-[1.2] flex-shrink-0 transition-colors ${isDarkMode
                       ? "text-[#a0a0a0] hover:text-white"
                       : "text-[#666666] hover:text-black"
-                  }`}
+                    }`}
                 >
                   Contact
                 </Link>
               </nav>
 
-              {/* Template Light / Dark Switch: Exact framer-CxA1g (78px x 40px, padding 8px 12px, Highlight circle 28px) */}
-              <div
-                onClick={() => setIsDarkMode(!isDarkMode)}
-                style={{
-                  width: "78px",
-                  height: "40px",
-                  padding: "8px 12px",
-                  borderRadius: "64px",
-                  borderWidth: "1px",
-                  borderStyle: "solid",
-                  borderColor: isDarkMode ? "rgb(30, 30, 30)" : "rgb(240, 240, 240)",
-                  backgroundColor: isDarkMode ? "rgb(20, 20, 20)" : "rgb(255, 255, 255)",
-                }}
-                className="flex-shrink-0 relative flex items-center cursor-pointer select-none transition-colors duration-200"
-              >
-                {/* Highlight Circle (28px x 28px, rounded-[64px]) */}
-                <div
-                  style={{
-                    width: "28px",
-                    height: "28px",
-                    borderRadius: "64px",
-                    backgroundColor: isDarkMode ? "#ffffff" : "rgb(30, 30, 40)",
-                    transform: isDarkMode ? "translateX(36px)" : "translateX(0px)",
-                  }}
-                  className="absolute left-[6px] top-[5px] transition-transform duration-300 ease-out z-[1]"
-                />
-
-                {/* Icons Container (16px icons separated across 28px track) */}
-                <div className="relative z-[2] w-full flex items-center justify-between">
-                  <div
-                    className="w-4 h-4 flex items-center justify-center transition-colors duration-200"
-                    style={{
-                      color: isDarkMode ? "#717171" : "#ffffff",
-                    }}
-                    dangerouslySetInnerHTML={{ __html: assets.svg11968413515 }}
-                  />
-  
-                  <div
-                    className="w-4 h-4 flex items-center justify-center transition-colors duration-200"
-                    style={{
-                      color: isDarkMode ? "#141414" : "#a0a0a0",
-                    }}
-                    dangerouslySetInnerHTML={{ __html: assets.svg9163262485 }}
-                  />
-                </div>
-              </div>
+              {/* Template Light / Dark Switch */}
+              <ThemeToggle isDarkMode={isDarkMode} setIsDarkMode={setIsDarkMode} />
             </div>
           </header>
 
@@ -300,11 +250,10 @@ export default function Home() {
             <div className="flex flex-col items-start gap-6 md:gap-8">
               {/* Status Pill */}
               <div
-                className={`inline-flex items-center gap-2 h-8 px-4 rounded-full text-[14px] font-medium border mt-4 md:mt-6 lg:mt-0 ${
-                  isDarkMode
+                className={`inline-flex items-center gap-2 h-8 px-4 rounded-full text-[14px] font-medium border mt-4 md:mt-6 lg:mt-0 ${isDarkMode
                     ? "bg-[#1c2b22] text-[#7eea9b] border-[#223d2b]"
                     : "bg-[#f5fbf7] text-[#008a1e] border-[#d4edd9]"
-                }`}
+                  }`}
               >
                 <span className="relative flex h-2 w-2">
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#7eea9b] opacity-75"></span>

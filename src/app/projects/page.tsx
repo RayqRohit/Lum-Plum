@@ -3,7 +3,7 @@
 import { useState, useEffect, useCallback } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import assets from "../theme-and-logos.json";
+import ThemeToggle from "@/components/ThemeToggle";
 
 interface Slide {
   id: number;
@@ -285,77 +285,8 @@ export default function ProjectsPage() {
                   </Link>
                 </nav>
 
-                {/* Template Light / Dark Switch (78px x 40px, padding 8px 12px) */}
-                <div
-                  onClick={() => setIsDarkMode(!isDarkMode)}
-                  role="button"
-                  tabIndex={0}
-                  aria-label="Toggle dark mode"
-                  className={`relative flex items-center justify-between w-[78px] h-[40px] px-[12px] py-[8px] rounded-full cursor-pointer transition-colors flex-shrink-0 ${
-                    isDarkMode ? "bg-[#1e1e1e]" : "bg-[#f0f0f0]"
-                  }`}
-                >
-                  {/* Highlight Circle behind the active icon */}
-                  <span
-                    className={`absolute top-[6px] w-[28px] h-[28px] rounded-full transition-all duration-300 shadow-sm pointer-events-none ${
-                      isDarkMode
-                        ? "left-[44px] bg-[#2d2d2d]"
-                        : "left-[6px] bg-[#ffffff]"
-                    }`}
-                  />
-
-                  {/* Sun Icon */}
-                  <div
-                    className={`relative z-10 flex items-center justify-center w-[20px] h-[20px] transition-opacity duration-300 ${
-                      !isDarkMode
-                        ? "opacity-100 text-[#1e1e28]"
-                        : "opacity-40 text-[#ffffff] hover:opacity-70"
-                    }`}
-                  >
-                    <svg
-                      width="16"
-                      height="16"
-                      viewBox="0 0 16 16"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="1.5"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    >
-                      <circle cx="8" cy="8" r="3.5" />
-                      <line x1="8" y1="1" x2="8" y2="2.5" />
-                      <line x1="8" y1="13.5" x2="8" y2="15" />
-                      <line x1="1" y1="8" x2="2.5" y2="8" />
-                      <line x1="13.5" y1="8" x2="15" y2="8" />
-                      <line x1="3.05" y1="3.05" x2="4.11" y2="4.11" />
-                      <line x1="11.89" y1="11.89" x2="12.95" y2="12.95" />
-                      <line x1="3.05" y1="12.95" x2="4.11" y2="11.89" />
-                      <line x1="11.89" y1="4.11" x2="12.95" y2="3.05" />
-                    </svg>
-                  </div>
-
-                  {/* Moon Icon */}
-                  <div
-                    className={`relative z-10 flex items-center justify-center w-[20px] h-[20px] transition-opacity duration-300 ${
-                      isDarkMode
-                        ? "opacity-100 text-[#fafafa]"
-                        : "opacity-40 text-[#1e1e28] hover:opacity-70"
-                    }`}
-                  >
-                    <svg
-                      width="15"
-                      height="15"
-                      viewBox="0 0 16 16"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="1.5"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    >
-                      <path d="M13.5 9.5A6 6 0 1 1 6.5 2.5a4.8 4.8 0 0 0 7 7z" />
-                    </svg>
-                  </div>
-                </div>
+                {/* Template Light / Dark Switch */}
+                <ThemeToggle isDarkMode={isDarkMode} setIsDarkMode={setIsDarkMode} />
               </div>
             </header>
 
