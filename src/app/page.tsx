@@ -71,7 +71,7 @@ export default function Home() {
       <div className="flex flex-col lg:flex-row w-full min-h-screen lg:h-screen lg:overflow-hidden gap-4 lg:gap-[64px]">
         {/* LEFT SHOWCASE CARD: matches template (h-[260px] sm:h-[300px] md:h-[523px] lg:h-full) */}
         <section
-          className="w-full h-[260px] sm:h-[300px] md:h-[523px] lg:h-full py-3 sm:py-5 md:py-8 lg:py-4 px-4 sm:px-6 md:px-8 lg:pl-4 lg:pr-0 min-w-0 overflow-hidden flex lg:flex-[1.3_0_0px] flex-shrink-0"
+          className="w-full h-[260px] sm:h-[300px] md:h-[523px] lg:h-full py-5 md:py-8 lg:py-4 px-5 md:px-8 lg:pl-4 lg:pr-0 min-w-0 overflow-hidden flex lg:flex-[1.3_0_0px] flex-shrink-0"
         >
           <div className="relative w-full h-full rounded-[16px] overflow-hidden flex flex-col justify-between shadow-2xl group border border-white/5">
             {/* Background Image Layers - Stacked for smooth crossfade transitions */}
@@ -103,12 +103,12 @@ export default function Home() {
             </div>
 
             {/* Top Logo - Exact Framer Axel template styling (padding: 24px 0 0 24px, 32px font size, rotate(-22deg), Chaumont Script) */}
-            <div className="relative z-10 pt-5 pl-5 sm:pt-6 sm:pl-6 md:pt-6 md:pl-6">
+            <div className="relative z-10 p-6">
               <Link
                 href="/"
-                className="inline-block transform -rotate-[22deg] origin-center transition-transform"
+                className="inline-block transform -rotate-[22deg] origin-center hover:opacity-85 transition-opacity"
               >
-                <span className="font-script text-[28px] sm:text-[30px] md:text-[32px] text-white select-none leading-none inline-block">
+                <span className="font-script text-[32px] text-white select-none leading-none inline-block">
                   Rayq
                 </span>
               </Link>
@@ -187,21 +187,25 @@ export default function Home() {
         >
           {/* Top Header: On mobile the entire bar scrolls together (nav + theme switch), matching axeltmpl .framer-1lxwaom { overflow: auto } */}
           <header className="w-full flex-shrink-0 overflow-x-auto no-scrollbar py-1">
-            <div className="flex items-center justify-between min-w-max w-full gap-8 md:gap-12">
-              <nav className="flex items-center gap-7 sm:gap-8 xl:gap-8 flex-shrink-0">
+            <div className="flex items-center justify-between min-w-max w-full gap-8 md:gap-12 pl-3">
+              <nav className="relative flex items-center gap-8 flex-shrink-0 py-1">
+                {/* Active Backdrop Pill: slim top/bottom padding (-top-[3px] -bottom-[3px]) */}
+                <span
+                  className={`absolute -left-3 -top-[3px] -bottom-[3px] w-[66px] rounded-full transition-colors pointer-events-none -z-0 ${
+                    isDarkMode ? "bg-[#1e1e1e]" : "bg-[#f0f0f0]"
+                  }`}
+                />
                 <Link
                   href="/"
-                  className={`px-3.5 py-1.5 rounded-full text-[14px] md:text-[15px] font-medium transition-colors flex-shrink-0 ${
-                    isDarkMode
-                      ? "bg-[#252528] text-white"
-                      : "bg-[#e5e5e5] text-black"
+                  className={`relative z-10 text-[15px] font-medium leading-[1.2] flex-shrink-0 transition-colors ${
+                    isDarkMode ? "text-white" : "text-black"
                   }`}
                 >
                   Home
                 </Link>
                 <Link
-                  href="#"
-                  className={`text-[14px] md:text-[15px] font-medium transition-colors flex-shrink-0 ${
+                  href="/about"
+                  className={`relative z-10 text-[15px] font-medium leading-[1.2] flex-shrink-0 transition-colors ${
                     isDarkMode
                       ? "text-[#a0a0a0] hover:text-white"
                       : "text-[#666666] hover:text-black"
@@ -211,7 +215,7 @@ export default function Home() {
                 </Link>
                 <Link
                   href="#"
-                  className={`text-[14px] md:text-[15px] font-medium transition-colors flex-shrink-0 ${
+                  className={`relative z-10 text-[15px] font-medium leading-[1.2] flex-shrink-0 transition-colors ${
                     isDarkMode
                       ? "text-[#a0a0a0] hover:text-white"
                       : "text-[#666666] hover:text-black"
@@ -221,7 +225,7 @@ export default function Home() {
                 </Link>
                 <Link
                   href="#"
-                  className={`text-[14px] md:text-[15px] font-medium transition-colors flex-shrink-0 ${
+                  className={`relative z-10 text-[15px] font-medium leading-[1.2] flex-shrink-0 transition-colors ${
                     isDarkMode
                       ? "text-[#a0a0a0] hover:text-white"
                       : "text-[#666666] hover:text-black"
@@ -231,7 +235,7 @@ export default function Home() {
                 </Link>
                 <Link
                   href="#"
-                  className={`text-[14px] md:text-[15px] font-medium transition-colors flex-shrink-0 ${
+                  className={`relative z-10 text-[15px] font-medium leading-[1.2] flex-shrink-0 transition-colors ${
                     isDarkMode
                       ? "text-[#a0a0a0] hover:text-white"
                       : "text-[#666666] hover:text-black"
@@ -277,7 +281,7 @@ export default function Home() {
                     }}
                     dangerouslySetInnerHTML={{ __html: assets.svg11968413515 }}
                   />
-
+  
                   <div
                     className="w-4 h-4 flex items-center justify-center transition-colors duration-200"
                     style={{
