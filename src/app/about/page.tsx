@@ -15,8 +15,8 @@ export default function AboutPage() {
       }`}
     >
       <div className="flex flex-col lg:flex-row w-full min-h-screen lg:h-screen lg:overflow-hidden gap-4 lg:gap-[64px]">
-        {/* LEFT SHOWCASE CARD: exact framer-12h3bak (desktop flex: 1.3, tablet h: 523px, mobile h: 360px) matching Home page */}
-        <section className="w-full h-[360px] sm:h-[440px] md:h-[523px] lg:h-full py-5 md:py-8 lg:py-4 px-5 md:px-8 lg:pl-4 lg:pr-0 min-w-0 overflow-hidden flex lg:flex-[1.3_0_0px] flex-shrink-0">
+        {/* LEFT SHOWCASE CARD: exact framer-12h3bak (desktop flex: 1.3, tablet h: 560px, mobile h: 460px / sm: 500px) */}
+        <section className="w-full h-[460px] sm:h-[500px] md:h-[560px] lg:h-full py-5 md:py-8 lg:py-4 px-5 md:px-8 lg:pl-4 lg:pr-0 min-w-0 overflow-hidden flex lg:flex-[1.3_0_0px] flex-shrink-0">
           <div className="relative w-full h-full rounded-[16px] overflow-hidden flex flex-col justify-between shadow-2xl group border border-white/5">
             {/* Background Image: matches framer-1xgvdcj (fill, cover, centered) */}
             <div className="absolute inset-0 z-0 rounded-[16px] overflow-hidden">
@@ -279,7 +279,7 @@ export default function AboutPage() {
             </h1>
 
             <div
-              className={`space-y-6 text-[15px] sm:text-[16px] leading-[1.6] ${
+              className={`space-y-6 text-[17px] sm:text-[18px] lg:text-[16px] leading-[1.65] ${
                 isDarkMode ? "text-[#a0a0a0]" : "text-[#47474f]"
               }`}
             >
