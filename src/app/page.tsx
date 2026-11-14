@@ -214,7 +214,7 @@ export default function Home() {
                   About
                 </Link>
                 <Link
-                  href="#"
+                  href="/projects"
                   className={`relative z-10 text-[15px] font-medium leading-[1.2] flex-shrink-0 transition-colors ${
                     isDarkMode
                       ? "text-[#a0a0a0] hover:text-white"
@@ -297,7 +297,7 @@ export default function Home() {
           {/* Center Content Wrapper: matches framer-1oe3eyy with flex-1 justify-center gap-16 md:gap-24 lg:gap-[124px] w-full min-h-0 pt-16 md:pt-20 lg:pt-0 */}
           <div className="flex-1 flex flex-col justify-center gap-16 md:gap-24 lg:gap-[124px] w-full min-h-0 pt-16 md:pt-20 lg:pt-0">
             {/* Title Wrapper: matches framer-1kve0dn */}
-            <div className="flex flex-col items-start gap-6 md:gap-8 max-w-xl">
+            <div className="flex flex-col items-start gap-6 md:gap-8">
               {/* Status Pill */}
               <div
                 className={`inline-flex items-center gap-2 h-8 px-4 rounded-full text-[14px] font-medium border mt-4 md:mt-6 lg:mt-0 ${

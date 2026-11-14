@@ -106,7 +106,7 @@ export default function AboutPage() {
 
                 {/* LinkedIn */}
                 <a
-                  href="https://linkedin.com/"
+                  href="https://www.linkedin.com"
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="LinkedIn"
@@ -117,16 +117,16 @@ export default function AboutPage() {
                   </svg>
                 </a>
 
-                {/* Instagram */}
+                {/* Pinterest */}
                 <a
-                  href="https://instagram.com/"
+                  href="https://in.pinterest.com/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  aria-label="Instagram"
+                  aria-label="Pinterest"
                   className="w-10 h-10 rounded-full border border-white/20 bg-white/20 hover:bg-white/30 backdrop-blur-[5px] flex items-center justify-center text-white transition-colors"
                 >
-                  <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
-                    <path d="M5.08219 1C2.83111 1 1 2.83281 1 5.08447V10.9178C1 13.1689 2.83281 15 5.08447 15H10.9178C13.1689 15 15 13.1672 15 10.9155V5.08219C15 2.83111 13.1672 1 10.9155 1H5.08219ZM12.0833 3.33333C12.4053 3.33333 12.6667 3.59467 12.6667 3.91667C12.6667 4.23867 12.4053 4.5 12.0833 4.5C11.7613 4.5 11.5 4.23867 11.5 3.91667C11.5 3.59467 11.7613 3.33333 12.0833 3.33333ZM8 4.5C9.93025 4.5 11.5 6.06975 11.5 8C11.5 9.93025 9.93025 11.5 8 11.5C6.06975 11.5 4.5 9.93025 4.5 8C4.5 6.06975 6.06975 4.5 8 4.5ZM8 5.66667C7.38116 5.66667 6.78767 5.9125 6.35008 6.35008C5.9125 6.78767 5.66667 7.38116 5.66667 8C5.66667 8.61884 5.9125 9.21233 6.35008 9.64991C6.78767 10.0875 7.38116 10.3333 8 10.3333C8.61884 10.3333 9.21233 10.0875 9.64991 9.64991C10.0875 9.21233 10.3333 8.61884 10.3333 8C10.3333 7.38116 10.0875 6.78767 9.64991 6.35008C9.21233 5.9125 8.61884 5.66667 8 5.66667Z" />
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 0c-6.627 0-12 5.372-12 12 0 5.084 3.163 9.426 7.627 11.174-.105-.949-.2-2.405.042-3.441.218-.937 1.407-5.965 1.407-5.965s-.359-.719-.359-1.782c0-1.668.967-2.914 2.171-2.914 1.023 0 1.518.769 1.518 1.69 0 1.029-.655 2.568-.994 3.995-.283 1.194.599 2.169 1.777 2.169 2.133 0 3.772-2.249 3.772-5.495 0-2.873-2.064-4.882-5.012-4.882-3.414 0-5.418 2.561-5.418 5.207 0 1.031.397 2.138.893 2.738.098.119.112.224.083.345-.09.375-.291 1.199-.332 1.357-.053.211-.174.256-.402.151-1.499-.696-2.435-2.875-2.435-4.627 0-3.769 2.737-7.229 7.892-7.229 4.144 0 7.365 2.953 7.365 6.899 0 4.117-2.595 7.431-6.199 7.431-1.211 0-2.348-.63-2.738-1.374l-.747 2.853c-.271 1.043-1.002 2.35-1.492 3.146 1.124.347 2.317.535 3.554.535 6.627 0 12-5.373 12-12 0-6.628-5.373-12-12-12z" />
                   </svg>
                 </a>
               </div>
@@ -165,7 +165,7 @@ export default function AboutPage() {
                   About
                 </Link>
                 <Link
-                  href="#"
+                  href="/projects"
                   className={`relative z-10 text-[15px] font-medium leading-[1.2] flex-shrink-0 transition-colors ${
                     isDarkMode
                       ? "text-[#a0a0a0] hover:text-white"
@@ -269,7 +269,7 @@ export default function AboutPage() {
           </header>
 
           {/* Center Content: "A little about me" heading & text & Rayq signature */}
-          <div className="flex-1 flex flex-col justify-center my-10 lg:my-0 max-w-[580px]">
+          <div className="flex-1 flex flex-col justify-center my-10 lg:my-0">
             <h1
               className={`text-[42px] sm:text-[50px] lg:text-[56px] font-semibold tracking-tight leading-[1.1] mb-6 sm:mb-8 ${
                 isDarkMode ? "text-white" : "text-[#1e1e28]"
