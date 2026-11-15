@@ -146,7 +146,7 @@ export default function BlogPostDetailPage() {
         {/* RIGHT CONTENT SECTION: matches framer-3wz52k and framer-1e50uxw with scrollable content */}
         <section className="w-full lg:h-full pt-4 md:pt-6 lg:pt-[32px] pb-10 lg:pb-0 px-5 md:px-8 lg:pl-0 lg:pr-[64px] min-w-0 flex flex-col justify-start lg:flex-[1_0_0px] overflow-y-auto overflow-x-hidden">
           {/* Top Navigation Header: matches axeltmpl with Blog pill */}
-          <header className="w-full flex-shrink-0 overflow-x-auto no-scrollbar py-1 pl-3">
+          <header className="w-full flex-shrink-0 overflow-x-auto no-scrollbar py-1 pl-3 lg:pl-3">
             <div className="flex items-center justify-between min-w-max w-full gap-8 md:gap-12">
               <nav className="relative flex items-center gap-8 flex-shrink-0 py-1">
                 {/* Active Backdrop Pill for Blog */}
@@ -205,7 +205,7 @@ export default function BlogPostDetailPage() {
           </header>
 
           {/* Blog Article Content */}
-          <article className="pt-12 sm:pt-16 md:pt-20 pb-20 pl-3 max-w-[640px]">
+          <article className="pt-12 sm:pt-16 md:pt-20 pb-20 pl-0 lg:pl-3 max-w-[640px]">
             {/* Title */}
             <h1
               className={`text-[32px] sm:text-[40px] md:text-[46px] font-semibold leading-[1.18] mb-8 tracking-tight ${isDarkMode ? "text-white" : "text-[#1e1e28]"

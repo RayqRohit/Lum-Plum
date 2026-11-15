@@ -105,7 +105,7 @@ export default function ProjectsPage() {
 
   return (
     <main
-      className={`min-h-screen w-full select-none transition-colors duration-300 lg:h-screen lg:w-screen lg:overflow-hidden ${isDarkMode ? "bg-[#141414] text-[#fafafa]" : "bg-[#ffffff] text-[#1e1e28]"
+      className={`min-h-screen w-full transition-colors duration-300 lg:h-screen lg:w-screen lg:overflow-hidden ${isDarkMode ? "bg-[#141414] text-[#fafafa]" : "bg-[#ffffff] text-[#1e1e28]"
         }`}
     >
       <div className="flex flex-col lg:flex-row w-full min-h-screen lg:h-screen lg:overflow-hidden gap-4 lg:gap-[50px]">
@@ -224,7 +224,7 @@ export default function ProjectsPage() {
           {/* Container matches framer-cuj1jw (flex: 1, justify-center in desktop) */}
           <div className="w-full flex-1 flex flex-col justify-start lg:justify-center">
             {/* Top Navigation Header: matches framer-1bejsl8 (padding: 0 0 0 12px) */}
-            <header className="w-full flex-shrink-0 overflow-x-auto no-scrollbar py-1 pl-3">
+            <header className="w-full flex-shrink-0 overflow-x-auto no-scrollbar py-1 pl-3 lg:pl-3">
               <div className="flex items-center justify-between min-w-max w-full gap-8 md:gap-12">
                 <nav className="relative flex items-center gap-8 flex-shrink-0 py-1">
                   {/* Active Backdrop Pill: Exact Framer position for Projects (centered on Projects, width 82px) */}
@@ -283,7 +283,7 @@ export default function ProjectsPage() {
             </header>
 
             {/* Content Container: matches framer-ktld8a (flex: 1, justify-center, gap: 64px, max-w-[562px]) */}
-            <div className="flex-1 flex flex-col justify-center gap-[64px] w-full max-w-[562px] mt-14 sm:mt-16 md:mt-20 lg:mt-0">
+            <div className="flex-1 flex flex-col justify-center gap-[64px] w-full mt-14 sm:mt-16 md:mt-20 lg:mt-0">
               {/* Title Section: matches framer-1ofc9bv (gap: 16px) */}
               <div className="flex flex-col gap-4">
                 <h1

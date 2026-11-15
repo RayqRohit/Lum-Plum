@@ -35,7 +35,7 @@ export default function BlogPage() {
 
   return (
     <main
-      className={`min-h-screen w-full select-none transition-colors duration-300 lg:h-screen lg:w-screen lg:overflow-hidden ${isDarkMode ? "bg-[#141414] text-[#fafafa]" : "bg-[#ffffff] text-[#1e1e28]"
+      className={`min-h-screen w-full transition-colors duration-300 lg:h-screen lg:w-screen lg:overflow-hidden ${isDarkMode ? "bg-[#141414] text-[#fafafa]" : "bg-[#ffffff] text-[#1e1e28]"
         }`}
     >
       <div className="flex flex-col lg:flex-row w-full min-h-screen lg:h-screen lg:overflow-hidden gap-4 lg:gap-[50px]">
@@ -100,7 +100,7 @@ export default function BlogPage() {
         <section className="w-full lg:h-full pt-4 md:pt-6 lg:pt-[32px] pb-10 lg:pb-0 px-5 md:px-8 lg:pl-0 lg:pr-[64px] min-w-0 flex flex-col justify-start lg:flex-[1_0_0px] overflow-y-auto overflow-x-hidden">
           {/* Top Header Navigation */}
           <header className="w-full flex-shrink-0 overflow-x-auto no-scrollbar py-1">
-            <div className="flex items-center justify-between min-w-max w-full gap-8 md:gap-12 pl-3">
+            <div className="flex items-center justify-between min-w-max w-full gap-8 md:gap-12 pl-3 lg:pl-3">
               <nav className="relative flex items-center gap-8 flex-shrink-0 py-1">
                 {/* Active Backdrop Pill for Blog */}
                 <span
@@ -158,7 +158,7 @@ export default function BlogPage() {
           </header>
 
           {/* Main Blog Header */}
-          <div className="pt-12 sm:pt-16 md:pt-20 pb-8 pl-3 max-w-[560px]">
+          <div className="pt-12 sm:pt-16 md:pt-20 pb-8 pl-0 lg:pl-3 max-w-[560px]">
             <h1
               className={`text-[36px] sm:text-[44px] md:text-[50px] lg:text-[54px] font-semibold tracking-tight leading-[1.1] mb-4 ${isDarkMode ? "text-white" : "text-[#1e1e28]"
                 }`}
@@ -237,7 +237,7 @@ export default function BlogPage() {
           </div>
 
           {/* Blog Feed Cards */}
-          <div className="pl-3 pb-20 pt-4 flex flex-col gap-12 sm:gap-14 max-w-[620px]">
+          <div className="pl-0 lg:pl-3 pb-20 pt-4 flex flex-col gap-12 sm:gap-14">
             {blogPosts.slice(0, visibleCount).map((post) => (
               <article key={post.slug} className="group flex flex-col">
                 {/* Post Cover Image */}

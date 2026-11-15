@@ -11,7 +11,7 @@ export default function AboutPage() {
 
   return (
     <main
-      className={`min-h-screen w-full select-none transition-colors duration-300 lg:h-screen lg:w-screen lg:overflow-hidden ${isDarkMode ? "bg-[#141414] text-[#fafafa]" : "bg-[#ffffff] text-[#1e1e28]"
+      className={`min-h-screen w-full transition-colors duration-300 lg:h-screen lg:w-screen lg:overflow-hidden ${isDarkMode ? "bg-[#141414] text-[#fafafa]" : "bg-[#ffffff] text-[#1e1e28]"
         }`}
     >
       <div className="flex flex-col lg:flex-row w-full min-h-screen lg:h-screen lg:overflow-hidden gap-4 lg:gap-[50px]">
@@ -138,7 +138,7 @@ export default function AboutPage() {
         <section className="w-full min-h-min lg:h-full pt-2 md:pt-4 lg:pt-8 pb-10 lg:pb-8 px-5 md:px-8 lg:pl-0 lg:pr-16 min-w-0 flex flex-col justify-between lg:overflow-hidden lg:flex-[1_0_0px]">
           {/* Top Header */}
           <header className="w-full flex-shrink-0 overflow-x-auto no-scrollbar py-1">
-            <div className="flex items-center justify-between min-w-max w-full gap-8 md:gap-12 pl-3">
+            <div className="flex items-center justify-between min-w-max w-full gap-8 md:gap-12 pl-3 lg:pl-3">
               <nav className="relative flex items-center gap-8 flex-shrink-0 py-1">
                 {/* Active Backdrop Pill: slim top/bottom padding (-top-[3px] -bottom-[3px]) */}
                 <span

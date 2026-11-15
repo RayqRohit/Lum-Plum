@@ -51,7 +51,7 @@ export default function ContactPage() {
 
   return (
     <main
-      className={`min-h-screen w-full select-none transition-colors duration-300 lg:h-screen lg:w-screen lg:overflow-hidden ${isDarkMode ? "bg-[#141414] text-[#fafafa]" : "bg-[#ffffff] text-[#1e1e28]"
+      className={`min-h-screen w-full transition-colors duration-300 lg:h-screen lg:w-screen lg:overflow-hidden ${isDarkMode ? "bg-[#141414] text-[#fafafa]" : "bg-[#ffffff] text-[#1e1e28]"
         }`}
     >
       <div className="flex flex-col lg:flex-row w-full min-h-screen lg:h-screen lg:overflow-hidden gap-4 lg:gap-[50px]">
@@ -135,7 +135,7 @@ export default function ContactPage() {
         <section className="w-full lg:h-full pt-4 md:pt-6 lg:pt-[32px] pb-10 lg:pb-0 px-5 md:px-8 lg:pl-0 lg:pr-[64px] min-w-0 flex flex-col justify-start lg:flex-[1_0_0px] overflow-y-auto lg:overflow-hidden overflow-x-hidden">
           {/* Top Header Navigation */}
           <header className="w-full flex-shrink-0 overflow-x-auto no-scrollbar py-1">
-            <div className="flex items-center justify-between min-w-max w-full gap-8 md:gap-12 pl-3">
+            <div className="flex items-center justify-between min-w-max w-full gap-8 md:gap-12 pl-0 lg:pl-3">
               <nav className="relative flex items-center gap-8 flex-shrink-0 py-1">
                 {/* Active Backdrop Pill for Contact */}
                 <span
@@ -193,7 +193,7 @@ export default function ContactPage() {
           </header>
 
           {/* Form Content Area */}
-          <div className="pt-12 sm:pt-16 md:pt-20 lg:pt-16 pb-16 lg:pb-6 pl-3 max-w-[620px]">
+          <div className="w-full flex-1 flex flex-col justify-start lg:justify-center pt-12 sm:pt-16 md:pt-20 lg:pt-0 pb-16 lg:pb-0 pl-0 lg:pl-3 max-w-[620px]">
             <h1
               className={`text-[38px] sm:text-[46px] md:text-[52px] font-semibold tracking-tight leading-[1.1] mb-4 ${isDarkMode ? "text-white" : "text-[#1e1e28]"
                 }`}
@@ -210,7 +210,7 @@ export default function ContactPage() {
 
             {/* Contact Form OR Success State (exact match to template reference) */}
             {isSent ? (
-              <div className="w-full min-h-[380px] sm:min-h-[420px] flex flex-col items-center justify-center text-center pt-10 sm:pt-14 lg:pt-20 pb-12 px-2 animate-in fade-in duration-300">
+              <div className="w-full flex flex-col items-center justify-center text-center py-10 px-2 animate-in fade-in duration-300">
                 {/* Checkmark in Circle */}
                 <div
                   className={`w-10 h-10 rounded-full border-2 flex items-center justify-center mb-4 ${
@@ -250,7 +250,7 @@ export default function ContactPage() {
                 </p>
               </div>
             ) : (
-              <form onSubmit={handleSubmit} className="flex flex-col gap-6 sm:gap-7 w-full mt-10 sm:mt-12 lg:mt-15">
+              <form onSubmit={handleSubmit} className="flex flex-col gap-6 sm:gap-7 w-full">
                 {/* Row 1: Name & Email */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 w-full">
                   <div className="flex flex-col gap-3 sm:gap-3.5">
