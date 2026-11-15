@@ -7,6 +7,7 @@ import ThemeToggle from "@/components/ThemeToggle";
 import { useTheme } from "@/context/ThemeContext";
 import { useParams, notFound } from "next/navigation";
 import { blogPostsBySlug, blogPosts } from "@/data/blogData";
+import WordBlur from "@/components/WordBlur";
 
 export default function BlogPostDetailPage() {
   const params = useParams();
@@ -29,7 +30,7 @@ export default function BlogPostDetailPage() {
         <section className="w-full h-[460px] sm:h-[500px] md:h-[560px] lg:h-full py-5 md:py-8 lg:py-4 px-5 md:px-8 lg:pl-4 lg:pr-0 min-w-0 overflow-hidden flex lg:flex-[1.3_0_0px] flex-shrink-0">
           <div className="relative w-full h-full rounded-[16px] overflow-hidden flex flex-col justify-between shadow-2xl group border border-white/5">
             {/* Background Blog Cover Image */}
-            <div className="absolute inset-0 z-0 rounded-[16px] overflow-hidden">
+            <div className="absolute inset-0 z-0 rounded-[16px] overflow-hidden animate-hero-image">
               <Image
                 src={post.image}
                 alt={post.title}
@@ -211,11 +212,14 @@ export default function BlogPostDetailPage() {
               className={`text-[32px] sm:text-[40px] md:text-[46px] font-semibold leading-[1.18] mb-8 tracking-tight ${isDarkMode ? "text-white" : "text-[#1e1e28]"
                 }`}
             >
-              {post.title}
+              <WordBlur text={post.title} baseDelay={0.15} />
             </h1>
 
             {/* Content Blocks */}
-            <div className="space-y-6">
+            <div
+              className="space-y-6 animate-content-slide-up"
+              style={{ animationDelay: "0.4s" }}
+            >
               {post.blocks.map((block, idx) => {
                 if (block.type === "h2") {
                   return (

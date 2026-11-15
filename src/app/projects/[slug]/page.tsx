@@ -7,6 +7,7 @@ import ThemeToggle from "@/components/ThemeToggle";
 import { useTheme } from "@/context/ThemeContext";
 import { useParams, notFound } from "next/navigation";
 import { projectsData } from "@/data/projectsData";
+import WordBlur from "@/components/WordBlur";
 
 export default function ProjectDetailPage() {
   const params = useParams();
@@ -28,7 +29,7 @@ export default function ProjectDetailPage() {
         <section className="w-full h-[460px] sm:h-[500px] md:h-[560px] lg:h-full py-5 md:py-8 lg:py-4 px-5 md:px-8 lg:pl-4 lg:pr-0 min-w-0 overflow-hidden flex lg:flex-[1.3_0_0px] flex-shrink-0">
           <div className="relative w-full h-full rounded-[16px] overflow-hidden flex flex-col justify-between shadow-2xl group border border-white/5">
             {/* Background Project Image */}
-            <div className="absolute inset-0 z-0 rounded-[16px] overflow-hidden">
+            <div className="absolute inset-0 z-0 rounded-[16px] overflow-hidden animate-hero-image">
               <Image
                 src={project.image}
                 alt={project.title}
@@ -209,13 +210,14 @@ export default function ProjectDetailPage() {
               className={`text-[36px] sm:text-[44px] md:text-[52px] lg:text-[56px] font-semibold tracking-normal leading-[1.15] mb-2 ${isDarkMode ? "text-[#fafafa]" : "text-[#1e1e28]"
                 }`}
             >
-              {project.title}
+              <WordBlur text={project.title} baseDelay={0.15} />
             </h1>
 
             {/* Intro Paragraphs */}
             <div
-              className={`space-y-5 text-[16px] leading-[1.65] font-normal ${isDarkMode ? "text-[#a0a0a0]" : "text-[#47474f]"
+              className={`space-y-5 text-[16px] leading-[1.65] font-normal animate-content-slide-up ${isDarkMode ? "text-[#a0a0a0]" : "text-[#47474f]"
                 }`}
+              style={{ animationDelay: "0.4s" }}
             >
               {project.introParagraphs.map((para, index) => (
                 <p key={index}>{para}</p>

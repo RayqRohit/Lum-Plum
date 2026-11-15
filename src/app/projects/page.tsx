@@ -113,7 +113,7 @@ export default function ProjectsPage() {
         <section className="w-full h-[460px] sm:h-[500px] md:h-[560px] lg:h-full py-5 md:py-8 lg:py-4 px-5 md:px-8 lg:pl-4 lg:pr-0 min-w-0 overflow-hidden flex lg:flex-[1.3_0_0px] flex-shrink-0">
           <div className="relative w-full h-full rounded-[16px] overflow-hidden flex flex-col justify-between shadow-2xl group border border-white/5">
             {/* Background Image Layers - Stacked for smooth crossfade transitions */}
-            <div className="absolute inset-0 z-0 rounded-[16px] overflow-hidden">
+            <div className="absolute inset-0 z-0 rounded-[16px] overflow-hidden animate-hero-image-rotate">
               {slides.map((slide, index) => {
                 const isActive = currentSlide === index;
                 return (
@@ -290,19 +290,23 @@ export default function ProjectsPage() {
                   className={`text-[32px] sm:text-[40px] md:text-[48px] lg:text-[56px] font-semibold tracking-normal leading-[1.2] ${isDarkMode ? "text-[#fafafa]" : "text-[#1e1e28]"
                     }`}
                 >
-                  Projects
+                  <span className="inline-block animate-word-blur" style={{ animationDelay: "0.15s" }}>Projects</span>
                 </h1>
                 <p
-                  className={`text-[16px] font-normal leading-[1.4] ${isDarkMode ? "text-[#a0a0a0]" : "text-[#47474f]"
+                  className={`text-[16px] font-normal leading-[1.4] animate-content-slide-up ${isDarkMode ? "text-[#a0a0a0]" : "text-[#47474f]"
                     }`}
+                  style={{ animationDelay: "0.4s" }}
                 >
                   Here’s a collection of the work I’ve had the privilege to bring to life. Each
                   project tells a unique story, crafted with creativity and attention to detail.
                 </p>
               </div>
 
-              {/* Projects Table List: matches framer-10sjdvu & framer-720d3c (width 562px) */}
-              <div className="flex flex-col w-full">
+              {/* Projects Table List: matches framer-10sjdvu & framer-720d3c (width 562px) with delay 0.8s */}
+              <div
+                className="flex flex-col w-full animate-content-slide-up"
+                style={{ animationDelay: "0.8s" }}
+              >
                 {projectsList.map((project) => (
                   <Link
                     key={project.id}

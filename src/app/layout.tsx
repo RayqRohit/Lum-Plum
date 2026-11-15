@@ -21,8 +21,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${inter.variable} min-h-screen`}>
-      <body className="font-sans min-h-screen w-full antialiased selection:bg-white/20 selection:text-white">
+    <html lang="en" className={`${inter.variable} min-h-screen dark`}>
+      <body className="font-sans min-h-screen w-full antialiased">
         <ThemeProvider>{children}</ThemeProvider>
       </body>
     </html>

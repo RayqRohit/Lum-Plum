@@ -77,7 +77,7 @@ export default function Home() {
         >
           <div className="relative w-full h-full rounded-[16px] overflow-hidden flex flex-col justify-between shadow-2xl group border border-white/5">
             {/* Background Image Layers - Stacked for smooth crossfade transitions */}
-            <div className="absolute inset-0 z-0 rounded-[16px] overflow-hidden">
+            <div className="absolute inset-0 z-0 rounded-[16px] overflow-hidden animate-hero-image-rotate">
               {slides.map((slide, index) => {
                 const isActive = currentSlide === index;
                 return (
@@ -251,10 +251,11 @@ export default function Home() {
             <div className="flex flex-col items-start gap-6 md:gap-8">
               {/* Status Pill */}
               <div
-                className={`inline-flex items-center gap-2 h-8 px-4 rounded-full text-[14px] font-medium border mt-4 md:mt-6 lg:mt-0 ${isDarkMode
+                className={`inline-flex items-center gap-2 h-8 px-4 rounded-full text-[14px] font-medium border mt-4 md:mt-6 lg:mt-0 animate-content-slide-up ${isDarkMode
                   ? "bg-[#1c2b22] text-[#7eea9b] border-[#223d2b]"
                   : "bg-[#f5fbf7] text-[#008a1e] border-[#d4edd9]"
                   }`}
+                style={{ animationDelay: "0.2s" }}
               >
                 <span className="relative flex h-2 w-2">
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#7eea9b] opacity-75"></span>
@@ -265,19 +266,26 @@ export default function Home() {
 
               {/* Title & Buttons Wrapper: matches framer-1bip8km with responsive gap */}
               <div className="flex flex-col items-start gap-12 sm:gap-14 md:gap-16 w-full">
-                {/* Main Title: responsive 32px on mobile, 40px on tablet, 56px on desktop */}
+                {/* Main Title: responsive 32px on mobile, 40px on tablet, 56px on desktop with staggered word blur */}
                 <h1 className="text-[32px] sm:text-[40px] xl:text-[56px] font-semibold tracking-normal leading-[1.2em]">
-                  I design &amp; build <br />
-                  products that{" "}
+                  <span className="inline-block animate-word-blur" style={{ animationDelay: "0.15s" }}>I&nbsp;design</span>{" "}
+                  <span className="inline-block animate-word-blur" style={{ animationDelay: "0.23s" }}>&amp;&nbsp;build</span>{" "}
+                  <br />
+                  <span className="inline-block animate-word-blur" style={{ animationDelay: "0.31s" }}>products</span>{" "}
+                  <span className="inline-block animate-word-blur" style={{ animationDelay: "0.39s" }}>that</span>{" "}
                   <span
-                    className={isDarkMode ? "text-[#717171]" : "text-[#9999a0]"}
+                    className={`inline-block animate-word-blur ${isDarkMode ? "text-[#717171]" : "text-[#9999a0]"}`}
+                    style={{ animationDelay: "0.47s" }}
                   >
                     inspire
                   </span>
                 </h1>
 
-                {/* Solid buttons: matches framer-1y3kbdw gap-4 (16px) with extra top spacing on mobile */}
-                <div className="flex items-center gap-4 flex-wrap mt-2 sm:mt-0">
+                {/* Solid buttons: matches framer-1y3kbdw gap-4 (16px) with 0.7s delay */}
+                <div
+                  className="flex items-center gap-4 flex-wrap mt-2 sm:mt-0 animate-content-slide-up"
+                  style={{ animationDelay: "0.7s" }}
+                >
                   <Link
                     href="#"
                     style={{
@@ -308,8 +316,11 @@ export default function Home() {
               </div>
             </div>
 
-            {/* Bottom Brand SVGs Marquee: inside framer-1oe3eyy with exact 24px height */}
-            <div className="flex-shrink-0 w-full overflow-hidden h-[24px] select-none pointer-events-none mt-6 lg:mt-0">
+            {/* Bottom Brand SVGs Marquee: inside framer-1oe3eyy with exact 24px height and 0.85s delay */}
+            <div
+              className="flex-shrink-0 w-full overflow-hidden h-[24px] select-none pointer-events-none mt-6 lg:mt-0 animate-content-slide-up"
+              style={{ animationDelay: "0.85s" }}
+            >
               <div className="logo-marquee-mask w-full overflow-hidden">
                 <div className="animate-marquee items-center gap-10">
                   {/* 1st set */}
