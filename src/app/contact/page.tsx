@@ -12,6 +12,7 @@ import { fadeUpProps, heroImageProps } from "@/lib/motion";
 export default function ContactPage() {
   const { isDarkMode, setIsDarkMode } = useTheme();
   const [isSent, setIsSent] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [budget, setBudget] = useState("");
   const textareaRef = useRef<HTMLTextAreaElement>(null);
   const formRef = useRef<HTMLFormElement>(null);
@@ -49,12 +50,18 @@ export default function ContactPage() {
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    if (isSubmitting) return;
     if (formRef.current) {
       setFormHeight(formRef.current.offsetHeight);
     }
-    setIsSent(true);
-    setBudget("");
-    e.currentTarget.reset();
+    const formEl = e.currentTarget;
+    setIsSubmitting(true);
+    setTimeout(() => {
+      setIsSent(true);
+      setIsSubmitting(false);
+      setBudget("");
+      formEl.reset();
+    }, 1500);
   };
 
   return (
@@ -280,11 +287,12 @@ export default function ContactPage() {
                       type="text"
                       name="name"
                       required
+                      disabled={isSubmitting}
                       placeholder="Axel Smith"
                       className={`h-[44px] px-3.5 rounded-[8px] text-[15px] outline-none transition-colors border ${isDarkMode
                         ? "bg-[#141414] border-[#222222] text-white placeholder:text-[#636366] focus:border-white/40"
                         : "bg-[#f5f5f7] border-[#e5e5ea] text-[#1e1e28] placeholder:text-[#8e8e93] focus:border-black/30"
-                        }`}
+                        } ${isSubmitting ? "opacity-60 cursor-not-allowed" : ""}`}
                     />
                   </div>
 
@@ -299,11 +307,12 @@ export default function ContactPage() {
                       type="email"
                       name="email"
                       required
+                      disabled={isSubmitting}
                       placeholder="hi@axel.com"
                       className={`h-[44px] px-3.5 rounded-[8px] text-[15px] outline-none transition-colors border ${isDarkMode
                         ? "bg-[#141414] border-[#222222] text-white placeholder:text-[#636366] focus:border-white/40"
                         : "bg-[#f5f5f7] border-[#e5e5ea] text-[#1e1e28] placeholder:text-[#8e8e93] focus:border-black/30"
-                        }`}
+                        } ${isSubmitting ? "opacity-60 cursor-not-allowed" : ""}`}
                     />
                   </div>
                 </div>
@@ -321,11 +330,12 @@ export default function ContactPage() {
                       type="text"
                       name="company"
                       required
+                      disabled={isSubmitting}
                       placeholder="Dream Studio"
                       className={`h-[44px] px-3.5 rounded-[8px] text-[15px] outline-none transition-colors border ${isDarkMode
                         ? "bg-[#141414] border-[#222222] text-white placeholder:text-[#636366] focus:border-white/40"
                         : "bg-[#f5f5f7] border-[#e5e5ea] text-[#1e1e28] placeholder:text-[#8e8e93] focus:border-black/30"
-                        }`}
+                        } ${isSubmitting ? "opacity-60 cursor-not-allowed" : ""}`}
                     />
                   </div>
 
@@ -340,6 +350,7 @@ export default function ContactPage() {
                       <select
                         name="budget"
                         required
+                        disabled={isSubmitting}
                         value={budget}
                         onChange={(e) => setBudget(e.target.value)}
                         className={`h-[44px] w-full px-3.5 pr-9 rounded-[8px] text-[15px] outline-none transition-colors border appearance-none cursor-pointer ${!budget
@@ -352,7 +363,7 @@ export default function ContactPage() {
                           } ${isDarkMode
                             ? "bg-[#141414] border-[#222222] focus:border-white/40"
                             : "bg-[#f5f5f7] border-[#e5e5ea] focus:border-black/30"
-                          }`}
+                          } ${isSubmitting ? "opacity-60 cursor-not-allowed" : ""}`}
                       >
                         <option
                           value=""
@@ -414,6 +425,7 @@ export default function ContactPage() {
                     ref={textareaRef}
                     name="message"
                     required
+                    disabled={isSubmitting}
                     rows={4}
                     placeholder="Tell me about your company needs"
                     style={{
@@ -424,7 +436,7 @@ export default function ContactPage() {
                     className={`w-full min-h-[100px] p-3.5 rounded-[8px] text-[15px] outline-none transition-colors border ${isDarkMode
                       ? "bg-[#141414] border-[#222222] text-white placeholder:text-[#636366] focus:border-white/40"
                       : "bg-[#f5f5f7] border-[#e5e5ea] text-[#1e1e28] placeholder:text-[#8e8e93] focus:border-black/30"
-                      }`}
+                      } ${isSubmitting ? "opacity-60 cursor-not-allowed" : ""}`}
                   />
                 </div>
 
@@ -432,12 +444,26 @@ export default function ContactPage() {
                 <div className="flex items-center justify-between pt-2">
                   <button
                     type="submit"
-                    className={`h-[44px] px-7 rounded-full text-[14px] sm:text-[15px] font-medium transition-colors cursor-pointer shadow-sm ${isDarkMode
-                      ? "bg-white text-black hover:bg-neutral-200"
-                      : "bg-[#1e1e28] text-white hover:bg-black"
+                    disabled={isSubmitting}
+                    className={`h-[44px] px-7 rounded-full text-[14px] sm:text-[15px] font-medium transition-all duration-200 shadow-sm flex items-center justify-center gap-2 ${isSubmitting
+                      ? "opacity-75 cursor-not-allowed"
+                      : "cursor-pointer hover:opacity-90"
+                      } ${isDarkMode
+                      ? "bg-white text-black"
+                      : "bg-[#1e1e28] text-white"
                       }`}
                   >
-                    Get in touch
+                    {isSubmitting ? (
+                      <>
+                        <svg className="animate-spin -ml-1 mr-1.5 h-4 w-4" fill="none" viewBox="0 0 24 24">
+                          <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                          <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z"></path>
+                        </svg>
+                        <span>Sending...</span>
+                      </>
+                    ) : (
+                      <span>Get in touch</span>
+                    )}
                   </button>
 
                   {/* Avg. response badge */}

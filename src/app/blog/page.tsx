@@ -14,14 +14,18 @@ export default function BlogPage() {
   const { isDarkMode, setIsDarkMode } = useTheme();
   const [email, setEmail] = useState("");
   const [isSubscribed, setIsSubscribed] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [visibleCount, setVisibleCount] = useState(5);
 
   const handleSubscribe = (e: React.FormEvent) => {
     e.preventDefault();
-    if (email.trim()) {
+    if (!email.trim() || isSubmitting) return;
+    setIsSubmitting(true);
+    setTimeout(() => {
       setIsSubscribed(true);
+      setIsSubmitting(false);
       setEmail("");
-    }
+    }, 1500);
   };
 
   useEffect(() => {
@@ -189,22 +193,37 @@ export default function BlogPage() {
                 <input
                   type="email"
                   value={email}
+                  disabled={isSubmitting}
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="Enter your email"
                   required
                   className={`flex-1 rounded-[8px] px-4 py-3 text-[14px] sm:text-[15px] outline-none transition-colors border ${isDarkMode
                     ? "bg-[#141414] border-[#222222] text-white placeholder:text-[#636366] focus:border-white/40"
                     : "bg-[#f5f5f7] border-[#e5e5ea] text-[#1e1e28] placeholder:text-[#8e8e93] focus:border-black/30"
-                    }`}
+                    } ${isSubmitting ? "opacity-60 cursor-not-allowed" : ""}`}
                 />
                 <button
                   type="submit"
-                  className={`px-6 py-3 rounded-[8px] text-[14px] sm:text-[15px] font-medium transition-colors shrink-0 cursor-pointer shadow-sm ${isDarkMode
-                    ? "bg-white text-black hover:bg-neutral-200"
-                    : "bg-[#1e1e28] text-white hover:bg-black"
+                  disabled={isSubmitting}
+                  className={`px-6 py-3 rounded-[8px] text-[14px] sm:text-[15px] font-medium transition-all duration-200 shrink-0 shadow-sm flex items-center justify-center gap-2 ${isSubmitting
+                    ? "opacity-75 cursor-not-allowed"
+                    : "cursor-pointer hover:opacity-90"
+                    } ${isDarkMode
+                    ? "bg-white text-black"
+                    : "bg-[#1e1e28] text-white"
                     }`}
                 >
-                  Subscribe
+                  {isSubmitting ? (
+                    <>
+                      <svg className="animate-spin -ml-1 mr-1.5 h-4 w-4" fill="none" viewBox="0 0 24 24">
+                        <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                        <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z"></path>
+                      </svg>
+                      <span>Subscribing...</span>
+                    </>
+                  ) : (
+                    <span>Subscribe</span>
+                  )}
                 </button>
               </div>
 
