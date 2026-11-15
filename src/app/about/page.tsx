@@ -18,9 +18,9 @@ export default function AboutPage() {
         }`}
     >
       <div className="flex flex-col lg:flex-row w-full min-h-screen lg:h-screen lg:overflow-hidden gap-4 lg:gap-[50px]">
-        {/* LEFT SHOWCASE CARD: exact framer-12h3bak (desktop flex: 1.3, tablet h: 560px, mobile h: 460px / sm: 500px) */}
-        <section className="w-full h-[460px] sm:h-[500px] md:h-[560px] lg:h-full py-5 md:py-8 lg:py-4 px-5 md:px-8 lg:pl-4 lg:pr-0 min-w-0 overflow-hidden flex lg:flex-[1.3_0_0px] flex-shrink-0">
-          <div className="relative w-full h-full rounded-[16px] overflow-hidden flex flex-col justify-between shadow-2xl group border border-white/5">
+        {/* LEFT SHOWCASE CARD: exact match to home page width */}
+        <section className="w-full h-[400px] sm:h-[450px] md:h-[500px] lg:h-full py-5 md:py-8 lg:py-4 px-5 md:px-8 lg:pl-4 lg:pr-0 min-w-0 overflow-hidden flex lg:flex-[1.35_0_0px] flex-shrink-0">
+          <div className="relative w-full h-full rounded-[16px] overflow-hidden flex flex-col justify-between shadow-none lg:shadow-2xl group border border-white/5">
             {/* Background Image: matches framer-1xgvdcj (fill, cover, centered) */}
             <motion.div
               {...heroImageProps(false)}

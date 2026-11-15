@@ -75,11 +75,11 @@ export default function Home() {
         }`}
     >
       <div className="flex flex-col lg:flex-row w-full min-h-screen lg:h-screen lg:overflow-hidden gap-4 lg:gap-[50px]">
-        {/* LEFT SHOWCASE CARD: matches template (h-[260px] sm:h-[300px] md:h-[523px] lg:h-full) */}
+        {/* LEFT SHOWCASE CARD: exact match to about page size across all screens */}
         <section
-          className="w-full h-[260px] sm:h-[300px] md:h-[523px] lg:h-full py-5 md:py-8 lg:py-4 px-5 md:px-8 lg:pl-4 lg:pr-0 min-w-0 overflow-hidden flex lg:flex-[1.3_0_0px] flex-shrink-0"
+          className="w-full h-[400px] sm:h-[450px] md:h-[500px] lg:h-full py-5 md:py-8 lg:py-4 px-5 md:px-8 lg:pl-4 lg:pr-0 min-w-0 overflow-hidden flex lg:flex-[1.35_0_0px] flex-shrink-0"
         >
-          <div className="relative w-full h-full rounded-[16px] overflow-hidden flex flex-col justify-between shadow-2xl group border border-white/5">
+          <div className="relative w-full h-full rounded-[16px] overflow-hidden flex flex-col justify-between shadow-none lg:shadow-2xl group border border-white/5">
             {/* Background Image Layers - Stacked for smooth crossfade transitions */}
             <motion.div
               {...heroImageProps(true)}
