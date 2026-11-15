@@ -3,9 +3,12 @@
 import { useState, useEffect, useCallback } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { motion } from "framer-motion";
 import assets from "./theme-and-logos.json";
 import ThemeToggle from "@/components/ThemeToggle";
 import { useTheme } from "@/context/ThemeContext";
+import WordBlur from "@/components/WordBlur";
+import { fadeUpProps, heroImageProps } from "@/lib/motion";
 
 interface Slide {
   id: number;
@@ -77,7 +80,10 @@ export default function Home() {
         >
           <div className="relative w-full h-full rounded-[16px] overflow-hidden flex flex-col justify-between shadow-2xl group border border-white/5">
             {/* Background Image Layers - Stacked for smooth crossfade transitions */}
-            <div className="absolute inset-0 z-0 rounded-[16px] overflow-hidden animate-hero-image-rotate">
+            <motion.div
+              {...heroImageProps(true)}
+              className="absolute inset-0 z-0 rounded-[16px] overflow-hidden"
+            >
               {slides.map((slide, index) => {
                 const isActive = currentSlide === index;
                 return (
@@ -101,7 +107,7 @@ export default function Home() {
               })}
               {/* Overlay with 40% darkness matching template */}
               <div className="absolute inset-0 bg-black/40 pointer-events-none rounded-[16px] z-20" />
-            </div>
+            </motion.div>
 
             {/* Top Logo - Exact Framer Axel template styling (padding: 24px 0 0 24px, 32px font size, rotate(-22deg), Chaumont Script) */}
             <div className="relative z-10 p-6">
@@ -250,41 +256,41 @@ export default function Home() {
             {/* Title Wrapper: matches framer-1kve0dn */}
             <div className="flex flex-col items-start gap-6 md:gap-8">
               {/* Status Pill */}
-              <div
-                className={`inline-flex items-center gap-2 h-8 px-4 rounded-full text-[14px] font-medium border mt-4 md:mt-6 lg:mt-0 animate-content-slide-up ${isDarkMode
+              <motion.div
+                {...fadeUpProps(0.2)}
+                className={`inline-flex items-center gap-2 h-8 px-4 rounded-full text-[14px] font-medium border mt-4 md:mt-6 lg:mt-0 ${isDarkMode
                   ? "bg-[#1c2b22] text-[#7eea9b] border-[#223d2b]"
                   : "bg-[#f5fbf7] text-[#008a1e] border-[#d4edd9]"
                   }`}
-                style={{ animationDelay: "0.2s" }}
               >
                 <span className="relative flex h-2 w-2">
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#7eea9b] opacity-75"></span>
                   <span className="relative inline-flex rounded-full h-2 w-2 bg-[#4ade80]"></span>
                 </span>
                 <span>Now booking</span>
-              </div>
+              </motion.div>
 
               {/* Title & Buttons Wrapper: matches framer-1bip8km with responsive gap */}
               <div className="flex flex-col items-start gap-12 sm:gap-14 md:gap-16 w-full">
                 {/* Main Title: responsive 32px on mobile, 40px on tablet, 56px on desktop with staggered word blur */}
                 <h1 className="text-[32px] sm:text-[40px] xl:text-[56px] font-semibold tracking-normal leading-[1.2em]">
-                  <span className="inline-block animate-word-blur" style={{ animationDelay: "0.15s" }}>I&nbsp;design</span>{" "}
-                  <span className="inline-block animate-word-blur" style={{ animationDelay: "0.23s" }}>&amp;&nbsp;build</span>{" "}
+                  <WordBlur text="I design & build" baseDelay={0.15} stagger={0.07} />
                   <br />
-                  <span className="inline-block animate-word-blur" style={{ animationDelay: "0.31s" }}>products</span>{" "}
-                  <span className="inline-block animate-word-blur" style={{ animationDelay: "0.39s" }}>that</span>{" "}
-                  <span
-                    className={`inline-block animate-word-blur ${isDarkMode ? "text-[#717171]" : "text-[#9999a0]"}`}
-                    style={{ animationDelay: "0.47s" }}
+                  <WordBlur text="products that" baseDelay={0.29} stagger={0.07} />{" "}
+                  <motion.span
+                    initial={{ opacity: 0.001, filter: "blur(8px)", y: 8 }}
+                    animate={{ opacity: 1, filter: "blur(0px)", y: 0 }}
+                    transition={{ duration: 0.85, delay: 0.43, ease: [0.16, 1, 0.3, 1] }}
+                    className={`inline-block ${isDarkMode ? "text-[#717171]" : "text-[#9999a0]"}`}
                   >
                     inspire
-                  </span>
+                  </motion.span>
                 </h1>
 
                 {/* Solid buttons: matches framer-1y3kbdw gap-4 (16px) with 0.7s delay */}
-                <div
-                  className="flex items-center gap-4 flex-wrap mt-2 sm:mt-0 animate-content-slide-up"
-                  style={{ animationDelay: "0.7s" }}
+                <motion.div
+                  {...fadeUpProps(0.7)}
+                  className="flex items-center gap-4 flex-wrap mt-2 sm:mt-0"
                 >
                   <Link
                     href="#"
@@ -312,14 +318,14 @@ export default function Home() {
                   >
                     <span>View projects</span>
                   </Link>
-                </div>
+                </motion.div>
               </div>
             </div>
 
             {/* Bottom Brand SVGs Marquee: inside framer-1oe3eyy with exact 24px height and 0.85s delay */}
-            <div
-              className="flex-shrink-0 w-full overflow-hidden h-[24px] select-none pointer-events-none mt-6 lg:mt-0 animate-content-slide-up"
-              style={{ animationDelay: "0.85s" }}
+            <motion.div
+              {...fadeUpProps(0.85)}
+              className="flex-shrink-0 w-full overflow-hidden h-[24px] select-none pointer-events-none mt-6 lg:mt-0"
             >
               <div className="logo-marquee-mask w-full overflow-hidden">
                 <div className="animate-marquee items-center gap-10">
@@ -392,7 +398,7 @@ export default function Home() {
                   })}
                 </div>
               </div>
-            </div>
+            </motion.div>
           </div>
         </section>
       </div>

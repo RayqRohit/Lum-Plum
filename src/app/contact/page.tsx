@@ -3,8 +3,11 @@
 import { useState, useRef, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { motion } from "framer-motion";
 import ThemeToggle from "@/components/ThemeToggle";
 import { useTheme } from "@/context/ThemeContext";
+import WordBlur from "@/components/WordBlur";
+import { fadeUpProps, heroImageProps } from "@/lib/motion";
 
 export default function ContactPage() {
   const { isDarkMode, setIsDarkMode } = useTheme();
@@ -59,7 +62,10 @@ export default function ContactPage() {
         <section className="w-full h-[460px] sm:h-[500px] md:h-[560px] lg:h-full py-5 md:py-8 lg:py-4 px-5 md:px-8 lg:pl-4 lg:pr-0 min-w-0 overflow-hidden flex lg:flex-[1.3_0_0px] flex-shrink-0">
           <div className="relative w-full h-full rounded-[16px] overflow-hidden flex flex-col justify-between shadow-2xl group border border-white/5">
             {/* Background Image: matches framer contact image PvawYUzGU2gTCJpv3UqZk72gg.png */}
-            <div className="absolute inset-0 z-0 rounded-[16px] overflow-hidden animate-hero-image">
+            <motion.div
+              {...heroImageProps(false)}
+              className="absolute inset-0 z-0 rounded-[16px] overflow-hidden"
+            >
               <Image
                 src="/images/PvawYUzGU2gTCJpv3UqZk72gg.png"
                 alt="Workspace"
@@ -76,7 +82,7 @@ export default function ContactPage() {
                     "linear-gradient(180deg, rgba(255, 255, 255, 0) 65%, rgba(141, 95, 66, 0.95) 100%)",
                 }}
               />
-            </div>
+            </motion.div>
 
             {/* Top-Left Signature Logo: Links to Home (matching template framer-10cydve) */}
             <div className="relative z-20 p-6">
@@ -198,17 +204,16 @@ export default function ContactPage() {
               className={`text-[38px] sm:text-[46px] md:text-[52px] font-semibold tracking-tight leading-[1.1] mb-4 ${isDarkMode ? "text-white" : "text-[#1e1e28]"
                 }`}
             >
-              <span className="inline-block animate-word-blur" style={{ animationDelay: "0.15s" }}>Let’s</span>{" "}
-              <span className="inline-block animate-word-blur" style={{ animationDelay: "0.23s" }}>talk</span>
+              <WordBlur text="Let’s talk" baseDelay={0.15} />
             </h1>
-            <p
-              className={`text-[15px] sm:text-[16px] leading-relaxed mb-8 sm:mb-10 animate-content-slide-up ${isDarkMode ? "text-[#8e8e93]" : "text-[#71717f]"
+            <motion.p
+              {...fadeUpProps(0.4)}
+              className={`text-[15px] sm:text-[16px] leading-relaxed mb-8 sm:mb-10 ${isDarkMode ? "text-[#8e8e93]" : "text-[#71717f]"
                 }`}
-              style={{ animationDelay: "0.4s" }}
             >
               I’d love to hear from you! Whether you have a question, a project in mind,
               or just want to say hi, feel free to reach out.
-            </p>
+            </motion.p>
 
             {/* Contact Form OR Success State (exact match to template reference) */}
             {isSent ? (
@@ -252,10 +257,10 @@ export default function ContactPage() {
                 </p>
               </div>
             ) : (
-              <form
+              <motion.form
+                {...fadeUpProps(0.6)}
                 onSubmit={handleSubmit}
-                className="flex flex-col gap-6 sm:gap-7 w-full animate-content-slide-up"
-                style={{ animationDelay: "0.6s" }}
+                className="flex flex-col gap-6 sm:gap-7 w-full"
               >
                 {/* Row 1: Name & Email */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 w-full">
@@ -457,7 +462,7 @@ export default function ContactPage() {
                     </span>
                   </div>
                 </div>
-              </form>
+              </motion.form>
             )}
           </div>
         </section>

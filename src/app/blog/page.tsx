@@ -3,8 +3,11 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { motion } from "framer-motion";
 import ThemeToggle from "@/components/ThemeToggle";
 import { useTheme } from "@/context/ThemeContext";
+import WordBlur from "@/components/WordBlur";
+import { fadeUpProps, heroImageProps } from "@/lib/motion";
 import { blogPosts } from "@/data/blogData";
 
 export default function BlogPage() {
@@ -43,7 +46,10 @@ export default function BlogPage() {
         <section className="w-full h-[460px] sm:h-[500px] md:h-[560px] lg:h-full py-5 md:py-8 lg:py-4 px-5 md:px-8 lg:pl-4 lg:pr-0 min-w-0 overflow-hidden flex lg:flex-[1.3_0_0px] flex-shrink-0">
           <div className="relative w-full h-full rounded-[16px] overflow-hidden flex flex-col justify-between shadow-2xl group border border-white/5">
             {/* Background Image: matches framer-1xgvdcj (fill, cover, centered) */}
-            <div className="absolute inset-0 z-0 rounded-[16px] overflow-hidden animate-hero-image">
+            <motion.div
+              {...heroImageProps(false)}
+              className="absolute inset-0 z-0 rounded-[16px] overflow-hidden"
+            >
               <Image
                 src="/images/9rDa37mrWKjRmKCbZeHnURC402s.png"
                 alt="Beyond the Pixels"
@@ -55,7 +61,7 @@ export default function BlogPage() {
               />
               {/* Dark overlay matching template #0000004d (~30%) */}
               <div className="absolute inset-0 bg-black/30 pointer-events-none rounded-[16px] z-10" />
-            </div>
+            </motion.div>
 
             {/* Top-Left Signature Logo: Links to Home (matching template framer-10cydve) */}
             <div className="relative z-20 p-6">
@@ -163,22 +169,22 @@ export default function BlogPage() {
               className={`text-[36px] sm:text-[44px] md:text-[50px] lg:text-[54px] font-semibold tracking-tight leading-[1.1] mb-4 ${isDarkMode ? "text-white" : "text-[#1e1e28]"
                 }`}
             >
-              <span className="inline-block animate-word-blur" style={{ animationDelay: "0.15s" }}>Blog</span>
+              <WordBlur text="Blog" baseDelay={0.15} />
             </h1>
-            <p
-              className={`text-[15px] sm:text-[16px] leading-relaxed mb-7 sm:mb-8 animate-content-slide-up ${isDarkMode ? "text-[#8e8e93]" : "text-[#71717f]"
+            <motion.p
+              {...fadeUpProps(0.4)}
+              className={`text-[15px] sm:text-[16px] leading-relaxed mb-7 sm:mb-8 ${isDarkMode ? "text-[#8e8e93]" : "text-[#71717f]"
                 }`}
-              style={{ animationDelay: "0.4s" }}
             >
               Welcome to the blog, a space where I share insights, inspiration,
               behind-the-scenes moments, and everything in between.
-            </p>
+            </motion.p>
 
             {/* Newsletter Subscription Form with exact template delay 0.6s */}
-            <form
+            <motion.form
+              {...fadeUpProps(0.6)}
               onSubmit={handleSubscribe}
-              className="space-y-4 animate-content-slide-up"
-              style={{ animationDelay: "0.6s" }}
+              className="space-y-4"
             >
               <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2.5 w-full">
                 <input
@@ -238,13 +244,13 @@ export default function BlogPage() {
                   Trusted by 1,000+ Creators
                 </span>
               </div>
-            </form>
+            </motion.form>
           </div>
 
-          {/* Blog Feed Cards with exact template delay 0.6s */}
-          <div
-            className="pl-0 lg:pl-3 pb-20 pt-4 flex flex-col gap-12 sm:gap-14 animate-content-slide-up"
-            style={{ animationDelay: "0.6s" }}
+          {/* Blog Feed Cards with exact template delay 0.7s */}
+          <motion.div
+            {...fadeUpProps(0.7)}
+            className="pl-0 lg:pl-3 pb-20 pt-4 flex flex-col gap-12 sm:gap-14"
           >
             {blogPosts.slice(0, visibleCount).map((post) => (
               <article key={post.slug} className="group flex flex-col">
@@ -311,7 +317,7 @@ export default function BlogPage() {
                 </button>
               </div>
             )}
-          </div>
+          </motion.div>
         </section>
       </div>
 

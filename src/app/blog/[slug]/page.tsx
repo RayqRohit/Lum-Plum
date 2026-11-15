@@ -3,11 +3,13 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { motion } from "framer-motion";
 import ThemeToggle from "@/components/ThemeToggle";
 import { useTheme } from "@/context/ThemeContext";
 import { useParams, notFound } from "next/navigation";
 import { blogPostsBySlug, blogPosts } from "@/data/blogData";
 import WordBlur from "@/components/WordBlur";
+import { fadeUpProps, heroImageProps } from "@/lib/motion";
 
 export default function BlogPostDetailPage() {
   const params = useParams();
@@ -30,7 +32,10 @@ export default function BlogPostDetailPage() {
         <section className="w-full h-[460px] sm:h-[500px] md:h-[560px] lg:h-full py-5 md:py-8 lg:py-4 px-5 md:px-8 lg:pl-4 lg:pr-0 min-w-0 overflow-hidden flex lg:flex-[1.3_0_0px] flex-shrink-0">
           <div className="relative w-full h-full rounded-[16px] overflow-hidden flex flex-col justify-between shadow-2xl group border border-white/5">
             {/* Background Blog Cover Image */}
-            <div className="absolute inset-0 z-0 rounded-[16px] overflow-hidden animate-hero-image">
+            <motion.div
+              {...heroImageProps(false)}
+              className="absolute inset-0 z-0 rounded-[16px] overflow-hidden"
+            >
               <Image
                 src={post.image}
                 alt={post.title}
@@ -41,7 +46,7 @@ export default function BlogPostDetailPage() {
                 sizes="(min-width: 1024px) 58vw, 100vw"
               />
               <div className="absolute inset-0 bg-black/35 pointer-events-none rounded-[16px] z-20" />
-            </div>
+            </motion.div>
 
             {/* Top Logo - Exact Framer Axel template styling (p-6, 32px font size, rotate(-22deg), Chaumont Script) */}
             <div className="relative z-10 p-6">
@@ -216,9 +221,9 @@ export default function BlogPostDetailPage() {
             </h1>
 
             {/* Content Blocks */}
-            <div
-              className="space-y-6 animate-content-slide-up"
-              style={{ animationDelay: "0.4s" }}
+            <motion.div
+              {...fadeUpProps(0.4)}
+              className="space-y-6"
             >
               {post.blocks.map((block, idx) => {
                 if (block.type === "h2") {
@@ -254,7 +259,7 @@ export default function BlogPostDetailPage() {
                   />
                 );
               })}
-            </div>
+            </motion.div>
           </article>
         </section>
       </div>

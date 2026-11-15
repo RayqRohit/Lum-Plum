@@ -3,8 +3,11 @@
 import { useState, useEffect, useCallback } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { motion } from "framer-motion";
 import ThemeToggle from "@/components/ThemeToggle";
 import { useTheme } from "@/context/ThemeContext";
+import WordBlur from "@/components/WordBlur";
+import { fadeUpProps, heroImageProps } from "@/lib/motion";
 
 interface Slide {
   id: number;
@@ -113,7 +116,10 @@ export default function ProjectsPage() {
         <section className="w-full h-[460px] sm:h-[500px] md:h-[560px] lg:h-full py-5 md:py-8 lg:py-4 px-5 md:px-8 lg:pl-4 lg:pr-0 min-w-0 overflow-hidden flex lg:flex-[1.3_0_0px] flex-shrink-0">
           <div className="relative w-full h-full rounded-[16px] overflow-hidden flex flex-col justify-between shadow-2xl group border border-white/5">
             {/* Background Image Layers - Stacked for smooth crossfade transitions */}
-            <div className="absolute inset-0 z-0 rounded-[16px] overflow-hidden animate-hero-image-rotate">
+            <motion.div
+              {...heroImageProps(true)}
+              className="absolute inset-0 z-0 rounded-[16px] overflow-hidden"
+            >
               {slides.map((slide, index) => {
                 const isActive = currentSlide === index;
                 return (
@@ -137,7 +143,7 @@ export default function ProjectsPage() {
               })}
               {/* Overlay with 40% darkness matching template */}
               <div className="absolute inset-0 bg-black/40 pointer-events-none rounded-[16px] z-20" />
-            </div>
+            </motion.div>
 
             {/* Top Logo - Exact Framer Axel template styling (p-6, 32px font size, rotate(-22deg), Chaumont Script) */}
             <div className="relative z-10 p-6">
@@ -290,22 +296,22 @@ export default function ProjectsPage() {
                   className={`text-[32px] sm:text-[40px] md:text-[48px] lg:text-[56px] font-semibold tracking-normal leading-[1.2] ${isDarkMode ? "text-[#fafafa]" : "text-[#1e1e28]"
                     }`}
                 >
-                  <span className="inline-block animate-word-blur" style={{ animationDelay: "0.15s" }}>Projects</span>
+                  <WordBlur text="Projects" baseDelay={0.15} />
                 </h1>
-                <p
-                  className={`text-[16px] font-normal leading-[1.4] animate-content-slide-up ${isDarkMode ? "text-[#a0a0a0]" : "text-[#47474f]"
+                <motion.p
+                  {...fadeUpProps(0.4)}
+                  className={`text-[16px] font-normal leading-[1.4] ${isDarkMode ? "text-[#a0a0a0]" : "text-[#47474f]"
                     }`}
-                  style={{ animationDelay: "0.4s" }}
                 >
                   Here’s a collection of the work I’ve had the privilege to bring to life. Each
                   project tells a unique story, crafted with creativity and attention to detail.
-                </p>
+                </motion.p>
               </div>
 
-              {/* Projects Table List: matches framer-10sjdvu & framer-720d3c (width 562px) with delay 0.8s */}
-              <div
-                className="flex flex-col w-full animate-content-slide-up"
-                style={{ animationDelay: "0.8s" }}
+              {/* Projects Table List: matches framer-10sjdvu & framer-720d3c (width 562px) with delay 0.65s */}
+              <motion.div
+                {...fadeUpProps(0.65)}
+                className="flex flex-col w-full"
               >
                 {projectsList.map((project) => (
                   <Link
@@ -356,7 +362,7 @@ export default function ProjectsPage() {
                     </div>
                   </Link>
                 ))}
-              </div>
+              </motion.div>
             </div>
           </div>
         </section>

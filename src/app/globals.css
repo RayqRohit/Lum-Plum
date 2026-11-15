@@ -127,72 +127,82 @@ html.dark ::selection,
   animation: pillFill 5s linear forwards;
 }
 
-/* Framer Axel Template Animations (exact match to template timings and spring curves) */
+/* Framer Axel Template Animations (ultra-smooth spring curves & GPU composited) */
 @keyframes heroImageReveal {
   0% {
     opacity: 0.001;
-    transform: scale(1.1);
+    transform: scale(1.08) translateZ(0);
   }
   100% {
     opacity: 1;
-    transform: scale(1);
+    transform: scale(1) translateZ(0);
   }
 }
 
 @keyframes heroImageRotateReveal {
   0% {
     opacity: 0.001;
-    transform: scale(1.1) rotate(1deg);
+    transform: scale(1.08) rotate(1deg) translateZ(0);
   }
   100% {
     opacity: 1;
-    transform: scale(1) rotate(0deg);
+    transform: scale(1) rotate(0deg) translateZ(0);
   }
 }
 
 @keyframes wordBlurIn {
   0% {
     opacity: 0.001;
-    filter: blur(10px);
-    transform: translateY(10px);
+    filter: blur(8px);
+    transform: translateY(8px) translateZ(0);
   }
   100% {
     opacity: 1;
     filter: blur(0px);
-    transform: translateY(0px);
+    transform: translateY(0px) translateZ(0);
   }
 }
 
 @keyframes contentSlideUp {
   0% {
     opacity: 0.001;
-    transform: translateY(10px);
+    transform: translateY(14px) translateZ(0);
   }
   100% {
     opacity: 1;
-    transform: translateY(0px);
+    transform: translateY(0px) translateZ(0);
   }
 }
 
 .animate-hero-image {
-  animation: heroImageReveal 2s cubic-bezier(0.16, 1, 0.3, 1) both;
+  animation: heroImageReveal 2.2s cubic-bezier(0.16, 1, 0.3, 1) both;
   will-change: transform, opacity;
+  transform-origin: center;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
 }
 
 .animate-hero-image-rotate {
-  animation: heroImageRotateReveal 2s cubic-bezier(0.16, 1, 0.3, 1) both;
+  animation: heroImageRotateReveal 2.2s cubic-bezier(0.16, 1, 0.3, 1) both;
   will-change: transform, opacity;
+  transform-origin: center;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
 }
 
 .animate-word-blur {
   display: inline-block;
-  animation: wordBlurIn 0.5s cubic-bezier(0.2, 0.65, 0.3, 0.9) both;
+  animation: wordBlurIn 0.85s cubic-bezier(0.16, 1, 0.3, 1) both;
   will-change: transform, filter, opacity;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
 }
 
 .animate-content-slide-up {
-  animation: contentSlideUp 0.5s cubic-bezier(0.16, 1, 0.3, 1) both;
+  animation: contentSlideUp 0.85s cubic-bezier(0.16, 1, 0.3, 1) both;
   will-change: transform, opacity;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
 }
 
 

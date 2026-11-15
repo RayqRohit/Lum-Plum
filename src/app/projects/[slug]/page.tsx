@@ -3,11 +3,13 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { motion } from "framer-motion";
 import ThemeToggle from "@/components/ThemeToggle";
 import { useTheme } from "@/context/ThemeContext";
 import { useParams, notFound } from "next/navigation";
 import { projectsData } from "@/data/projectsData";
 import WordBlur from "@/components/WordBlur";
+import { fadeUpProps, heroImageProps } from "@/lib/motion";
 
 export default function ProjectDetailPage() {
   const params = useParams();
@@ -29,7 +31,10 @@ export default function ProjectDetailPage() {
         <section className="w-full h-[460px] sm:h-[500px] md:h-[560px] lg:h-full py-5 md:py-8 lg:py-4 px-5 md:px-8 lg:pl-4 lg:pr-0 min-w-0 overflow-hidden flex lg:flex-[1.3_0_0px] flex-shrink-0">
           <div className="relative w-full h-full rounded-[16px] overflow-hidden flex flex-col justify-between shadow-2xl group border border-white/5">
             {/* Background Project Image */}
-            <div className="absolute inset-0 z-0 rounded-[16px] overflow-hidden animate-hero-image">
+            <motion.div
+              {...heroImageProps(false)}
+              className="absolute inset-0 z-0 rounded-[16px] overflow-hidden"
+            >
               <Image
                 src={project.image}
                 alt={project.title}
@@ -39,7 +44,7 @@ export default function ProjectDetailPage() {
                 sizes="(min-width: 1024px) 58vw, 100vw"
               />
               <div className="absolute inset-0 bg-black/40 pointer-events-none rounded-[16px] z-20" />
-            </div>
+            </motion.div>
 
             {/* Top Logo - Exact Framer Axel template styling (p-6, 32px font size, rotate(-22deg), Chaumont Script) */}
             <div className="relative z-10 p-6">
@@ -214,15 +219,15 @@ export default function ProjectDetailPage() {
             </h1>
 
             {/* Intro Paragraphs */}
-            <div
-              className={`space-y-5 text-[16px] leading-[1.65] font-normal animate-content-slide-up ${isDarkMode ? "text-[#a0a0a0]" : "text-[#47474f]"
+            <motion.div
+              {...fadeUpProps(0.4)}
+              className={`space-y-5 text-[16px] leading-[1.65] font-normal ${isDarkMode ? "text-[#a0a0a0]" : "text-[#47474f]"
                 }`}
-              style={{ animationDelay: "0.4s" }}
             >
               {project.introParagraphs.map((para, index) => (
                 <p key={index}>{para}</p>
               ))}
-            </div>
+            </motion.div>
 
             {/* Main Section */}
             {project.mainSection && (

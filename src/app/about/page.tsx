@@ -3,8 +3,11 @@
 import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { motion } from "framer-motion";
 import ThemeToggle from "@/components/ThemeToggle";
 import { useTheme } from "@/context/ThemeContext";
+import WordBlur from "@/components/WordBlur";
+import { fadeUpProps, heroImageProps } from "@/lib/motion";
 
 export default function AboutPage() {
   const { isDarkMode, setIsDarkMode } = useTheme();
@@ -19,7 +22,10 @@ export default function AboutPage() {
         <section className="w-full h-[460px] sm:h-[500px] md:h-[560px] lg:h-full py-5 md:py-8 lg:py-4 px-5 md:px-8 lg:pl-4 lg:pr-0 min-w-0 overflow-hidden flex lg:flex-[1.3_0_0px] flex-shrink-0">
           <div className="relative w-full h-full rounded-[16px] overflow-hidden flex flex-col justify-between shadow-2xl group border border-white/5">
             {/* Background Image: matches framer-1xgvdcj (fill, cover, centered) */}
-            <div className="absolute inset-0 z-0 rounded-[16px] overflow-hidden animate-hero-image">
+            <motion.div
+              {...heroImageProps(false)}
+              className="absolute inset-0 z-0 rounded-[16px] overflow-hidden"
+            >
               <Image
                 src="/images/WWdQ2zLteXSFypujmTT6YJPQvA.jpg"
                 alt="Rayq"
@@ -28,7 +34,7 @@ export default function AboutPage() {
                 className="object-cover object-center rounded-[16px]"
                 sizes="(min-width: 1024px) 55vw, 100vw"
               />
-            </div>
+            </motion.div>
 
             {/* Top-Left Signature Logo: Links to Home (matching template framer-10cydve) */}
             <div className="relative z-10 p-6">
@@ -201,16 +207,13 @@ export default function AboutPage() {
               className={`text-[42px] sm:text-[50px] lg:text-[56px] font-semibold tracking-tight leading-[1.1] mb-6 sm:mb-8 ${isDarkMode ? "text-white" : "text-[#1e1e28]"
                 }`}
             >
-              <span className="inline-block animate-word-blur" style={{ animationDelay: "0.15s" }}>A</span>{" "}
-              <span className="inline-block animate-word-blur" style={{ animationDelay: "0.23s" }}>little</span>{" "}
-              <span className="inline-block animate-word-blur" style={{ animationDelay: "0.31s" }}>about</span>{" "}
-              <span className="inline-block animate-word-blur" style={{ animationDelay: "0.39s" }}>me</span>
+              <WordBlur text="A little about me" baseDelay={0.15} stagger={0.06} />
             </h1>
 
-            <div
-              className={`space-y-6 text-[17px] sm:text-[18px] lg:text-[16px] leading-[1.65] animate-content-slide-up ${isDarkMode ? "text-[#a0a0a0]" : "text-[#47474f]"
+            <motion.div
+              {...fadeUpProps(0.4)}
+              className={`space-y-6 text-[17px] sm:text-[18px] lg:text-[16px] leading-[1.65] ${isDarkMode ? "text-[#a0a0a0]" : "text-[#47474f]"
                 }`}
-              style={{ animationDelay: "0.4s" }}
             >
               <p>
                 Hi, I’m Rayq, a Creative Director passionate about turning ideas into impactful visuals. I thrive on storytelling, design, and strategy, bringing brands to life with creativity and purpose.
@@ -221,12 +224,12 @@ export default function AboutPage() {
               <p>
                 Let’s create something amazing together!
               </p>
-            </div>
+            </motion.div>
 
             {/* Script Signature directly under the copy, aligned right, matching template */}
-            <div
-              className="flex justify-end pt-4 sm:pt-6 animate-content-slide-up"
-              style={{ animationDelay: "0.55s" }}
+            <motion.div
+              {...fadeUpProps(0.55)}
+              className="flex justify-end pt-4 sm:pt-6"
             >
               <span
                 className={`font-style-script text-[32px] select-none ${isDarkMode ? "text-white" : "text-[#1e1e28]"
@@ -234,7 +237,7 @@ export default function AboutPage() {
               >
                 Rayq
               </span>
-            </div>
+            </motion.div>
           </div>
         </section>
       </div>
