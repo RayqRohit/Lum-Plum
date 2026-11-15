@@ -24,7 +24,7 @@ const slides: Slide[] = [
     id: 1,
     title: "Luminous",
     category: "Visual Design",
-    image: "/images/oYhlVIWU5MgrLHfcqMQS7M3AxA.jpg",
+    image: "/images/yStE9KWzFrtJTVgDpvp7op43a0U.jpg",
   },
   {
     id: 2,
@@ -36,7 +36,8 @@ const slides: Slide[] = [
     id: 3,
     title: "Atlas",
     category: "Creative Direction",
-    image: "/images/yStE9KWzFrtJTVgDpvp7op43a0U.jpg",
+    image: "/images/oYhlVIWU5MgrLHfcqMQS7M3AxA.jpg",
+
   },
 ];
 
@@ -195,17 +196,16 @@ export default function Home() {
           {/* Top Header: On mobile the entire bar scrolls together (nav + theme switch), matching axeltmpl .framer-1lxwaom { overflow: auto } */}
           <header className="w-full flex-shrink-0 overflow-x-auto no-scrollbar py-1">
             <div className="flex items-center justify-between min-w-max w-full gap-8 md:gap-12 pl-3 lg:pl-3">
-              <nav className="relative flex items-center gap-8 flex-shrink-0 py-1">
-                {/* Active Backdrop Pill: slim top/bottom padding (-top-[3px] -bottom-[3px]) */}
-                <span
-                  className={`absolute -left-3 -top-[3px] -bottom-[3px] w-[66px] rounded-full transition-colors pointer-events-none -z-0 ${isDarkMode ? "bg-[#1e1e1e]" : "bg-[#f0f0f0]"
-                    }`}
-                />
+              <nav className="relative flex items-center gap-8 flex-shrink-0 py-2">
                 <Link
                   href="/"
                   className={`relative z-10 text-[15px] font-medium leading-[1.2] flex-shrink-0 transition-colors ${isDarkMode ? "text-white" : "text-black"
                     }`}
                 >
+                  <span
+                    className={`absolute -inset-x-3 -inset-y-[6.5px] rounded-full transition-colors pointer-events-none -z-10 ${isDarkMode ? "bg-[#1e1e1e]" : "bg-[#f0f0f0]"
+                      }`}
+                  />
                   Home
                 </Link>
                 <Link
@@ -293,7 +293,7 @@ export default function Home() {
                   className="flex items-center gap-4 flex-wrap mt-2 sm:mt-0"
                 >
                   <Link
-                    href="#"
+                    href="/contact"
                     style={{
                       height: "48px",
                       padding: "0 24px",
@@ -306,7 +306,7 @@ export default function Home() {
                     <span>Book a call</span>
                   </Link>
                   <Link
-                    href="#"
+                    href="/projects"
                     style={{
                       height: "48px",
                       padding: "0 24px",

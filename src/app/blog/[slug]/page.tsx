@@ -154,17 +154,12 @@ export default function BlogPostDetailPage() {
           {/* Top Navigation Header: matches axeltmpl with Blog pill */}
           <header className="w-full flex-shrink-0 overflow-x-auto no-scrollbar py-1 pl-3 lg:pl-3">
             <div className="flex items-center justify-between min-w-max w-full gap-8 md:gap-12">
-              <nav className="relative flex items-center gap-8 flex-shrink-0 py-1">
-                {/* Active Backdrop Pill for Blog */}
-                <span
-                  className={`absolute left-[228px] -top-[3px] -bottom-[3px] w-[62px] rounded-full transition-colors pointer-events-none -z-0 ${isDarkMode ? "bg-[#1e1e1e]" : "bg-[#f0f0f0]"
-                    }`}
-                />
+              <nav className="relative flex items-center gap-8 flex-shrink-0 py-2">
                 <Link
                   href="/"
                   className={`relative z-10 text-[15px] font-medium leading-[1.2] flex-shrink-0 transition-colors ${isDarkMode
-                      ? "text-[#a0a0a0] hover:text-white"
-                      : "text-[#666666] hover:text-black"
+                    ? "text-[#a0a0a0] hover:text-white"
+                    : "text-[#666666] hover:text-black"
                     }`}
                 >
                   Home
@@ -172,8 +167,8 @@ export default function BlogPostDetailPage() {
                 <Link
                   href="/about"
                   className={`relative z-10 text-[15px] font-medium leading-[1.2] flex-shrink-0 transition-colors ${isDarkMode
-                      ? "text-[#a0a0a0] hover:text-white"
-                      : "text-[#666666] hover:text-black"
+                    ? "text-[#a0a0a0] hover:text-white"
+                    : "text-[#666666] hover:text-black"
                     }`}
                 >
                   About
@@ -181,8 +176,8 @@ export default function BlogPostDetailPage() {
                 <Link
                   href="/projects"
                   className={`relative z-10 text-[15px] font-medium leading-[1.2] flex-shrink-0 transition-colors ${isDarkMode
-                      ? "text-[#a0a0a0] hover:text-white"
-                      : "text-[#666666] hover:text-black"
+                    ? "text-[#a0a0a0] hover:text-white"
+                    : "text-[#666666] hover:text-black"
                     }`}
                 >
                   Projects
@@ -192,13 +187,17 @@ export default function BlogPostDetailPage() {
                   className={`relative z-10 text-[15px] font-medium leading-[1.2] flex-shrink-0 transition-colors ${isDarkMode ? "text-white" : "text-black"
                     }`}
                 >
+                  <span
+                    className={`absolute -inset-x-3 -inset-y-[6.5px] rounded-full transition-colors pointer-events-none -z-10 ${isDarkMode ? "bg-[#1e1e1e]" : "bg-[#f0f0f0]"
+                      }`}
+                  />
                   Blog
                 </Link>
                 <Link
                   href="/contact"
                   className={`relative z-10 text-[15px] font-medium leading-[1.2] flex-shrink-0 transition-colors ${isDarkMode
-                      ? "text-[#a0a0a0] hover:text-white"
-                      : "text-[#666666] hover:text-black"
+                    ? "text-[#a0a0a0] hover:text-white"
+                    : "text-[#666666] hover:text-black"
                     }`}
                 >
                   Contact
@@ -242,8 +241,8 @@ export default function BlogPostDetailPage() {
                     <blockquote
                       key={idx}
                       className={`border-l-2 pl-4 sm:pl-5 py-2 my-7 text-[15px] sm:text-[16px] italic leading-relaxed ${isDarkMode
-                          ? "border-white/30 text-white/90 bg-white/[0.02]"
-                          : "border-black/30 text-[#1e1e28]/90 bg-black/[0.02]"
+                        ? "border-white/30 text-white/90 bg-white/[0.02]"
+                        : "border-black/30 text-[#1e1e28]/90 bg-black/[0.02]"
                         }`}
                       dangerouslySetInnerHTML={{ __html: block.html }}
                     />

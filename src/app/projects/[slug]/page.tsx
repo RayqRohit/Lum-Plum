@@ -152,12 +152,7 @@ export default function ProjectDetailPage() {
           {/* Top Navigation Header: matches axeltmpl with Projects pill */}
           <header className="w-full flex-shrink-0 overflow-x-auto no-scrollbar py-1 pl-3 lg:pl-3">
             <div className="flex items-center justify-between min-w-max w-full gap-8 md:gap-12">
-              <nav className="relative flex items-center gap-8 flex-shrink-0 py-1">
-                {/* Active Backdrop Pill for Projects */}
-                <span
-                  className={`absolute left-[137px] -top-[4px] -bottom-[4px] w-[82px] rounded-full transition-colors pointer-events-none -z-0 ${isDarkMode ? "bg-[#1e1e1e]" : "bg-[#f0f0f0]"
-                    }`}
-                />
+              <nav className="relative flex items-center gap-8 flex-shrink-0 py-2">
                 <Link
                   href="/"
                   className={`relative z-10 text-[15px] font-medium leading-[1.2] flex-shrink-0 transition-colors ${isDarkMode
@@ -181,6 +176,10 @@ export default function ProjectDetailPage() {
                   className={`relative z-10 text-[15px] font-medium leading-[1.2] flex-shrink-0 transition-colors ${isDarkMode ? "text-[#fafafa]" : "text-[#1e1e28]"
                     }`}
                 >
+                  <span
+                    className={`absolute -inset-x-3 -inset-y-[6.5px] rounded-full transition-colors pointer-events-none -z-10 ${isDarkMode ? "bg-[#1e1e1e]" : "bg-[#f0f0f0]"
+                      }`}
+                  />
                   Projects
                 </Link>
                 <Link

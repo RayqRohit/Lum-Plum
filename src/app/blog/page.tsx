@@ -107,12 +107,7 @@ export default function BlogPage() {
           {/* Top Header Navigation */}
           <header className="w-full flex-shrink-0 overflow-x-auto no-scrollbar py-1">
             <div className="flex items-center justify-between min-w-max w-full gap-8 md:gap-12 pl-3 lg:pl-3">
-              <nav className="relative flex items-center gap-8 flex-shrink-0 py-1">
-                {/* Active Backdrop Pill for Blog */}
-                <span
-                  className={`absolute left-[228px] -top-[3px] -bottom-[3px] w-[62px] rounded-full transition-colors pointer-events-none -z-0 ${isDarkMode ? "bg-[#1e1e1e]" : "bg-[#f0f0f0]"
-                    }`}
-                />
+              <nav className="relative flex items-center gap-8 flex-shrink-0 py-2">
                 <Link
                   href="/"
                   className={`relative z-10 text-[15px] font-medium leading-[1.2] flex-shrink-0 transition-colors ${isDarkMode
@@ -145,6 +140,10 @@ export default function BlogPage() {
                   className={`relative z-10 text-[15px] font-medium leading-[1.2] flex-shrink-0 transition-colors ${isDarkMode ? "text-white" : "text-black"
                     }`}
                 >
+                  <span
+                    className={`absolute -inset-x-3 -inset-y-[6.5px] rounded-full transition-colors pointer-events-none -z-10 ${isDarkMode ? "bg-[#1e1e1e]" : "bg-[#f0f0f0]"
+                      }`}
+                  />
                   Blog
                 </Link>
                 <Link
@@ -329,17 +328,15 @@ export default function BlogPage() {
         >
           <div
             onClick={(e) => e.stopPropagation()}
-            className={`w-[580px] max-w-[92vw] py-11 px-8 sm:py-12 sm:px-14 rounded-[15px] flex flex-col items-center text-center shadow-[0_25px_60px_-15px_rgba(0,0,0,0.9)] cursor-default transition-all duration-200 transform scale-100 ${
-              isDarkMode
+            className={`w-[580px] max-w-[92vw] py-11 px-8 sm:py-12 sm:px-14 rounded-[15px] flex flex-col items-center text-center shadow-[0_25px_60px_-15px_rgba(0,0,0,0.9)] cursor-default transition-all duration-200 transform scale-100 ${isDarkMode
                 ? "bg-[#141414] text-white"
                 : "bg-white text-[#1e1e28] shadow-[0_20px_50px_rgba(0,0,0,0.1)]"
-            }`}
+              }`}
           >
             {/* Checkmark in Circle */}
             <div
-              className={`w-9 h-9 rounded-full border-[1.75px] flex items-center justify-center mb-4 ${
-                isDarkMode ? "border-white text-white" : "border-[#1e1e28] text-[#1e1e28]"
-              }`}
+              className={`w-9 h-9 rounded-full border-[1.75px] flex items-center justify-center mb-4 ${isDarkMode ? "border-white text-white" : "border-[#1e1e28] text-[#1e1e28]"
+                }`}
             >
               <svg
                 width="16"
@@ -357,18 +354,16 @@ export default function BlogPage() {
 
             {/* Title */}
             <h3
-              className={`text-[21px] sm:text-[23px] font-semibold tracking-normal mb-2 ${
-                isDarkMode ? "text-white" : "text-[#1e1e28]"
-              }`}
+              className={`text-[21px] sm:text-[23px] font-semibold tracking-normal mb-2 ${isDarkMode ? "text-white" : "text-[#1e1e28]"
+                }`}
             >
               Thank you
             </h3>
 
             {/* Subtitle */}
             <p
-              className={`text-[15px] sm:text-[15.5px] font-normal leading-normal text-center whitespace-normal sm:whitespace-nowrap ${
-                isDarkMode ? "text-[#8e8e93]" : "text-[#71717f]"
-              }`}
+              className={`text-[15px] sm:text-[15.5px] font-normal leading-normal text-center whitespace-normal sm:whitespace-nowrap ${isDarkMode ? "text-[#8e8e93]" : "text-[#71717f]"
+                }`}
             >
               You&apos;ve successfully subscribed to our blog updates.
             </p>

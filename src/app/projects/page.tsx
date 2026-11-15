@@ -126,8 +126,8 @@ export default function ProjectsPage() {
                   <div
                     key={slide.id}
                     className={`absolute inset-0 transition-all duration-700 ease-out ${isActive
-                        ? "opacity-100 scale-100 z-10"
-                        : "opacity-0 scale-[1.04] pointer-events-none z-0"
+                      ? "opacity-100 scale-100 z-10"
+                      : "opacity-0 scale-[1.04] pointer-events-none z-0"
                       }`}
                   >
                     <Image
@@ -232,17 +232,12 @@ export default function ProjectsPage() {
             {/* Top Navigation Header: matches framer-1bejsl8 (padding: 0 0 0 12px) */}
             <header className="w-full flex-shrink-0 overflow-x-auto no-scrollbar py-1 pl-3 lg:pl-3">
               <div className="flex items-center justify-between min-w-max w-full gap-8 md:gap-12">
-                <nav className="relative flex items-center gap-8 flex-shrink-0 py-1">
-                  {/* Active Backdrop Pill: Exact Framer position for Projects (centered on Projects, width 82px) */}
-                  <span
-                    className={`absolute left-[137px] -top-[4px] -bottom-[4px] w-[82px] rounded-full transition-colors pointer-events-none -z-0 ${isDarkMode ? "bg-[#1e1e1e]" : "bg-[#f0f0f0]"
-                      }`}
-                  />
+                <nav className="relative flex items-center gap-8 flex-shrink-0 py-2">
                   <Link
                     href="/"
                     className={`relative z-10 text-[15px] font-medium leading-[1.2] flex-shrink-0 transition-colors ${isDarkMode
-                        ? "text-[#a0a0a0] hover:text-white"
-                        : "text-[#666666] hover:text-black"
+                      ? "text-[#a0a0a0] hover:text-white"
+                      : "text-[#666666] hover:text-black"
                       }`}
                   >
                     Home
@@ -250,8 +245,8 @@ export default function ProjectsPage() {
                   <Link
                     href="/about"
                     className={`relative z-10 text-[15px] font-medium leading-[1.2] flex-shrink-0 transition-colors ${isDarkMode
-                        ? "text-[#a0a0a0] hover:text-white"
-                        : "text-[#666666] hover:text-black"
+                      ? "text-[#a0a0a0] hover:text-white"
+                      : "text-[#666666] hover:text-black"
                       }`}
                   >
                     About
@@ -261,13 +256,17 @@ export default function ProjectsPage() {
                     className={`relative z-10 text-[15px] font-medium leading-[1.2] flex-shrink-0 transition-colors ${isDarkMode ? "text-white" : "text-[#1e1e28]"
                       }`}
                   >
+                    <span
+                      className={`absolute -inset-x-3 -inset-y-[6.5px] rounded-full transition-colors pointer-events-none -z-10 ${isDarkMode ? "bg-[#1e1e1e]" : "bg-[#f0f0f0]"
+                        }`}
+                    />
                     Projects
                   </Link>
                   <Link
                     href="/blog"
                     className={`relative z-10 text-[15px] font-medium leading-[1.2] flex-shrink-0 transition-colors ${isDarkMode
-                        ? "text-[#a0a0a0] hover:text-white"
-                        : "text-[#666666] hover:text-black"
+                      ? "text-[#a0a0a0] hover:text-white"
+                      : "text-[#666666] hover:text-black"
                       }`}
                   >
                     Blog
@@ -275,8 +274,8 @@ export default function ProjectsPage() {
                   <Link
                     href="/contact"
                     className={`relative z-10 text-[15px] font-medium leading-[1.2] flex-shrink-0 transition-colors ${isDarkMode
-                        ? "text-[#a0a0a0] hover:text-white"
-                        : "text-[#666666] hover:text-black"
+                      ? "text-[#a0a0a0] hover:text-white"
+                      : "text-[#666666] hover:text-black"
                       }`}
                   >
                     Contact
@@ -332,8 +331,8 @@ export default function ProjectsPage() {
                       {project.badge && (
                         <span
                           className={`inline-flex items-center justify-center h-[24px] px-[10px] rounded-full text-[13px] font-semibold leading-none transition-colors duration-200 ${isDarkMode
-                              ? "bg-[#1c2b22] text-[#7eea9b]"
-                              : "bg-[#f5fbf7] text-[#008a1e]"
+                            ? "bg-[#1c2b22] text-[#7eea9b]"
+                            : "bg-[#f5fbf7] text-[#008a1e]"
                             }`}
                         >
                           {project.badge}

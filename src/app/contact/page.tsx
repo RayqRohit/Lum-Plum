@@ -142,17 +142,12 @@ export default function ContactPage() {
           {/* Top Header Navigation */}
           <header className="w-full flex-shrink-0 overflow-x-auto no-scrollbar py-1">
             <div className="flex items-center justify-between min-w-max w-full gap-8 md:gap-12 pl-0 lg:pl-3">
-              <nav className="relative flex items-center gap-8 flex-shrink-0 py-1">
-                {/* Active Backdrop Pill for Contact */}
-                <span
-                  className={`absolute right-[-10px] -top-[3px] -bottom-[3px] w-[78px] rounded-full transition-colors pointer-events-none -z-0 ${isDarkMode ? "bg-[#1e1e1e]" : "bg-[#f0f0f0]"
-                    }`}
-                />
+              <nav className="relative flex items-center gap-8 flex-shrink-0 py-2">
                 <Link
                   href="/"
                   className={`relative z-10 text-[15px] font-medium leading-[1.2] flex-shrink-0 transition-colors ${isDarkMode
-                      ? "text-[#a0a0a0] hover:text-white"
-                      : "text-[#666666] hover:text-black"
+                    ? "text-[#a0a0a0] hover:text-white"
+                    : "text-[#666666] hover:text-black"
                     }`}
                 >
                   Home
@@ -160,8 +155,8 @@ export default function ContactPage() {
                 <Link
                   href="/about"
                   className={`relative z-10 text-[15px] font-medium leading-[1.2] flex-shrink-0 transition-colors ${isDarkMode
-                      ? "text-[#a0a0a0] hover:text-white"
-                      : "text-[#666666] hover:text-black"
+                    ? "text-[#a0a0a0] hover:text-white"
+                    : "text-[#666666] hover:text-black"
                     }`}
                 >
                   About
@@ -169,8 +164,8 @@ export default function ContactPage() {
                 <Link
                   href="/projects"
                   className={`relative z-10 text-[15px] font-medium leading-[1.2] flex-shrink-0 transition-colors ${isDarkMode
-                      ? "text-[#a0a0a0] hover:text-white"
-                      : "text-[#666666] hover:text-black"
+                    ? "text-[#a0a0a0] hover:text-white"
+                    : "text-[#666666] hover:text-black"
                     }`}
                 >
                   Projects
@@ -178,8 +173,8 @@ export default function ContactPage() {
                 <Link
                   href="/blog"
                   className={`relative z-10 text-[15px] font-medium leading-[1.2] flex-shrink-0 transition-colors ${isDarkMode
-                      ? "text-[#a0a0a0] hover:text-white"
-                      : "text-[#666666] hover:text-black"
+                    ? "text-[#a0a0a0] hover:text-white"
+                    : "text-[#666666] hover:text-black"
                     }`}
                 >
                   Blog
@@ -189,6 +184,10 @@ export default function ContactPage() {
                   className={`relative z-10 text-[15px] font-medium leading-[1.2] flex-shrink-0 transition-colors ${isDarkMode ? "text-white" : "text-black"
                     }`}
                 >
+                  <span
+                    className={`absolute -inset-x-3 -inset-y-[6.5px] rounded-full transition-colors pointer-events-none -z-10 ${isDarkMode ? "bg-[#1e1e1e]" : "bg-[#f0f0f0]"
+                      }`}
+                  />
                   Contact
                 </Link>
               </nav>
@@ -220,9 +219,8 @@ export default function ContactPage() {
               <div className="w-full flex flex-col items-center justify-center text-center py-10 px-2 animate-in fade-in duration-300">
                 {/* Checkmark in Circle */}
                 <div
-                  className={`w-10 h-10 rounded-full border-2 flex items-center justify-center mb-4 ${
-                    isDarkMode ? "border-white text-white" : "border-[#1e1e28] text-[#1e1e28]"
-                  }`}
+                  className={`w-10 h-10 rounded-full border-2 flex items-center justify-center mb-4 ${isDarkMode ? "border-white text-white" : "border-[#1e1e28] text-[#1e1e28]"
+                    }`}
                 >
                   <svg
                     width="17"
@@ -240,18 +238,16 @@ export default function ContactPage() {
 
                 {/* Title */}
                 <h3
-                  className={`text-[21px] sm:text-[23px] font-semibold tracking-normal mb-2 ${
-                    isDarkMode ? "text-white" : "text-[#1e1e28]"
-                  }`}
+                  className={`text-[21px] sm:text-[23px] font-semibold tracking-normal mb-2 ${isDarkMode ? "text-white" : "text-[#1e1e28]"
+                    }`}
                 >
                   Thank you!
                 </h3>
 
                 {/* Description */}
                 <p
-                  className={`text-[15px] sm:text-[15.5px] font-normal leading-relaxed text-center whitespace-normal sm:whitespace-nowrap ${
-                    isDarkMode ? "text-[#8e8e93]" : "text-[#71717f]"
-                  }`}
+                  className={`text-[15px] sm:text-[15.5px] font-normal leading-relaxed text-center whitespace-normal sm:whitespace-nowrap ${isDarkMode ? "text-[#8e8e93]" : "text-[#71717f]"
+                    }`}
                 >
                   I&apos;ll get back to you shortly to discuss your project and next steps.
                 </p>
@@ -277,8 +273,8 @@ export default function ContactPage() {
                       required
                       placeholder="Axel Smith"
                       className={`h-[44px] px-3.5 rounded-[8px] text-[15px] outline-none transition-colors border ${isDarkMode
-                          ? "bg-[#141414] border-[#222222] text-white placeholder:text-[#636366] focus:border-white/40"
-                          : "bg-[#f5f5f7] border-[#e5e5ea] text-[#1e1e28] placeholder:text-[#8e8e93] focus:border-black/30"
+                        ? "bg-[#141414] border-[#222222] text-white placeholder:text-[#636366] focus:border-white/40"
+                        : "bg-[#f5f5f7] border-[#e5e5ea] text-[#1e1e28] placeholder:text-[#8e8e93] focus:border-black/30"
                         }`}
                     />
                   </div>
@@ -296,8 +292,8 @@ export default function ContactPage() {
                       required
                       placeholder="hi@axel.com"
                       className={`h-[44px] px-3.5 rounded-[8px] text-[15px] outline-none transition-colors border ${isDarkMode
-                          ? "bg-[#141414] border-[#222222] text-white placeholder:text-[#636366] focus:border-white/40"
-                          : "bg-[#f5f5f7] border-[#e5e5ea] text-[#1e1e28] placeholder:text-[#8e8e93] focus:border-black/30"
+                        ? "bg-[#141414] border-[#222222] text-white placeholder:text-[#636366] focus:border-white/40"
+                        : "bg-[#f5f5f7] border-[#e5e5ea] text-[#1e1e28] placeholder:text-[#8e8e93] focus:border-black/30"
                         }`}
                     />
                   </div>
@@ -318,8 +314,8 @@ export default function ContactPage() {
                       required
                       placeholder="Dream Studio"
                       className={`h-[44px] px-3.5 rounded-[8px] text-[15px] outline-none transition-colors border ${isDarkMode
-                          ? "bg-[#141414] border-[#222222] text-white placeholder:text-[#636366] focus:border-white/40"
-                          : "bg-[#f5f5f7] border-[#e5e5ea] text-[#1e1e28] placeholder:text-[#8e8e93] focus:border-black/30"
+                        ? "bg-[#141414] border-[#222222] text-white placeholder:text-[#636366] focus:border-white/40"
+                        : "bg-[#f5f5f7] border-[#e5e5ea] text-[#1e1e28] placeholder:text-[#8e8e93] focus:border-black/30"
                         }`}
                     />
                   </div>
@@ -338,12 +334,12 @@ export default function ContactPage() {
                         value={budget}
                         onChange={(e) => setBudget(e.target.value)}
                         className={`h-[44px] w-full px-3.5 pr-9 rounded-[8px] text-[15px] outline-none transition-colors border appearance-none cursor-pointer ${!budget
-                            ? isDarkMode
-                              ? "text-[#636366]"
-                              : "text-[#8e8e93]"
-                            : isDarkMode
-                              ? "text-white"
-                              : "text-[#1e1e28]"
+                          ? isDarkMode
+                            ? "text-[#636366]"
+                            : "text-[#8e8e93]"
+                          : isDarkMode
+                            ? "text-white"
+                            : "text-[#1e1e28]"
                           } ${isDarkMode
                             ? "bg-[#141414] border-[#222222] focus:border-white/40"
                             : "bg-[#f5f5f7] border-[#e5e5ea] focus:border-black/30"
@@ -417,8 +413,8 @@ export default function ContactPage() {
                       resize: "vertical",
                     }}
                     className={`w-full min-h-[100px] p-3.5 rounded-[8px] text-[15px] outline-none transition-colors border ${isDarkMode
-                        ? "bg-[#141414] border-[#222222] text-white placeholder:text-[#636366] focus:border-white/40"
-                        : "bg-[#f5f5f7] border-[#e5e5ea] text-[#1e1e28] placeholder:text-[#8e8e93] focus:border-black/30"
+                      ? "bg-[#141414] border-[#222222] text-white placeholder:text-[#636366] focus:border-white/40"
+                      : "bg-[#f5f5f7] border-[#e5e5ea] text-[#1e1e28] placeholder:text-[#8e8e93] focus:border-black/30"
                       }`}
                   />
                 </div>
@@ -428,8 +424,8 @@ export default function ContactPage() {
                   <button
                     type="submit"
                     className={`h-[44px] px-7 rounded-full text-[14px] sm:text-[15px] font-medium transition-colors cursor-pointer shadow-sm ${isDarkMode
-                        ? "bg-white text-black hover:bg-neutral-200"
-                        : "bg-[#1e1e28] text-white hover:bg-black"
+                      ? "bg-white text-black hover:bg-neutral-200"
+                      : "bg-[#1e1e28] text-white hover:bg-black"
                       }`}
                   >
                     Get in touch
