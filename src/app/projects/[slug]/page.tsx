@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
@@ -13,8 +13,8 @@ import { fadeUpProps, heroImageProps } from "@/lib/motion";
 
 export default function ProjectDetailPage() {
   const params = useParams();
-  const slug = (params?.slug as string) || "luminous";
-  const project = projectsData[slug] || projectsData.luminous;
+  const slug = params?.slug as string;
+  const project = slug ? projectsData[slug] : undefined;
 
   const { isDarkMode, setIsDarkMode } = useTheme();
   if (!project) {

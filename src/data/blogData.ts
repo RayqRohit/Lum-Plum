@@ -3,19 +3,50 @@ export interface ContentBlock {
   html: string;
 }
 
+export type BlogCategory = "Tutorials" | "Inspiration" | "Freebies" | "Interviews";
+
+export interface CategoryColors {
+  darkBg: string;
+  darkText: string;
+  lightBg: string;
+  lightText: string;
+}
+
+export const CATEGORY_COLORS: Record<BlogCategory, CategoryColors> = {
+  Interviews: {
+    darkBg: "bg-[#914dad]/15",
+    darkText: "text-[#ce93e8]",
+    lightBg: "bg-[#f8f4fa]",
+    lightText: "text-[#914dad]",
+  },
+  Inspiration: {
+    darkBg: "bg-[#008a1e]/15",
+    darkText: "text-[#7eea9b]",
+    lightBg: "bg-[#f5fbf7]",
+    lightText: "text-[#008a1e]",
+  },
+  Tutorials: {
+    darkBg: "bg-[#ca7f2d]/15",
+    darkText: "text-[#e7ab61]",
+    lightBg: "bg-[#f8f2eb]",
+    lightText: "text-[#ca7f2d]",
+  },
+  Freebies: {
+    darkBg: "bg-[#2a7ca8]/15",
+    darkText: "text-[#58b9ec]",
+    lightBg: "bg-[#f2f8fb]",
+    lightText: "text-[#2a7ca8]",
+  },
+};
+
 export interface BlogPost {
   slug: string;
   title: string;
-  category: "Tutorials" | "Inspiration" | "Freebies" | "Interviews";
+  category: BlogCategory;
   description: string;
   image: string;
   objectPosition?: string;
-  categoryColors: {
-    darkBg: string;
-    darkText: string;
-    lightBg: string;
-    lightText: string;
-  };
+  categoryColors: CategoryColors;
   blocks: ContentBlock[];
 }
 
@@ -27,12 +58,7 @@ export const blogPosts: BlogPost[] = [
     description: "Design is never just about what ends up on the screen. It’s about the stories behind the work — the process, the pivots, the late-night breakthroughs, and the small choices that add up to something meaningful.",
     image: "/images/9rDa37mrWKjRmKCbZeHnURC402s.png",
     objectPosition: "42.3% 89.5%",
-    categoryColors: {
-          "darkBg": "bg-[#914dad]/15",
-          "darkText": "text-[#ce93e8]",
-          "lightBg": "bg-[#f8f4fa]",
-          "lightText": "text-[#914dad]"
-    },
+    categoryColors: CATEGORY_COLORS.Interviews,
     blocks: [
           {
                 "type": "p",
@@ -135,12 +161,7 @@ export const blogPosts: BlogPost[] = [
     description: "Behind every scroll, click, and tap is a human — with moods, memories, hopes, and fears. Great design doesn’t just function. It feels like something. It moves people.",
     image: "/images/cV12Cr0ywEJequx2W9DSZAPRro.png",
     objectPosition: "100% 50.4%",
-    categoryColors: {
-          "darkBg": "bg-[#008a1e]/15",
-          "darkText": "text-[#7eea9b]",
-          "lightBg": "bg-[#f5fbf7]",
-          "lightText": "text-[#008a1e]"
-    },
+    categoryColors: CATEGORY_COLORS.Inspiration,
     blocks: [
           {
                 "type": "p",
@@ -243,12 +264,7 @@ export const blogPosts: BlogPost[] = [
     description: "As designers, we’re often told to look to Dribbble, Behance, or Pinterest for inspiration. And sure — those platforms are great for seeing what’s trending. But sometimes, the best ideas don’t come from other designs. They come from outside the screen.",
     image: "/images/WZSI76xZM7wdERUJLDTvFijtaI.png",
     objectPosition: "68% 93.1%",
-    categoryColors: {
-          "darkBg": "bg-[#008a1e]/15",
-          "darkText": "text-[#7eea9b]",
-          "lightBg": "bg-[#f5fbf7]",
-          "lightText": "text-[#008a1e]"
-    },
+    categoryColors: CATEGORY_COLORS.Inspiration,
     blocks: [
           {
                 "type": "p",
@@ -355,12 +371,7 @@ export const blogPosts: BlogPost[] = [
     description: "Great design doesn't happen in isolation — it happens through collaboration. At the heart of every successful project is a strong partnership built on trust, transparency, and a shared vision. At our studio, collaboration isn’t just a phase in the process — it is the process.",
     image: "/images/IAg7EBATfKPSkjHUdjMN99PoAt4.png",
     objectPosition: "center",
-    categoryColors: {
-          "darkBg": "bg-[#ca7f2d]/15",
-          "darkText": "text-[#e7ab61]",
-          "lightBg": "bg-[#f8f2eb]",
-          "lightText": "text-[#ca7f2d]"
-    },
+    categoryColors: CATEGORY_COLORS.Tutorials,
     blocks: [
           {
                 "type": "p",
@@ -456,7 +467,7 @@ export const blogPosts: BlogPost[] = [
           },
           {
                 "type": "p",
-                "html": "he best results come from working together — openly, honestly, and creatively. That’s why we treat every client as a true collaborator, not just a recipient of deliverables. If you're looking for a design team that listens deeply, thinks strategically, and creates <em >with</em> you, not just <em >for</em> you — let’s talk."
+                "html": "The best results come from working together — openly, honestly, and creatively. That’s why we treat every client as a true collaborator, not just a recipient of deliverables. If you're looking for a design team that listens deeply, thinks strategically, and creates <em >with</em> you, not just <em >for</em> you — let’s talk."
           }
     ],
   },
@@ -467,12 +478,7 @@ export const blogPosts: BlogPost[] = [
     description: "In a world where everyone’s trying to sell something, giving things away for free might seem... unusual. But at our studio, we believe in the power of generosity. Design is about solving problems and sharing ideas — and sometimes, the best way to do that is by simply giving something useful away.",
     image: "/images/adv45DqfyyYocDthEWCy7Y7lAhY.jpg",
     objectPosition: "51.2% 74.8%",
-    categoryColors: {
-          "darkBg": "bg-[#2a7ca8]/15",
-          "darkText": "text-[#58b9ec]",
-          "lightBg": "bg-[#f2f8fb]",
-          "lightText": "text-[#2a7ca8]"
-    },
+    categoryColors: CATEGORY_COLORS.Freebies,
     blocks: [
           {
                 "type": "p",
@@ -548,7 +554,7 @@ export const blogPosts: BlogPost[] = [
           },
           {
                 "type": "p",
-                "html": "We release new resources regularly — from time-saving frameworks to playful experiments. You can find them right here on the blog, or follow us on <a  href=\"../index.html\" target=\"_blank\">Figma Community</a>, <a  href=\"../index.html\" target=\"_blank\">Framer Marketplace</a>, or <a  href=\"../index.html\" target=\"_blank\">Gumroad</a> for the latest drops."
+                "html": "We release new resources regularly — from time-saving frameworks to playful experiments. You can find them right here on the blog, or follow us on <a href=\"https://www.figma.com/community\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"underline hover:opacity-80\">Figma Community</a>, <a href=\"https://www.framer.com/marketplace\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"underline hover:opacity-80\">Framer Marketplace</a>, or <a href=\"https://gumroad.com\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"underline hover:opacity-80\">Gumroad</a> for the latest drops."
           },
           {
                 "type": "p",
@@ -579,12 +585,7 @@ export const blogPosts: BlogPost[] = [
     description: "It’s rarely the grand features that make an app unforgettable. It’s the micro-interactions, the subtle pacing, and the respect for the user’s attention that turn a tool into an experience.",
     image: "/images/IAg7EBATfKPSkjHUdjMN99PoAt4.png",
     objectPosition: "center",
-    categoryColors: {
-      darkBg: "bg-[#008a1e]/15",
-      darkText: "text-[#7eea9b]",
-      lightBg: "bg-[#f5fbf7]",
-      lightText: "text-[#008a1e]",
-    },
+    categoryColors: CATEGORY_COLORS.Inspiration,
     blocks: [
       {
         type: "p",
@@ -627,12 +628,7 @@ export const blogPosts: BlogPost[] = [
     description: "Handoff shouldn’t be a wall you throw designs over. Here’s our practical guide on building shared tokens, interactive specs, and continuous alignment from day one.",
     image: "/images/PvawYUzGU2gTCJpv3UqZk72gg.png",
     objectPosition: "center",
-    categoryColors: {
-      darkBg: "bg-[#b35900]/15",
-      darkText: "text-[#ffaa64]",
-      lightBg: "bg-[#fdf9f4]",
-      lightText: "text-[#b35900]",
-    },
+    categoryColors: CATEGORY_COLORS.Tutorials,
     blocks: [
       {
         type: "p",

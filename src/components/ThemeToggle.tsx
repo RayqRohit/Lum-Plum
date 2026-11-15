@@ -38,7 +38,7 @@ export default function ThemeToggle(props: ThemeToggleProps) {
           height: "28px",
           borderRadius: "64px",
           backgroundColor: isDarkMode ? "#ffffff" : "rgb(30, 30, 40)",
-          transform: isDarkMode ? "translateX(36px)" : "translateX(0px)",
+          transform: isDarkMode ? "translateX(38px)" : "translateX(0px)",
         }}
         className="absolute left-[6px] top-[5px] transition-transform duration-300 ease-out z-[1]"
       />

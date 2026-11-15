@@ -12,6 +12,7 @@ import { fadeUpProps, heroImageProps } from "@/lib/motion";
 interface Slide {
   id: number;
   title: string;
+  slug: string;
   category: string;
   image: string;
 }
@@ -22,18 +23,21 @@ const slides: Slide[] = [
   {
     id: 1,
     title: "Luminous",
+    slug: "luminous",
     category: "Visual Design",
     image: "/images/oYhlVIWU5MgrLHfcqMQS7M3AxA.jpg",
   },
   {
     id: 2,
     title: "Osaka",
+    slug: "osaka",
     category: "Brand Identity",
     image: "/images/lijDKTTFQa95RSKUPUNYKsOdWc.jpg",
   },
   {
     id: 3,
     title: "Atlas",
+    slug: "atlas",
     category: "Creative Direction",
     image: "/images/yStE9KWzFrtJTVgDpvp7op43a0U.jpg",
   },
@@ -161,7 +165,7 @@ export default function ProjectsPage() {
             <div className="relative z-10 px-6 sm:px-7 md:px-8 pb-5 sm:pb-5 md:pb-6 flex flex-col gap-5 sm:gap-7 md:gap-12">
               <div className="flex items-center justify-between">
                 <Link
-                  href={`/projects/${active.title.toLowerCase()}`}
+                  href={`/projects/${active.slug}`}
                   className="group block cursor-pointer hover:opacity-90 transition-opacity no-underline"
                 >
                   <h2 className="text-[17px] sm:text-[18px] md:text-[21px] font-medium text-white tracking-normal leading-[1.4em] drop-shadow-sm no-underline">
@@ -253,7 +257,7 @@ export default function ProjectsPage() {
                   </Link>
                   <Link
                     href="/projects"
-                    className={`relative z-10 text-[15px] font-medium leading-[1.2] flex-shrink-0 transition-colors ${isDarkMode ? "text-white" : "text-[#1e1e28]"
+                    className={`relative z-10 text-[15px] font-medium leading-[1.2] flex-shrink-0 transition-colors ${isDarkMode ? "text-white" : "text-black"
                       }`}
                   >
                     <span

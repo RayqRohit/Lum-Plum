@@ -210,7 +210,7 @@ export default function ContactPage() {
           </header>
 
           {/* Form Content Area */}
-          <div className="w-full flex-1 flex flex-col justify-start lg:justify-center pt-12 sm:pt-16 md:pt-20 lg:pt-0 pb-16 lg:pb-0 pl-0 lg:pl-3 max-w-[620px]">
+          <div className="w-full flex-1 flex flex-col justify-start lg:justify-center pt-12 sm:pt-16 md:pt-20 lg:pt-0 pb-16 lg:pb-0 pl-0 lg:pl-3">
             <h1
               className={`text-[38px] sm:text-[46px] md:text-[52px] font-semibold tracking-tight leading-[1.1] mb-4 ${isDarkMode ? "text-white" : "text-[#1e1e28]"
                 }`}
@@ -353,6 +353,7 @@ export default function ContactPage() {
                         disabled={isSubmitting}
                         value={budget}
                         onChange={(e) => setBudget(e.target.value)}
+                        style={{ colorScheme: isDarkMode ? "dark" : "light" }}
                         className={`h-[44px] w-full px-3.5 pr-9 rounded-[8px] text-[15px] outline-none transition-colors border appearance-none cursor-pointer ${!budget
                           ? isDarkMode
                             ? "text-[#636366]"

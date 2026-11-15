@@ -1,20 +1,20 @@
 "use client";
 
-import React, { useState } from "react";
+import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import ThemeToggle from "@/components/ThemeToggle";
 import { useTheme } from "@/context/ThemeContext";
 import { useParams, notFound } from "next/navigation";
-import { blogPostsBySlug, blogPosts } from "@/data/blogData";
+import { blogPostsBySlug } from "@/data/blogData";
 import WordBlur from "@/components/WordBlur";
 import { fadeUpProps, heroImageProps } from "@/lib/motion";
 
 export default function BlogPostDetailPage() {
   const params = useParams();
-  const slug = (params?.slug as string) || blogPosts[0].slug;
-  const post = blogPostsBySlug[slug];
+  const slug = params?.slug as string;
+  const post = slug ? blogPostsBySlug[slug] : undefined;
 
   const { isDarkMode, setIsDarkMode } = useTheme();
 

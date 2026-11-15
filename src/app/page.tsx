@@ -13,6 +13,7 @@ import { fadeUpProps, heroImageProps } from "@/lib/motion";
 interface Slide {
   id: number;
   title: string;
+  slug: string;
   category: string;
   image: string;
 }
@@ -23,21 +24,23 @@ const slides: Slide[] = [
   {
     id: 1,
     title: "Luminous",
+    slug: "luminous",
     category: "Visual Design",
     image: "/images/yStE9KWzFrtJTVgDpvp7op43a0U.jpg",
   },
   {
     id: 2,
     title: "Osaka",
+    slug: "osaka",
     category: "Brand Identity",
     image: "/images/lijDKTTFQa95RSKUPUNYKsOdWc.jpg",
   },
   {
     id: 3,
     title: "Atlas",
+    slug: "atlas",
     category: "Creative Direction",
     image: "/images/oYhlVIWU5MgrLHfcqMQS7M3AxA.jpg",
-
   },
 ];
 
