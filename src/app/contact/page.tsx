@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import ThemeToggle from "@/components/ThemeToggle";
@@ -8,12 +8,45 @@ import ThemeToggle from "@/components/ThemeToggle";
 export default function ContactPage() {
   const [isDarkMode, setIsDarkMode] = useState(true);
   const [isSent, setIsSent] = useState(false);
+  const [budget, setBudget] = useState("");
+  const textareaRef = useRef<HTMLTextAreaElement>(null);
+  const [maxTextareaHeight, setMaxTextareaHeight] = useState<number | undefined>(undefined);
+
+  useEffect(() => {
+    const updateMaxHeight = () => {
+      if (typeof window === "undefined") return;
+      if (window.innerWidth < 1024) {
+        setMaxTextareaHeight(undefined);
+        return;
+      }
+      if (textareaRef.current) {
+        const rect = textareaRef.current.getBoundingClientRect();
+        // Distance from top of textarea to bottom of screen minus:
+        // form row gap (28px) + button height (44px) + pt-2 (8px) + bottom margin (24px) = 104px
+        const spaceBelow = 104;
+        const available = window.innerHeight - rect.top - spaceBelow;
+        setMaxTextareaHeight(Math.max(100, Math.floor(available)));
+      }
+    };
+
+    updateMaxHeight();
+    const timer1 = setTimeout(updateMaxHeight, 100);
+    const timer2 = setTimeout(updateMaxHeight, 400);
+    window.addEventListener("resize", updateMaxHeight);
+
+    return () => {
+      clearTimeout(timer1);
+      clearTimeout(timer2);
+      window.removeEventListener("resize", updateMaxHeight);
+    };
+  }, []);
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsSent(true);
     setTimeout(() => {
       setIsSent(false);
+      setBudget("");
       (e.target as HTMLFormElement).reset();
     }, 3000);
   };
@@ -102,7 +135,7 @@ export default function ContactPage() {
         </section>
 
         {/* RIGHT CONTENT SECTION: Navigation + "Let's talk" + Form */}
-        <section className="w-full lg:h-full pt-4 md:pt-6 lg:pt-[32px] pb-10 lg:pb-0 px-5 md:px-8 lg:pl-0 lg:pr-[64px] min-w-0 flex flex-col justify-start lg:flex-[1_0_0px] overflow-y-auto overflow-x-hidden">
+        <section className="w-full lg:h-full pt-4 md:pt-6 lg:pt-[32px] pb-10 lg:pb-0 px-5 md:px-8 lg:pl-0 lg:pr-[64px] min-w-0 flex flex-col justify-start lg:flex-[1_0_0px] overflow-y-auto lg:overflow-hidden overflow-x-hidden">
           {/* Top Header Navigation */}
           <header className="w-full flex-shrink-0 overflow-x-auto no-scrollbar py-1">
             <div className="flex items-center justify-between min-w-max w-full gap-8 md:gap-12 pl-3">
@@ -169,7 +202,7 @@ export default function ContactPage() {
           </header>
 
           {/* Form Content Area */}
-          <div className="pt-12 sm:pt-16 md:pt-20 pb-16 pl-3 max-w-[620px]">
+          <div className="pt-12 sm:pt-16 md:pt-20 lg:pt-16 pb-16 lg:pb-6 pl-3 max-w-[620px]">
             <h1
               className={`text-[38px] sm:text-[46px] md:text-[52px] font-semibold tracking-tight leading-[1.1] mb-4 ${
                 isDarkMode ? "text-white" : "text-[#1e1e28]"
@@ -187,10 +220,10 @@ export default function ContactPage() {
             </p>
 
             {/* Contact Form */}
-            <form onSubmit={handleSubmit} className="flex flex-col gap-5 sm:gap-6 w-full">
+            <form onSubmit={handleSubmit} className="flex flex-col gap-6 sm:gap-7 w-full">
               {/* Row 1: Name & Email */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5 w-full">
-                <div className="flex flex-col gap-2">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 w-full">
+                <div className="flex flex-col gap-3 sm:gap-3.5">
                   <label
                     className={`text-[14px] font-medium ${
                       isDarkMode ? "text-[#fafafa]" : "text-[#1e1e28]"
@@ -205,13 +238,13 @@ export default function ContactPage() {
                     placeholder="Axel Smith"
                     className={`h-[44px] px-3.5 rounded-[8px] text-[15px] outline-none transition-colors border ${
                       isDarkMode
-                        ? "bg-[#191919] border-[#292929] text-white placeholder:text-[#636366] focus:border-white/40"
+                        ? "bg-[#141414] border-[#222222] text-white placeholder:text-[#636366] focus:border-white/40"
                         : "bg-[#f5f5f7] border-[#e5e5ea] text-[#1e1e28] placeholder:text-[#8e8e93] focus:border-black/30"
                     }`}
                   />
                 </div>
 
-                <div className="flex flex-col gap-2">
+                <div className="flex flex-col gap-3 sm:gap-3.5">
                   <label
                     className={`text-[14px] font-medium ${
                       isDarkMode ? "text-[#fafafa]" : "text-[#1e1e28]"
@@ -226,7 +259,7 @@ export default function ContactPage() {
                     placeholder="hi@axel.com"
                     className={`h-[44px] px-3.5 rounded-[8px] text-[15px] outline-none transition-colors border ${
                       isDarkMode
-                        ? "bg-[#191919] border-[#292929] text-white placeholder:text-[#636366] focus:border-white/40"
+                        ? "bg-[#141414] border-[#222222] text-white placeholder:text-[#636366] focus:border-white/40"
                         : "bg-[#f5f5f7] border-[#e5e5ea] text-[#1e1e28] placeholder:text-[#8e8e93] focus:border-black/30"
                     }`}
                   />
@@ -234,8 +267,8 @@ export default function ContactPage() {
               </div>
 
               {/* Row 2: Company & Project budget */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5 w-full">
-                <div className="flex flex-col gap-2">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 w-full">
+                <div className="flex flex-col gap-3 sm:gap-3.5">
                   <label
                     className={`text-[14px] font-medium ${
                       isDarkMode ? "text-[#fafafa]" : "text-[#1e1e28]"
@@ -250,13 +283,13 @@ export default function ContactPage() {
                     placeholder="Dream Studio"
                     className={`h-[44px] px-3.5 rounded-[8px] text-[15px] outline-none transition-colors border ${
                       isDarkMode
-                        ? "bg-[#191919] border-[#292929] text-white placeholder:text-[#636366] focus:border-white/40"
+                        ? "bg-[#141414] border-[#222222] text-white placeholder:text-[#636366] focus:border-white/40"
                         : "bg-[#f5f5f7] border-[#e5e5ea] text-[#1e1e28] placeholder:text-[#8e8e93] focus:border-black/30"
                     }`}
                   />
                 </div>
 
-                <div className="flex flex-col gap-2">
+                <div className="flex flex-col gap-3 sm:gap-3.5">
                   <label
                     className={`text-[14px] font-medium ${
                       isDarkMode ? "text-[#fafafa]" : "text-[#1e1e28]"
@@ -268,52 +301,65 @@ export default function ContactPage() {
                     <select
                       name="budget"
                       required
-                      defaultValue=""
-                      className={`h-[44px] w-full px-3.5 pr-8 rounded-[8px] text-[15px] outline-none transition-colors border appearance-none cursor-pointer ${
+                      value={budget}
+                      onChange={(e) => setBudget(e.target.value)}
+                      className={`h-[44px] w-full px-3.5 pr-9 rounded-[8px] text-[15px] outline-none transition-colors border appearance-none cursor-pointer ${
+                        !budget
+                          ? isDarkMode
+                            ? "text-[#636366]"
+                            : "text-[#8e8e93]"
+                          : isDarkMode
+                          ? "text-white"
+                          : "text-[#1e1e28]"
+                      } ${
                         isDarkMode
-                          ? "bg-[#191919] border-[#292929] text-white focus:border-white/40"
-                          : "bg-[#f5f5f7] border-[#e5e5ea] text-[#1e1e28] focus:border-black/30"
+                          ? "bg-[#141414] border-[#222222] focus:border-white/40"
+                          : "bg-[#f5f5f7] border-[#e5e5ea] focus:border-black/30"
                       }`}
                     >
                       <option
                         value=""
                         disabled
-                        className={isDarkMode ? "bg-[#191919] text-[#8e8e93]" : "bg-[#f5f5f7] text-[#8e8e93]"}
+                        className={isDarkMode ? "bg-[#141414] text-[#636366]" : "bg-[#f5f5f7] text-[#8e8e93]"}
                       >
                         Select your budget
                       </option>
                       <option
                         value="under-5k"
-                        className={isDarkMode ? "bg-[#191919] text-white" : "bg-white text-black"}
+                        className={isDarkMode ? "bg-[#141414] text-white" : "bg-white text-black"}
                       >
                         Under $5,000
                       </option>
                       <option
                         value="5k-10k"
-                        className={isDarkMode ? "bg-[#191919] text-white" : "bg-white text-black"}
+                        className={isDarkMode ? "bg-[#141414] text-white" : "bg-white text-black"}
                       >
                         $5,000 - $10,000
                       </option>
                       <option
                         value="10k-plus"
-                        className={isDarkMode ? "bg-[#191919] text-white" : "bg-white text-black"}
+                        className={isDarkMode ? "bg-[#141414] text-white" : "bg-white text-black"}
                       >
                         $10,000+
                       </option>
                     </select>
-                    {/* Chevron Down Arrow */}
-                    <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-3 text-[#8e8e93]">
+                    {/* Chevron Down Arrow: exact match to Framer template (d="M 3.5 6 L 8 10.5 L 12.5 6", 16x16, stroke-width 1.5) */}
+                    <div
+                      className={`pointer-events-none absolute inset-y-0 right-0 flex items-center pr-3.5 ${
+                        isDarkMode ? "text-[#717179]" : "text-[#8e8e93]"
+                      }`}
+                    >
                       <svg
-                        width="12"
-                        height="12"
+                        width="16"
+                        height="16"
                         viewBox="0 0 16 16"
                         fill="none"
                         stroke="currentColor"
-                        strokeWidth="2"
+                        strokeWidth="1.5"
                         strokeLinecap="round"
                         strokeLinejoin="round"
                       >
-                        <path d="M4 6L8 10L12 6" />
+                        <path d="M 3.5 6 L 8 10.5 L 12.5 6" />
                       </svg>
                     </div>
                   </div>
@@ -321,7 +367,7 @@ export default function ContactPage() {
               </div>
 
               {/* Row 3: How I can help? */}
-              <div className="flex flex-col gap-2 w-full">
+              <div className="flex flex-col gap-3 sm:gap-3.5 w-full">
                 <label
                   className={`text-[14px] font-medium ${
                     isDarkMode ? "text-[#fafafa]" : "text-[#1e1e28]"
@@ -330,13 +376,19 @@ export default function ContactPage() {
                   How I can help?
                 </label>
                 <textarea
+                  ref={textareaRef}
                   name="message"
                   required
                   rows={4}
                   placeholder="Tell me about your company needs"
-                  className={`w-full min-h-[110px] p-3.5 rounded-[8px] text-[15px] outline-none transition-colors border resize-y ${
+                  style={{
+                    maxHeight: maxTextareaHeight ? `${maxTextareaHeight}px` : undefined,
+                    minHeight: "100px",
+                    resize: "vertical",
+                  }}
+                  className={`w-full min-h-[100px] p-3.5 rounded-[8px] text-[15px] outline-none transition-colors border ${
                     isDarkMode
-                      ? "bg-[#191919] border-[#292929] text-white placeholder:text-[#636366] focus:border-white/40"
+                      ? "bg-[#141414] border-[#222222] text-white placeholder:text-[#636366] focus:border-white/40"
                       : "bg-[#f5f5f7] border-[#e5e5ea] text-[#1e1e28] placeholder:text-[#8e8e93] focus:border-black/30"
                   }`}
                 />

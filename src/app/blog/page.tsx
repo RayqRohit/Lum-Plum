@@ -170,7 +170,7 @@ export default function BlogPage() {
                   placeholder="Enter your email"
                   required
                   className={`flex-1 rounded-[8px] px-4 py-3 text-[14px] sm:text-[15px] outline-none transition-colors border ${isDarkMode
-                    ? "bg-[#191919] border-[#292929] text-white placeholder:text-[#636366] focus:border-white/40"
+                    ? "bg-[#141414] border-[#222222] text-white placeholder:text-[#636366] focus:border-white/40"
                     : "bg-[#f5f5f7] border-[#e5e5ea] text-[#1e1e28] placeholder:text-[#8e8e93] focus:border-black/30"
                     }`}
                 />
