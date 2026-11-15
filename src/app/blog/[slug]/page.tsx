@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import ThemeToggle from "@/components/ThemeToggle";
+import { useTheme } from "@/context/ThemeContext";
 import { useParams, notFound } from "next/navigation";
 import { blogPostsBySlug, blogPosts } from "@/data/blogData";
 
@@ -12,7 +13,7 @@ export default function BlogPostDetailPage() {
   const slug = (params?.slug as string) || blogPosts[0].slug;
   const post = blogPostsBySlug[slug];
 
-  const [isDarkMode, setIsDarkMode] = useState(true);
+  const { isDarkMode, setIsDarkMode } = useTheme();
 
   if (!post) {
     notFound();
@@ -20,11 +21,10 @@ export default function BlogPostDetailPage() {
 
   return (
     <main
-      className={`min-h-screen w-full transition-colors duration-300 lg:h-screen lg:overflow-hidden ${
-        isDarkMode ? "bg-[#141414] text-[#fafafa]" : "bg-[#ffffff] text-[#1e1e28]"
-      }`}
+      className={`min-h-screen w-full transition-colors duration-300 lg:h-screen lg:overflow-hidden ${isDarkMode ? "bg-[#141414] text-[#fafafa]" : "bg-[#ffffff] text-[#1e1e28]"
+        }`}
     >
-      <div className="flex flex-col lg:flex-row w-full min-h-screen lg:h-screen gap-4 lg:gap-[64px]">
+      <div className="flex flex-col lg:flex-row w-full min-h-screen lg:h-screen gap-4 lg:gap-[50px]">
         {/* LEFT SHOWCASE CARD: exact matches template (h-[460px] sm:h-[500px] md:h-[560px] lg:h-full, lg:flex-[1.3_0_0px]) */}
         <section className="w-full h-[460px] sm:h-[500px] md:h-[560px] lg:h-full py-5 md:py-8 lg:py-4 px-5 md:px-8 lg:pl-4 lg:pr-0 min-w-0 overflow-hidden flex lg:flex-[1.3_0_0px] flex-shrink-0">
           <div className="relative w-full h-full rounded-[16px] overflow-hidden flex flex-col justify-between shadow-2xl group border border-white/5">
@@ -151,55 +151,49 @@ export default function BlogPostDetailPage() {
               <nav className="relative flex items-center gap-8 flex-shrink-0 py-1">
                 {/* Active Backdrop Pill for Blog */}
                 <span
-                  className={`absolute left-[228px] -top-[3px] -bottom-[3px] w-[62px] rounded-full transition-colors pointer-events-none -z-0 ${
-                    isDarkMode ? "bg-[#1e1e1e]" : "bg-[#f0f0f0]"
-                  }`}
+                  className={`absolute left-[228px] -top-[3px] -bottom-[3px] w-[62px] rounded-full transition-colors pointer-events-none -z-0 ${isDarkMode ? "bg-[#1e1e1e]" : "bg-[#f0f0f0]"
+                    }`}
                 />
                 <Link
                   href="/"
-                  className={`relative z-10 text-[15px] font-medium leading-[1.2] flex-shrink-0 transition-colors ${
-                    isDarkMode
+                  className={`relative z-10 text-[15px] font-medium leading-[1.2] flex-shrink-0 transition-colors ${isDarkMode
                       ? "text-[#a0a0a0] hover:text-white"
                       : "text-[#666666] hover:text-black"
-                  }`}
+                    }`}
                 >
                   Home
                 </Link>
                 <Link
                   href="/about"
-                  className={`relative z-10 text-[15px] font-medium leading-[1.2] flex-shrink-0 transition-colors ${
-                    isDarkMode
+                  className={`relative z-10 text-[15px] font-medium leading-[1.2] flex-shrink-0 transition-colors ${isDarkMode
                       ? "text-[#a0a0a0] hover:text-white"
                       : "text-[#666666] hover:text-black"
-                  }`}
+                    }`}
                 >
                   About
                 </Link>
                 <Link
                   href="/projects"
-                  className={`relative z-10 text-[15px] font-medium leading-[1.2] flex-shrink-0 transition-colors ${
-                    isDarkMode
+                  className={`relative z-10 text-[15px] font-medium leading-[1.2] flex-shrink-0 transition-colors ${isDarkMode
                       ? "text-[#a0a0a0] hover:text-white"
                       : "text-[#666666] hover:text-black"
-                  }`}
+                    }`}
                 >
                   Projects
                 </Link>
                 <Link
                   href="/blog"
-                  className={`relative z-10 text-[15px] font-medium leading-[1.2] flex-shrink-0 transition-colors ${
-                    isDarkMode ? "text-white" : "text-black"
-                  }`}
+                  className={`relative z-10 text-[15px] font-medium leading-[1.2] flex-shrink-0 transition-colors ${isDarkMode ? "text-white" : "text-black"
+                    }`}
                 >
                   Blog
                 </Link>
                 <Link
                   href="/contact"
-                  className={`relative z-10 text-[15px] font-medium leading-[1.2] flex-shrink-0 transition-colors ${
-                    isDarkMode
+                  className={`relative z-10 text-[15px] font-medium leading-[1.2] flex-shrink-0 transition-colors ${isDarkMode
                       ? "text-[#a0a0a0] hover:text-white"
                       : "text-[#666666] hover:text-black"
-                  }`}
+                    }`}
                 >
                   Contact
                 </Link>
@@ -214,9 +208,8 @@ export default function BlogPostDetailPage() {
           <article className="pt-12 sm:pt-16 md:pt-20 pb-20 pl-3 max-w-[640px]">
             {/* Title */}
             <h1
-              className={`text-[32px] sm:text-[40px] md:text-[46px] font-semibold leading-[1.18] mb-8 tracking-tight ${
-                isDarkMode ? "text-white" : "text-[#1e1e28]"
-              }`}
+              className={`text-[32px] sm:text-[40px] md:text-[46px] font-semibold leading-[1.18] mb-8 tracking-tight ${isDarkMode ? "text-white" : "text-[#1e1e28]"
+                }`}
             >
               {post.title}
             </h1>
@@ -228,9 +221,8 @@ export default function BlogPostDetailPage() {
                   return (
                     <h2
                       key={idx}
-                      className={`text-[22px] sm:text-[25px] font-semibold tracking-tight pt-4 mb-3 ${
-                        isDarkMode ? "text-white" : "text-[#1e1e28]"
-                      }`}
+                      className={`text-[22px] sm:text-[25px] font-semibold tracking-tight pt-4 mb-3 ${isDarkMode ? "text-white" : "text-[#1e1e28]"
+                        }`}
                       dangerouslySetInnerHTML={{ __html: block.html }}
                     />
                   );
@@ -240,11 +232,10 @@ export default function BlogPostDetailPage() {
                   return (
                     <blockquote
                       key={idx}
-                      className={`border-l-2 pl-4 sm:pl-5 py-2 my-7 text-[15px] sm:text-[16px] italic leading-relaxed ${
-                        isDarkMode
+                      className={`border-l-2 pl-4 sm:pl-5 py-2 my-7 text-[15px] sm:text-[16px] italic leading-relaxed ${isDarkMode
                           ? "border-white/30 text-white/90 bg-white/[0.02]"
                           : "border-black/30 text-[#1e1e28]/90 bg-black/[0.02]"
-                      }`}
+                        }`}
                       dangerouslySetInnerHTML={{ __html: block.html }}
                     />
                   );
@@ -253,9 +244,8 @@ export default function BlogPostDetailPage() {
                 return (
                   <p
                     key={idx}
-                    className={`text-[15px] sm:text-[16px] leading-[1.7] ${
-                      isDarkMode ? "text-[#a0a0a0]" : "text-[#666666]"
-                    }`}
+                    className={`text-[15px] sm:text-[16px] leading-[1.7] ${isDarkMode ? "text-[#a0a0a0]" : "text-[#666666]"
+                      }`}
                     dangerouslySetInnerHTML={{ __html: block.html }}
                   />
                 );

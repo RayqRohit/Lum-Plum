@@ -1,13 +1,14 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import ThemeToggle from "@/components/ThemeToggle";
+import { useTheme } from "@/context/ThemeContext";
 import { blogPosts } from "@/data/blogData";
 
 export default function BlogPage() {
-  const [isDarkMode, setIsDarkMode] = useState(true);
+  const { isDarkMode, setIsDarkMode } = useTheme();
   const [email, setEmail] = useState("");
   const [isSubscribed, setIsSubscribed] = useState(false);
   const [visibleCount, setVisibleCount] = useState(5);
@@ -20,12 +21,24 @@ export default function BlogPage() {
     }
   };
 
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        setIsSubscribed(false);
+      }
+    };
+    if (isSubscribed) {
+      window.addEventListener("keydown", handleKeyDown);
+    }
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [isSubscribed]);
+
   return (
     <main
       className={`min-h-screen w-full select-none transition-colors duration-300 lg:h-screen lg:w-screen lg:overflow-hidden ${isDarkMode ? "bg-[#141414] text-[#fafafa]" : "bg-[#ffffff] text-[#1e1e28]"
         }`}
     >
-      <div className="flex flex-col lg:flex-row w-full min-h-screen lg:h-screen lg:overflow-hidden gap-4 lg:gap-[64px]">
+      <div className="flex flex-col lg:flex-row w-full min-h-screen lg:h-screen lg:overflow-hidden gap-4 lg:gap-[50px]">
         {/* LEFT SHOWCASE CARD: exact matches template (desktop flex: 1.3, tablet h: 560px, mobile h: 460px / sm: 500px) */}
         <section className="w-full h-[460px] sm:h-[500px] md:h-[560px] lg:h-full py-5 md:py-8 lg:py-4 px-5 md:px-8 lg:pl-4 lg:pr-0 min-w-0 overflow-hidden flex lg:flex-[1.3_0_0px] flex-shrink-0">
           <div className="relative w-full h-full rounded-[16px] overflow-hidden flex flex-col justify-between shadow-2xl group border border-white/5">
@@ -181,7 +194,7 @@ export default function BlogPage() {
                     : "bg-[#1e1e28] text-white hover:bg-black"
                     }`}
                 >
-                  {isSubscribed ? "Subscribed!" : "Subscribe"}
+                  Subscribe
                 </button>
               </div>
 
@@ -293,6 +306,61 @@ export default function BlogPage() {
           </div>
         </section>
       </div>
+
+      {/* Thank you Subscription Popup Modal */}
+      {isSubscribed && (
+        <div
+          onClick={() => setIsSubscribed(false)}
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 p-4 cursor-pointer animate-in fade-in duration-200"
+        >
+          <div
+            onClick={(e) => e.stopPropagation()}
+            className={`w-[580px] max-w-[92vw] py-11 px-8 sm:py-12 sm:px-14 rounded-[15px] flex flex-col items-center text-center shadow-[0_25px_60px_-15px_rgba(0,0,0,0.9)] cursor-default transition-all duration-200 transform scale-100 ${
+              isDarkMode
+                ? "bg-[#141414] text-white"
+                : "bg-white text-[#1e1e28] shadow-[0_20px_50px_rgba(0,0,0,0.1)]"
+            }`}
+          >
+            {/* Checkmark in Circle */}
+            <div
+              className={`w-9 h-9 rounded-full border-[1.75px] flex items-center justify-center mb-4 ${
+                isDarkMode ? "border-white text-white" : "border-[#1e1e28] text-[#1e1e28]"
+              }`}
+            >
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 16 16"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2.2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                <path d="M3.5 8.5L6.5 11.5L12.5 5" />
+              </svg>
+            </div>
+
+            {/* Title */}
+            <h3
+              className={`text-[21px] sm:text-[23px] font-semibold tracking-normal mb-2 ${
+                isDarkMode ? "text-white" : "text-[#1e1e28]"
+              }`}
+            >
+              Thank you
+            </h3>
+
+            {/* Subtitle */}
+            <p
+              className={`text-[15px] sm:text-[15.5px] font-normal leading-normal text-center whitespace-normal sm:whitespace-nowrap ${
+                isDarkMode ? "text-[#8e8e93]" : "text-[#71717f]"
+              }`}
+            >
+              You&apos;ve successfully subscribed to our blog updates.
+            </p>
+          </div>
+        </div>
+      )}
     </main>
   );
 }

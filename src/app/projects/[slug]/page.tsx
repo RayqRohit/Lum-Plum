@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import ThemeToggle from "@/components/ThemeToggle";
+import { useTheme } from "@/context/ThemeContext";
 import { useParams, notFound } from "next/navigation";
 import { projectsData } from "@/data/projectsData";
 
@@ -12,7 +13,7 @@ export default function ProjectDetailPage() {
   const slug = (params?.slug as string) || "luminous";
   const project = projectsData[slug] || projectsData.luminous;
 
-  const [isDarkMode, setIsDarkMode] = useState(true);
+  const { isDarkMode, setIsDarkMode } = useTheme();
   if (!project) {
     notFound();
   }
@@ -22,7 +23,7 @@ export default function ProjectDetailPage() {
       className={`min-h-screen w-full transition-colors duration-300 lg:h-screen lg:overflow-hidden ${isDarkMode ? "bg-[#141414] text-[#fafafa]" : "bg-[#ffffff] text-[#1e1e28]"
         }`}
     >
-      <div className="flex flex-col lg:flex-row w-full min-h-screen lg:h-screen gap-4 lg:gap-[64px]">
+      <div className="flex flex-col lg:flex-row w-full min-h-screen lg:h-screen gap-4 lg:gap-[50px]">
         {/* LEFT SHOWCASE CARD: exact matches template (h-[460px] sm:h-[500px] md:h-[560px] lg:h-full, lg:flex-[1.3_0_0px]) */}
         <section className="w-full h-[460px] sm:h-[500px] md:h-[560px] lg:h-full py-5 md:py-8 lg:py-4 px-5 md:px-8 lg:pl-4 lg:pr-0 min-w-0 overflow-hidden flex lg:flex-[1.3_0_0px] flex-shrink-0">
           <div className="relative w-full h-full rounded-[16px] overflow-hidden flex flex-col justify-between shadow-2xl group border border-white/5">
@@ -154,8 +155,8 @@ export default function ProjectDetailPage() {
                 <Link
                   href="/"
                   className={`relative z-10 text-[15px] font-medium leading-[1.2] flex-shrink-0 transition-colors ${isDarkMode
-                      ? "text-[#a0a0a0] hover:text-white"
-                      : "text-[#666666] hover:text-black"
+                    ? "text-[#a0a0a0] hover:text-white"
+                    : "text-[#666666] hover:text-black"
                     }`}
                 >
                   Home
@@ -163,8 +164,8 @@ export default function ProjectDetailPage() {
                 <Link
                   href="/about"
                   className={`relative z-10 text-[15px] font-medium leading-[1.2] flex-shrink-0 transition-colors ${isDarkMode
-                      ? "text-[#a0a0a0] hover:text-white"
-                      : "text-[#666666] hover:text-black"
+                    ? "text-[#a0a0a0] hover:text-white"
+                    : "text-[#666666] hover:text-black"
                     }`}
                 >
                   About
@@ -179,8 +180,8 @@ export default function ProjectDetailPage() {
                 <Link
                   href="/blog"
                   className={`relative z-10 text-[15px] font-medium leading-[1.2] flex-shrink-0 transition-colors ${isDarkMode
-                      ? "text-[#a0a0a0] hover:text-white"
-                      : "text-[#666666] hover:text-black"
+                    ? "text-[#a0a0a0] hover:text-white"
+                    : "text-[#666666] hover:text-black"
                     }`}
                 >
                   Blog
@@ -188,8 +189,8 @@ export default function ProjectDetailPage() {
                 <Link
                   href="/contact"
                   className={`relative z-10 text-[15px] font-medium leading-[1.2] flex-shrink-0 transition-colors ${isDarkMode
-                      ? "text-[#a0a0a0] hover:text-white"
-                      : "text-[#666666] hover:text-black"
+                    ? "text-[#a0a0a0] hover:text-white"
+                    : "text-[#666666] hover:text-black"
                     }`}
                 >
                   Contact
@@ -244,8 +245,8 @@ export default function ProjectDetailPage() {
                 {project.mainSection.quote && (
                   <blockquote
                     className={`my-2 pl-5 border-l-2 py-1 ${isDarkMode
-                        ? "border-[#fafafa] text-[#fafafa]"
-                        : "border-[#1e1e28] text-[#1e1e28]"
+                      ? "border-[#fafafa] text-[#fafafa]"
+                      : "border-[#1e1e28] text-[#1e1e28]"
                       }`}
                   >
                     <p className="text-[17px] sm:text-[18px] font-normal leading-[1.6] italic">

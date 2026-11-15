@@ -4,6 +4,7 @@ import { useState, useEffect, useCallback } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import ThemeToggle from "@/components/ThemeToggle";
+import { useTheme } from "@/context/ThemeContext";
 
 interface Slide {
   id: number;
@@ -85,7 +86,7 @@ const projectsList: ProjectItem[] = [
 
 export default function ProjectsPage() {
   const [currentSlide, setCurrentSlide] = useState(0);
-  const [isDarkMode, setIsDarkMode] = useState(true);
+  const { isDarkMode, setIsDarkMode } = useTheme();
 
   const nextSlide = useCallback(() => {
     setCurrentSlide((prev) => (prev + 1) % slides.length);
@@ -104,11 +105,10 @@ export default function ProjectsPage() {
 
   return (
     <main
-      className={`min-h-screen w-full select-none transition-colors duration-300 lg:h-screen lg:w-screen lg:overflow-hidden ${
-        isDarkMode ? "bg-[#141414] text-[#fafafa]" : "bg-[#ffffff] text-[#1e1e28]"
-      }`}
+      className={`min-h-screen w-full select-none transition-colors duration-300 lg:h-screen lg:w-screen lg:overflow-hidden ${isDarkMode ? "bg-[#141414] text-[#fafafa]" : "bg-[#ffffff] text-[#1e1e28]"
+        }`}
     >
-      <div className="flex flex-col lg:flex-row w-full min-h-screen lg:h-screen lg:overflow-hidden gap-4 lg:gap-[64px]">
+      <div className="flex flex-col lg:flex-row w-full min-h-screen lg:h-screen lg:overflow-hidden gap-4 lg:gap-[50px]">
         {/* LEFT SHOWCASE CARD: exact matches template (h-[460px] sm:h-[500px] md:h-[560px] lg:h-full, lg:flex-[1.3_0_0px]) */}
         <section className="w-full h-[460px] sm:h-[500px] md:h-[560px] lg:h-full py-5 md:py-8 lg:py-4 px-5 md:px-8 lg:pl-4 lg:pr-0 min-w-0 overflow-hidden flex lg:flex-[1.3_0_0px] flex-shrink-0">
           <div className="relative w-full h-full rounded-[16px] overflow-hidden flex flex-col justify-between shadow-2xl group border border-white/5">
@@ -119,11 +119,10 @@ export default function ProjectsPage() {
                 return (
                   <div
                     key={slide.id}
-                    className={`absolute inset-0 transition-all duration-700 ease-out ${
-                      isActive
+                    className={`absolute inset-0 transition-all duration-700 ease-out ${isActive
                         ? "opacity-100 scale-100 z-10"
                         : "opacity-0 scale-[1.04] pointer-events-none z-0"
-                    }`}
+                      }`}
                   >
                     <Image
                       src={slide.image}
@@ -157,9 +156,9 @@ export default function ProjectsPage() {
               <div className="flex items-center justify-between">
                 <Link
                   href={`/projects/${active.title.toLowerCase()}`}
-                  className="group block cursor-pointer"
+                  className="group block cursor-pointer hover:opacity-90 transition-opacity no-underline"
                 >
-                  <h2 className="text-[17px] sm:text-[18px] md:text-[21px] font-medium text-white tracking-normal leading-[1.4em] drop-shadow-sm group-hover:underline">
+                  <h2 className="text-[17px] sm:text-[18px] md:text-[21px] font-medium text-white tracking-normal leading-[1.4em] drop-shadow-sm no-underline">
                     {active.title}
                   </h2>
                   <p className="text-[13px] sm:text-[14px] md:text-[15px] font-normal text-white/70 tracking-normal mt-0.5 md:mt-1 drop-shadow-sm">
@@ -209,9 +208,8 @@ export default function ProjectsPage() {
                       {/* Animated active fill */}
                       <span
                         key={isActive ? `active-${currentSlide}` : `inactive-${index}`}
-                        className={`absolute inset-0 rounded-full bg-white origin-left ${
-                          isActive ? "w-full animate-pill-fill" : "w-0 opacity-0"
-                        }`}
+                        className={`absolute inset-0 rounded-full bg-white origin-left ${isActive ? "w-full animate-pill-fill" : "w-0 opacity-0"
+                          }`}
                       />
                     </button>
                   );
@@ -231,55 +229,49 @@ export default function ProjectsPage() {
                 <nav className="relative flex items-center gap-8 flex-shrink-0 py-1">
                   {/* Active Backdrop Pill: Exact Framer position for Projects (centered on Projects, width 82px) */}
                   <span
-                    className={`absolute left-[137px] -top-[4px] -bottom-[4px] w-[82px] rounded-full transition-colors pointer-events-none -z-0 ${
-                      isDarkMode ? "bg-[#1e1e1e]" : "bg-[#f0f0f0]"
-                    }`}
+                    className={`absolute left-[137px] -top-[4px] -bottom-[4px] w-[82px] rounded-full transition-colors pointer-events-none -z-0 ${isDarkMode ? "bg-[#1e1e1e]" : "bg-[#f0f0f0]"
+                      }`}
                   />
                   <Link
                     href="/"
-                    className={`relative z-10 text-[15px] font-medium leading-[1.2] flex-shrink-0 transition-colors ${
-                      isDarkMode
+                    className={`relative z-10 text-[15px] font-medium leading-[1.2] flex-shrink-0 transition-colors ${isDarkMode
                         ? "text-[#a0a0a0] hover:text-white"
                         : "text-[#666666] hover:text-black"
-                    }`}
+                      }`}
                   >
                     Home
                   </Link>
                   <Link
                     href="/about"
-                    className={`relative z-10 text-[15px] font-medium leading-[1.2] flex-shrink-0 transition-colors ${
-                      isDarkMode
+                    className={`relative z-10 text-[15px] font-medium leading-[1.2] flex-shrink-0 transition-colors ${isDarkMode
                         ? "text-[#a0a0a0] hover:text-white"
                         : "text-[#666666] hover:text-black"
-                    }`}
+                      }`}
                   >
                     About
                   </Link>
                   <Link
                     href="/projects"
-                    className={`relative z-10 text-[15px] font-medium leading-[1.2] flex-shrink-0 transition-colors ${
-                      isDarkMode ? "text-white" : "text-[#1e1e28]"
-                    }`}
+                    className={`relative z-10 text-[15px] font-medium leading-[1.2] flex-shrink-0 transition-colors ${isDarkMode ? "text-white" : "text-[#1e1e28]"
+                      }`}
                   >
                     Projects
                   </Link>
                   <Link
                     href="/blog"
-                    className={`relative z-10 text-[15px] font-medium leading-[1.2] flex-shrink-0 transition-colors ${
-                      isDarkMode
+                    className={`relative z-10 text-[15px] font-medium leading-[1.2] flex-shrink-0 transition-colors ${isDarkMode
                         ? "text-[#a0a0a0] hover:text-white"
                         : "text-[#666666] hover:text-black"
-                    }`}
+                      }`}
                   >
                     Blog
                   </Link>
                   <Link
                     href="/contact"
-                    className={`relative z-10 text-[15px] font-medium leading-[1.2] flex-shrink-0 transition-colors ${
-                      isDarkMode
+                    className={`relative z-10 text-[15px] font-medium leading-[1.2] flex-shrink-0 transition-colors ${isDarkMode
                         ? "text-[#a0a0a0] hover:text-white"
                         : "text-[#666666] hover:text-black"
-                    }`}
+                      }`}
                   >
                     Contact
                   </Link>
@@ -295,16 +287,14 @@ export default function ProjectsPage() {
               {/* Title Section: matches framer-1ofc9bv (gap: 16px) */}
               <div className="flex flex-col gap-4">
                 <h1
-                  className={`text-[32px] sm:text-[40px] md:text-[48px] lg:text-[56px] font-semibold tracking-normal leading-[1.2] ${
-                    isDarkMode ? "text-[#fafafa]" : "text-[#1e1e28]"
-                  }`}
+                  className={`text-[32px] sm:text-[40px] md:text-[48px] lg:text-[56px] font-semibold tracking-normal leading-[1.2] ${isDarkMode ? "text-[#fafafa]" : "text-[#1e1e28]"
+                    }`}
                 >
                   Projects
                 </h1>
                 <p
-                  className={`text-[16px] font-normal leading-[1.4] ${
-                    isDarkMode ? "text-[#a0a0a0]" : "text-[#47474f]"
-                  }`}
+                  className={`text-[16px] font-normal leading-[1.4] ${isDarkMode ? "text-[#a0a0a0]" : "text-[#47474f]"
+                    }`}
                 >
                   Here’s a collection of the work I’ve had the privilege to bring to life. Each
                   project tells a unique story, crafted with creativity and attention to detail.
@@ -317,27 +307,24 @@ export default function ProjectsPage() {
                   <Link
                     key={project.id}
                     href={project.href}
-                    className={`group flex items-center justify-between w-full border-t transition-all duration-200 ease-out cursor-pointer hover:scale-[0.99] hover:opacity-70 active:scale-[0.98] origin-center ${
-                      isDarkMode ? "border-[#1e1e1e]" : "border-[#f0f0f0]"
-                    }`}
+                    className={`group flex items-center justify-between w-full border-t transition-all duration-200 ease-out cursor-pointer hover:scale-[0.99] hover:opacity-70 active:scale-[0.98] origin-center ${isDarkMode ? "border-[#1e1e1e]" : "border-[#f0f0f0]"
+                      }`}
                   >
                     {/* Column 1: Title + optional Badge (framer-149ask0: flex 1, gap 12px, py-6) */}
                     <div className="flex-[1_0_0px] min-w-0 flex items-center gap-3 py-6">
                       <span
-                        className={`text-[14px] font-medium leading-[1.2] transition-colors duration-200 ${
-                          isDarkMode ? "text-[#fafafa]" : "text-[#1e1e28]"
-                        }`}
+                        className={`text-[14px] font-medium leading-[1.2] transition-colors duration-200 ${isDarkMode ? "text-[#fafafa]" : "text-[#1e1e28]"
+                          }`}
                       >
                         {project.title}
                       </span>
 
                       {project.badge && (
                         <span
-                          className={`inline-flex items-center justify-center h-[24px] px-[10px] rounded-full text-[13px] font-semibold leading-none transition-colors duration-200 ${
-                            isDarkMode
+                          className={`inline-flex items-center justify-center h-[24px] px-[10px] rounded-full text-[13px] font-semibold leading-none transition-colors duration-200 ${isDarkMode
                               ? "bg-[#1c2b22] text-[#7eea9b]"
                               : "bg-[#f5fbf7] text-[#008a1e]"
-                          }`}
+                            }`}
                         >
                           {project.badge}
                         </span>
@@ -347,9 +334,8 @@ export default function ProjectsPage() {
                     {/* Column 2: Category (framer-1ka7y5u: flex 1, justify-start, py-6) */}
                     <div className="flex-[1_0_0px] min-w-0 flex items-center justify-start py-6">
                       <span
-                        className={`text-[14px] font-normal leading-[1.2] transition-colors duration-200 ${
-                          isDarkMode ? "text-[#a0a0a0]" : "text-[#47474f]"
-                        }`}
+                        className={`text-[14px] font-normal leading-[1.2] transition-colors duration-200 ${isDarkMode ? "text-[#a0a0a0]" : "text-[#47474f]"
+                          }`}
                       >
                         {project.category}
                       </span>
@@ -358,9 +344,8 @@ export default function ProjectsPage() {
                     {/* Column 3: Year (framer-1a6z83b: flex none, justify-end, py-6) */}
                     <div className="flex-none flex items-center justify-end py-6">
                       <span
-                        className={`text-[14px] font-normal leading-[1.2] transition-colors duration-200 ${
-                          isDarkMode ? "text-[#a0a0a0]" : "text-[#47474f]"
-                        }`}
+                        className={`text-[14px] font-normal leading-[1.2] transition-colors duration-200 ${isDarkMode ? "text-[#a0a0a0]" : "text-[#47474f]"
+                          }`}
                       >
                         {project.year}
                       </span>

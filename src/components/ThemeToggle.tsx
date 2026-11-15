@@ -2,16 +2,17 @@
 
 import React from "react";
 import assets from "@/app/theme-and-logos.json";
+import { useTheme } from "@/context/ThemeContext";
 
 interface ThemeToggleProps {
-  isDarkMode: boolean;
-  setIsDarkMode: (val: boolean | ((prev: boolean) => boolean)) => void;
+  isDarkMode?: boolean;
+  setIsDarkMode?: (val: boolean | ((prev: boolean) => boolean)) => void;
 }
 
-export default function ThemeToggle({
-  isDarkMode,
-  setIsDarkMode,
-}: ThemeToggleProps) {
+export default function ThemeToggle(props: ThemeToggleProps) {
+  const theme = useTheme();
+  const isDarkMode = props.isDarkMode !== undefined ? props.isDarkMode : theme.isDarkMode;
+  const setIsDarkMode = props.setIsDarkMode || theme.setIsDarkMode;
   return (
     <div
       onClick={() => setIsDarkMode(!isDarkMode)}

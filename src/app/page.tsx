@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import assets from "./theme-and-logos.json";
 import ThemeToggle from "@/components/ThemeToggle";
+import { useTheme } from "@/context/ThemeContext";
 
 interface Slide {
   id: number;
@@ -47,7 +48,7 @@ const partners = [
 
 export default function Home() {
   const [currentSlide, setCurrentSlide] = useState(0);
-  const [isDarkMode, setIsDarkMode] = useState(true);
+  const { isDarkMode, setIsDarkMode } = useTheme();
 
   const nextSlide = useCallback(() => {
     setCurrentSlide((prev) => (prev + 1) % slides.length);
@@ -69,7 +70,7 @@ export default function Home() {
       className={`min-h-screen w-full select-none transition-colors duration-300 lg:h-screen lg:w-screen lg:overflow-hidden ${isDarkMode ? "bg-[#141414] text-[#fafafa]" : "bg-[#ffffff] text-[#1e1e28]"
         }`}
     >
-      <div className="flex flex-col lg:flex-row w-full min-h-screen lg:h-screen lg:overflow-hidden gap-4 lg:gap-[64px]">
+      <div className="flex flex-col lg:flex-row w-full min-h-screen lg:h-screen lg:overflow-hidden gap-4 lg:gap-[50px]">
         {/* LEFT SHOWCASE CARD: matches template (h-[260px] sm:h-[300px] md:h-[523px] lg:h-full) */}
         <section
           className="w-full h-[260px] sm:h-[300px] md:h-[523px] lg:h-full py-5 md:py-8 lg:py-4 px-5 md:px-8 lg:pl-4 lg:pr-0 min-w-0 overflow-hidden flex lg:flex-[1.3_0_0px] flex-shrink-0"
@@ -83,8 +84,8 @@ export default function Home() {
                   <div
                     key={slide.id}
                     className={`absolute inset-0 transition-all duration-700 ease-out ${isActive
-                        ? "opacity-100 scale-100 z-10"
-                        : "opacity-0 scale-[1.04] pointer-events-none z-0"
+                      ? "opacity-100 scale-100 z-10"
+                      : "opacity-0 scale-[1.04] pointer-events-none z-0"
                       }`}
                   >
                     <Image
@@ -204,8 +205,8 @@ export default function Home() {
                 <Link
                   href="/about"
                   className={`relative z-10 text-[15px] font-medium leading-[1.2] flex-shrink-0 transition-colors ${isDarkMode
-                      ? "text-[#a0a0a0] hover:text-white"
-                      : "text-[#666666] hover:text-black"
+                    ? "text-[#a0a0a0] hover:text-white"
+                    : "text-[#666666] hover:text-black"
                     }`}
                 >
                   About
@@ -213,8 +214,8 @@ export default function Home() {
                 <Link
                   href="/projects"
                   className={`relative z-10 text-[15px] font-medium leading-[1.2] flex-shrink-0 transition-colors ${isDarkMode
-                      ? "text-[#a0a0a0] hover:text-white"
-                      : "text-[#666666] hover:text-black"
+                    ? "text-[#a0a0a0] hover:text-white"
+                    : "text-[#666666] hover:text-black"
                     }`}
                 >
                   Projects
@@ -222,8 +223,8 @@ export default function Home() {
                 <Link
                   href="/blog"
                   className={`relative z-10 text-[15px] font-medium leading-[1.2] flex-shrink-0 transition-colors ${isDarkMode
-                      ? "text-[#a0a0a0] hover:text-white"
-                      : "text-[#666666] hover:text-black"
+                    ? "text-[#a0a0a0] hover:text-white"
+                    : "text-[#666666] hover:text-black"
                     }`}
                 >
                   Blog
@@ -231,8 +232,8 @@ export default function Home() {
                 <Link
                   href="/contact"
                   className={`relative z-10 text-[15px] font-medium leading-[1.2] flex-shrink-0 transition-colors ${isDarkMode
-                      ? "text-[#a0a0a0] hover:text-white"
-                      : "text-[#666666] hover:text-black"
+                    ? "text-[#a0a0a0] hover:text-white"
+                    : "text-[#666666] hover:text-black"
                     }`}
                 >
                   Contact
@@ -251,8 +252,8 @@ export default function Home() {
               {/* Status Pill */}
               <div
                 className={`inline-flex items-center gap-2 h-8 px-4 rounded-full text-[14px] font-medium border mt-4 md:mt-6 lg:mt-0 ${isDarkMode
-                    ? "bg-[#1c2b22] text-[#7eea9b] border-[#223d2b]"
-                    : "bg-[#f5fbf7] text-[#008a1e] border-[#d4edd9]"
+                  ? "bg-[#1c2b22] text-[#7eea9b] border-[#223d2b]"
+                  : "bg-[#f5fbf7] text-[#008a1e] border-[#d4edd9]"
                   }`}
               >
                 <span className="relative flex h-2 w-2">

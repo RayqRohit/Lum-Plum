@@ -4,17 +4,17 @@ import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import ThemeToggle from "@/components/ThemeToggle";
+import { useTheme } from "@/context/ThemeContext";
 
 export default function AboutPage() {
-  const [isDarkMode, setIsDarkMode] = useState(true);
+  const { isDarkMode, setIsDarkMode } = useTheme();
 
   return (
     <main
-      className={`min-h-screen w-full select-none transition-colors duration-300 lg:h-screen lg:w-screen lg:overflow-hidden ${
-        isDarkMode ? "bg-[#141414] text-[#fafafa]" : "bg-[#ffffff] text-[#1e1e28]"
-      }`}
+      className={`min-h-screen w-full select-none transition-colors duration-300 lg:h-screen lg:w-screen lg:overflow-hidden ${isDarkMode ? "bg-[#141414] text-[#fafafa]" : "bg-[#ffffff] text-[#1e1e28]"
+        }`}
     >
-      <div className="flex flex-col lg:flex-row w-full min-h-screen lg:h-screen lg:overflow-hidden gap-4 lg:gap-[64px]">
+      <div className="flex flex-col lg:flex-row w-full min-h-screen lg:h-screen lg:overflow-hidden gap-4 lg:gap-[50px]">
         {/* LEFT SHOWCASE CARD: exact framer-12h3bak (desktop flex: 1.3, tablet h: 560px, mobile h: 460px / sm: 500px) */}
         <section className="w-full h-[460px] sm:h-[500px] md:h-[560px] lg:h-full py-5 md:py-8 lg:py-4 px-5 md:px-8 lg:pl-4 lg:pr-0 min-w-0 overflow-hidden flex lg:flex-[1.3_0_0px] flex-shrink-0">
           <div className="relative w-full h-full rounded-[16px] overflow-hidden flex flex-col justify-between shadow-2xl group border border-white/5">
@@ -142,55 +142,49 @@ export default function AboutPage() {
               <nav className="relative flex items-center gap-8 flex-shrink-0 py-1">
                 {/* Active Backdrop Pill: slim top/bottom padding (-top-[3px] -bottom-[3px]) */}
                 <span
-                  className={`absolute left-[64px] -top-[3px] -bottom-[3px] w-[66px] rounded-full transition-colors pointer-events-none -z-0 ${
-                    isDarkMode ? "bg-[#1e1e1e]" : "bg-[#f0f0f0]"
-                  }`}
+                  className={`absolute left-[64px] -top-[3px] -bottom-[3px] w-[66px] rounded-full transition-colors pointer-events-none -z-0 ${isDarkMode ? "bg-[#1e1e1e]" : "bg-[#f0f0f0]"
+                    }`}
                 />
                 <Link
                   href="/"
-                  className={`relative z-10 text-[15px] font-medium leading-[1.2] flex-shrink-0 transition-colors ${
-                    isDarkMode
+                  className={`relative z-10 text-[15px] font-medium leading-[1.2] flex-shrink-0 transition-colors ${isDarkMode
                       ? "text-[#a0a0a0] hover:text-white"
                       : "text-[#666666] hover:text-black"
-                  }`}
+                    }`}
                 >
                   Home
                 </Link>
                 <Link
                   href="/about"
-                  className={`relative z-10 text-[15px] font-medium leading-[1.2] flex-shrink-0 transition-colors ${
-                    isDarkMode ? "text-white" : "text-black"
-                  }`}
+                  className={`relative z-10 text-[15px] font-medium leading-[1.2] flex-shrink-0 transition-colors ${isDarkMode ? "text-white" : "text-black"
+                    }`}
                 >
                   About
                 </Link>
                 <Link
                   href="/projects"
-                  className={`relative z-10 text-[15px] font-medium leading-[1.2] flex-shrink-0 transition-colors ${
-                    isDarkMode
+                  className={`relative z-10 text-[15px] font-medium leading-[1.2] flex-shrink-0 transition-colors ${isDarkMode
                       ? "text-[#a0a0a0] hover:text-white"
                       : "text-[#666666] hover:text-black"
-                  }`}
+                    }`}
                 >
                   Projects
                 </Link>
                 <Link
                   href="/blog"
-                  className={`relative z-10 text-[15px] font-medium leading-[1.2] flex-shrink-0 transition-colors ${
-                    isDarkMode
+                  className={`relative z-10 text-[15px] font-medium leading-[1.2] flex-shrink-0 transition-colors ${isDarkMode
                       ? "text-[#a0a0a0] hover:text-white"
                       : "text-[#666666] hover:text-black"
-                  }`}
+                    }`}
                 >
                   Blog
                 </Link>
                 <Link
                   href="/contact"
-                  className={`relative z-10 text-[15px] font-medium leading-[1.2] flex-shrink-0 transition-colors ${
-                    isDarkMode
+                  className={`relative z-10 text-[15px] font-medium leading-[1.2] flex-shrink-0 transition-colors ${isDarkMode
                       ? "text-[#a0a0a0] hover:text-white"
                       : "text-[#666666] hover:text-black"
-                  }`}
+                    }`}
                 >
                   Contact
                 </Link>
@@ -204,17 +198,15 @@ export default function AboutPage() {
           {/* Center Content: "A little about me" heading & text & Rayq signature */}
           <div className="flex-1 flex flex-col justify-center my-10 lg:my-0">
             <h1
-              className={`text-[42px] sm:text-[50px] lg:text-[56px] font-semibold tracking-tight leading-[1.1] mb-6 sm:mb-8 ${
-                isDarkMode ? "text-white" : "text-[#1e1e28]"
-              }`}
+              className={`text-[42px] sm:text-[50px] lg:text-[56px] font-semibold tracking-tight leading-[1.1] mb-6 sm:mb-8 ${isDarkMode ? "text-white" : "text-[#1e1e28]"
+                }`}
             >
               A little about me
             </h1>
 
             <div
-              className={`space-y-6 text-[17px] sm:text-[18px] lg:text-[16px] leading-[1.65] ${
-                isDarkMode ? "text-[#a0a0a0]" : "text-[#47474f]"
-              }`}
+              className={`space-y-6 text-[17px] sm:text-[18px] lg:text-[16px] leading-[1.65] ${isDarkMode ? "text-[#a0a0a0]" : "text-[#47474f]"
+                }`}
             >
               <p>
                 Hi, I’m Rayq, a Creative Director passionate about turning ideas into impactful visuals. I thrive on storytelling, design, and strategy, bringing brands to life with creativity and purpose.
@@ -230,9 +222,8 @@ export default function AboutPage() {
             {/* Script Signature directly under the copy, aligned right, matching template */}
             <div className="flex justify-end pt-4 sm:pt-6">
               <span
-                className={`font-style-script text-[32px] select-none ${
-                  isDarkMode ? "text-white" : "text-[#1e1e28]"
-                }`}
+                className={`font-style-script text-[32px] select-none ${isDarkMode ? "text-white" : "text-[#1e1e28]"
+                  }`}
               >
                 Rayq
               </span>
