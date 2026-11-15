@@ -14,6 +14,8 @@ export default function ContactPage() {
   const [isSent, setIsSent] = useState(false);
   const [budget, setBudget] = useState("");
   const textareaRef = useRef<HTMLTextAreaElement>(null);
+  const formRef = useRef<HTMLFormElement>(null);
+  const [formHeight, setFormHeight] = useState<number | undefined>(undefined);
   const [maxTextareaHeight, setMaxTextareaHeight] = useState<number | undefined>(undefined);
 
   useEffect(() => {
@@ -47,6 +49,9 @@ export default function ContactPage() {
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    if (formRef.current) {
+      setFormHeight(formRef.current.offsetHeight);
+    }
     setIsSent(true);
     setBudget("");
     e.currentTarget.reset();
@@ -216,7 +221,10 @@ export default function ContactPage() {
 
             {/* Contact Form OR Success State (exact match to template reference) */}
             {isSent ? (
-              <div className="w-full flex flex-col items-center justify-center text-center py-10 px-2 animate-in fade-in duration-300">
+              <div
+                style={{ minHeight: formHeight ? `${formHeight}px` : "430px" }}
+                className="w-full flex flex-col items-center justify-center text-center py-10 px-2 animate-in fade-in duration-300"
+              >
                 {/* Checkmark in Circle */}
                 <div
                   className={`w-10 h-10 rounded-full border-2 flex items-center justify-center mb-4 ${isDarkMode ? "border-white text-white" : "border-[#1e1e28] text-[#1e1e28]"
@@ -254,6 +262,7 @@ export default function ContactPage() {
               </div>
             ) : (
               <motion.form
+                ref={formRef}
                 {...fadeUpProps(0.6)}
                 onSubmit={handleSubmit}
                 className="flex flex-col gap-6 sm:gap-7 w-full"

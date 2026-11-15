@@ -271,7 +271,7 @@ export default function Home() {
               </motion.div>
 
               {/* Title & Buttons Wrapper: matches framer-1bip8km with responsive gap */}
-              <div className="flex flex-col items-start gap-12 sm:gap-14 md:gap-16 w-full">
+              <div className="flex flex-col items-start gap-5 sm:gap-14 md:gap-16 w-full">
                 {/* Main Title: responsive 32px on mobile, 40px on tablet, 56px on desktop with staggered word blur */}
                 <h1 className="text-[32px] sm:text-[40px] xl:text-[56px] font-semibold tracking-normal leading-[1.2em]">
                   <WordBlur text="I design & build" baseDelay={0.15} stagger={0.07} />
