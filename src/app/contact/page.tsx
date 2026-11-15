@@ -66,7 +66,7 @@ export default function ContactPage() {
 
   return (
     <main
-      className={`min-h-screen w-full transition-colors duration-300 lg:h-screen lg:w-screen lg:overflow-hidden ${isDarkMode ? "bg-[#141414] text-[#fafafa]" : "bg-[#ffffff] text-[#1e1e28]"
+      className={`min-h-screen w-full transition-colors duration-300 lg:h-screen lg:w-screen lg:overflow-hidden ${isDarkMode ? "bg-[#141414] text-[#fafafa]" : "bg-[#fdfdfc] text-[#1e1e28]"
         }`}
     >
       <div className="flex flex-col lg:flex-row w-full min-h-screen lg:h-screen lg:overflow-hidden gap-4 lg:gap-[50px]">
@@ -113,36 +113,36 @@ export default function ContactPage() {
               {/* Email */}
               <div className="flex flex-col">
                 <span className="text-white/70 text-[14px] sm:text-[15px] font-normal mb-1.5">
-                  Email
+                  Direct Email
                 </span>
                 <a
-                  href="mailto:hi@yoursite.com"
+                  href="mailto:hello@yourdomain.com"
                   className="text-white text-[15px] sm:text-[16px] font-medium hover:text-white/80 no-underline transition-colors"
                 >
-                  hi@yoursite.com
+                  hello@yourdomain.com
                 </a>
               </div>
 
               {/* Phone */}
               <div className="flex flex-col">
                 <span className="text-white/70 text-[14px] sm:text-[15px] font-normal mb-1.5">
-                  Phone
+                  Phone / WhatsApp
                 </span>
                 <a
-                  href="tel:302-555-6789"
+                  href="tel:+15550192834"
                   className="text-white text-[15px] sm:text-[16px] font-medium hover:text-white/80 no-underline transition-colors"
                 >
-                  (302) 555-6789
+                  +1 (555) 019-2834
                 </a>
               </div>
 
               {/* Location */}
               <div className="flex flex-col">
                 <span className="text-white/70 text-[14px] sm:text-[15px] font-normal mb-1.5">
-                  Location
+                  Studio / Based in
                 </span>
                 <span className="text-white text-[15px] sm:text-[16px] font-medium leading-snug">
-                  5678 Dupont Hwy Dover, DE 19901
+                  San Francisco, CA / Remote Worldwide
                 </span>
               </div>
             </div>
@@ -215,15 +215,14 @@ export default function ContactPage() {
               className={`text-[38px] sm:text-[46px] md:text-[52px] font-semibold tracking-tight leading-[1.1] mb-4 ${isDarkMode ? "text-white" : "text-[#1e1e28]"
                 }`}
             >
-              <WordBlur text="Let’s talk" baseDelay={0.15} />
+              <WordBlur text="Let’s collaborate" baseDelay={0.15} />
             </h1>
             <motion.p
               {...fadeUpProps(0.4)}
               className={`text-[15px] sm:text-[16px] leading-relaxed mb-8 sm:mb-10 ${isDarkMode ? "text-[#8e8e93]" : "text-[#71717f]"
                 }`}
             >
-              I’d love to hear from you! Whether you have a question, a project in mind,
-              or just want to say hi, feel free to reach out.
+              Have an upcoming product launch, design system challenge, or full-time opportunity in mind? Drop a line below and let’s discuss how we can work together.
             </motion.p>
 
             {/* Contact Form OR Success State (exact match to template reference) */}
@@ -256,15 +255,15 @@ export default function ContactPage() {
                   className={`text-[21px] sm:text-[23px] font-semibold tracking-normal mb-2 ${isDarkMode ? "text-white" : "text-[#1e1e28]"
                     }`}
                 >
-                  Thank you!
+                  Message Received!
                 </h3>
 
                 {/* Description */}
                 <p
-                  className={`text-[15px] sm:text-[15.5px] font-normal leading-relaxed text-center whitespace-normal sm:whitespace-nowrap ${isDarkMode ? "text-[#8e8e93]" : "text-[#71717f]"
+                  className={`text-[15px] sm:text-[15.5px] font-normal leading-relaxed text-center max-w-[460px] mx-auto ${isDarkMode ? "text-[#8e8e93]" : "text-[#71717f]"
                     }`}
                 >
-                  I&apos;ll get back to you shortly to discuss your project and next steps.
+                  Thank you for reaching out. I’ve received your details and will get back to you within 24 hours to schedule an introductory conversation.
                 </p>
               </div>
             ) : (
@@ -288,7 +287,7 @@ export default function ContactPage() {
                       name="name"
                       required
                       disabled={isSubmitting}
-                      placeholder="Axel Smith"
+                      placeholder="Alex Morgan"
                       className={`h-[44px] px-3.5 rounded-[8px] text-[15px] outline-none transition-colors border ${isDarkMode
                         ? "bg-[#141414] border-[#222222] text-white placeholder:text-[#636366] focus:border-white/40"
                         : "bg-[#f5f5f7] border-[#e5e5ea] text-[#1e1e28] placeholder:text-[#8e8e93] focus:border-black/30"
@@ -301,14 +300,14 @@ export default function ContactPage() {
                       className={`text-[14px] font-medium ${isDarkMode ? "text-[#fafafa]" : "text-[#1e1e28]"
                         }`}
                     >
-                      Email
+                      Work Email
                     </label>
                     <input
                       type="email"
                       name="email"
                       required
                       disabled={isSubmitting}
-                      placeholder="hi@axel.com"
+                      placeholder="alex@company.com"
                       className={`h-[44px] px-3.5 rounded-[8px] text-[15px] outline-none transition-colors border ${isDarkMode
                         ? "bg-[#141414] border-[#222222] text-white placeholder:text-[#636366] focus:border-white/40"
                         : "bg-[#f5f5f7] border-[#e5e5ea] text-[#1e1e28] placeholder:text-[#8e8e93] focus:border-black/30"
@@ -324,14 +323,14 @@ export default function ContactPage() {
                       className={`text-[14px] font-medium ${isDarkMode ? "text-[#fafafa]" : "text-[#1e1e28]"
                         }`}
                     >
-                      Company
+                      Company or Studio
                     </label>
                     <input
                       type="text"
                       name="company"
                       required
                       disabled={isSubmitting}
-                      placeholder="Dream Studio"
+                      placeholder="Stripe, Linear, or Startup Name"
                       className={`h-[44px] px-3.5 rounded-[8px] text-[15px] outline-none transition-colors border ${isDarkMode
                         ? "bg-[#141414] border-[#222222] text-white placeholder:text-[#636366] focus:border-white/40"
                         : "bg-[#f5f5f7] border-[#e5e5ea] text-[#1e1e28] placeholder:text-[#8e8e93] focus:border-black/30"
@@ -344,7 +343,7 @@ export default function ContactPage() {
                       className={`text-[14px] font-medium ${isDarkMode ? "text-[#fafafa]" : "text-[#1e1e28]"
                         }`}
                     >
-                      Project budget
+                      Estimated Budget
                     </label>
                     <div className="relative">
                       <select
@@ -371,25 +370,25 @@ export default function ContactPage() {
                           disabled
                           className={isDarkMode ? "bg-[#141414] text-[#636366]" : "bg-[#f5f5f7] text-[#8e8e93]"}
                         >
-                          Select your budget
+                          Select estimated budget
                         </option>
                         <option
                           value="under-5k"
                           className={isDarkMode ? "bg-[#141414] text-white" : "bg-white text-black"}
                         >
-                          Under $5,000
+                          &lt; $5,000 — Sprint / Advisory
                         </option>
                         <option
                           value="5k-10k"
                           className={isDarkMode ? "bg-[#141414] text-white" : "bg-white text-black"}
                         >
-                          $5,000 - $10,000
+                          $5,000 – $10,000 — MVP / Feature Design
                         </option>
                         <option
                           value="10k-plus"
                           className={isDarkMode ? "bg-[#141414] text-white" : "bg-white text-black"}
                         >
-                          $10,000+
+                          $10,000+ — End-to-End System
                         </option>
                       </select>
                       {/* Chevron Down Arrow: exact match to Framer template (d="M 3.5 6 L 8 10.5 L 12.5 6", 16x16, stroke-width 1.5) */}
@@ -420,7 +419,7 @@ export default function ContactPage() {
                     className={`text-[14px] font-medium ${isDarkMode ? "text-[#fafafa]" : "text-[#1e1e28]"
                       }`}
                   >
-                    How I can help?
+                    How can I help you?
                   </label>
                   <textarea
                     ref={textareaRef}
@@ -428,7 +427,7 @@ export default function ContactPage() {
                     required
                     disabled={isSubmitting}
                     rows={4}
-                    placeholder="Tell me about your company needs"
+                    placeholder="Tell me about your product goals, timeline, and current design challenges..."
                     style={{
                       maxHeight: maxTextareaHeight ? `${maxTextareaHeight}px` : undefined,
                       minHeight: "100px",

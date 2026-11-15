@@ -25,21 +25,21 @@ const slides: Slide[] = [
     id: 1,
     title: "Luminous",
     slug: "luminous",
-    category: "Visual Design",
+    category: "Product & Visual Design",
     image: "/images/yStE9KWzFrtJTVgDpvp7op43a0U.jpg",
   },
   {
     id: 2,
     title: "Osaka",
     slug: "osaka",
-    category: "Brand Identity",
+    category: "Brand Identity & Systems",
     image: "/images/lijDKTTFQa95RSKUPUNYKsOdWc.jpg",
   },
   {
     id: 3,
     title: "Atlas",
     slug: "atlas",
-    category: "Creative Direction",
+    category: "Design Systems & Direction",
     image: "/images/oYhlVIWU5MgrLHfcqMQS7M3AxA.jpg",
   },
 ];
@@ -74,7 +74,7 @@ export default function Home() {
 
   return (
     <main
-      className={`min-h-screen w-full transition-colors duration-300 lg:h-screen lg:w-screen lg:overflow-hidden ${isDarkMode ? "bg-[#141414] text-[#fafafa]" : "bg-[#ffffff] text-[#1e1e28]"
+      className={`min-h-screen w-full transition-colors duration-300 lg:h-screen lg:w-screen lg:overflow-hidden ${isDarkMode ? "bg-[#141414] text-[#fafafa]" : "bg-[#fdfdfc] text-[#1e1e28]"
         }`}
     >
       <div className="flex flex-col lg:flex-row w-full min-h-screen lg:h-screen lg:overflow-hidden gap-4 lg:gap-[50px]">
@@ -270,23 +270,23 @@ export default function Home() {
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#7eea9b] opacity-75"></span>
                   <span className="relative inline-flex rounded-full h-2 w-2 bg-[#4ade80]"></span>
                 </span>
-                <span>Now booking</span>
+                <span>Available for selected projects & roles</span>
               </motion.div>
 
               {/* Title & Buttons Wrapper: matches framer-1bip8km with responsive gap */}
               <div className="flex flex-col items-start gap-5 sm:gap-14 md:gap-16 w-full">
                 {/* Main Title: responsive 32px on mobile, 40px on tablet, 56px on desktop with staggered word blur */}
                 <h1 className="text-[32px] sm:text-[40px] xl:text-[56px] font-semibold tracking-normal leading-[1.2em]">
-                  <WordBlur text="I design & build" baseDelay={0.15} stagger={0.07} />
+                  <WordBlur text="Designing products" baseDelay={0.15} stagger={0.07} />
                   <br />
-                  <WordBlur text="products that" baseDelay={0.29} stagger={0.07} />{" "}
+                  <WordBlur text="that" baseDelay={0.29} stagger={0.07} />{" "}
                   <motion.span
                     initial={{ opacity: 0.001, filter: "blur(8px)", y: 8 }}
                     animate={{ opacity: 1, filter: "blur(0px)", y: 0 }}
-                    transition={{ duration: 0.85, delay: 0.43, ease: [0.16, 1, 0.3, 1] }}
+                    transition={{ duration: 0.85, delay: 0.36, ease: [0.16, 1, 0.3, 1] }}
                     className={`inline-block ${isDarkMode ? "text-[#717171]" : "text-[#9999a0]"}`}
                   >
-                    inspire
+                    resonate
                   </motion.span>
                 </h1>
 
@@ -306,7 +306,7 @@ export default function Home() {
                     }}
                     className="inline-flex items-center justify-center text-[15px] font-semibold tracking-normal leading-[48px] select-none text-center transition-opacity duration-150 hover:opacity-90"
                   >
-                    <span>Book a call</span>
+                    <span>Start a project</span>
                   </Link>
                   <Link
                     href="/projects"
@@ -319,7 +319,7 @@ export default function Home() {
                     }}
                     className="inline-flex items-center justify-center text-[15px] font-semibold tracking-normal leading-[48px] select-none text-center transition-opacity duration-150 hover:opacity-90"
                   >
-                    <span>View projects</span>
+                    <span>Explore selected work</span>
                   </Link>
                 </motion.div>
               </div>

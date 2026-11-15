@@ -24,21 +24,21 @@ const slides: Slide[] = [
     id: 1,
     title: "Luminous",
     slug: "luminous",
-    category: "Visual Design",
+    category: "Product & Visual Design",
     image: "/images/oYhlVIWU5MgrLHfcqMQS7M3AxA.jpg",
   },
   {
     id: 2,
     title: "Osaka",
     slug: "osaka",
-    category: "Brand Identity",
+    category: "Brand Identity & Systems",
     image: "/images/lijDKTTFQa95RSKUPUNYKsOdWc.jpg",
   },
   {
     id: 3,
     title: "Atlas",
     slug: "atlas",
-    category: "Creative Direction",
+    category: "Design Systems & Direction",
     image: "/images/yStE9KWzFrtJTVgDpvp7op43a0U.jpg",
   },
 ];
@@ -56,36 +56,36 @@ const projectsList: ProjectItem[] = [
   {
     id: "luminous",
     title: "Luminous",
-    badge: "New",
-    category: "Visual Design",
+    badge: "Case Study",
+    category: "Product & Visual Experience",
     year: "2025",
     href: "/projects/luminous",
   },
   {
     id: "nova",
     title: "Nova",
-    category: "Product Design",
+    category: "SaaS Platform & Design System",
     year: "2024",
     href: "/projects/nova",
   },
   {
     id: "osaka",
     title: "Osaka",
-    category: "Branding",
+    category: "Brand Identity & Motion",
     year: "2023",
     href: "/projects/osaka",
   },
   {
     id: "atlas",
     title: "Atlas",
-    category: "Photography",
+    category: "Creative Direction & Editorial",
     year: "2022",
     href: "/projects/atlas",
   },
   {
     id: "prism",
     title: "Prism",
-    category: "UI/UX Design",
+    category: "Mobile App & Interaction Design",
     year: "2021",
     href: "/projects/prism",
   },
@@ -112,7 +112,7 @@ export default function ProjectsPage() {
 
   return (
     <main
-      className={`min-h-screen w-full transition-colors duration-300 lg:h-screen lg:w-screen lg:overflow-hidden ${isDarkMode ? "bg-[#141414] text-[#fafafa]" : "bg-[#ffffff] text-[#1e1e28]"
+      className={`min-h-screen w-full transition-colors duration-300 lg:h-screen lg:w-screen lg:overflow-hidden ${isDarkMode ? "bg-[#141414] text-[#fafafa]" : "bg-[#fdfdfc] text-[#1e1e28]"
         }`}
     >
       <div className="flex flex-col lg:flex-row w-full min-h-screen lg:h-screen lg:overflow-hidden gap-4 lg:gap-[50px]">
@@ -299,15 +299,14 @@ export default function ProjectsPage() {
                   className={`text-[32px] sm:text-[40px] md:text-[48px] lg:text-[56px] font-semibold tracking-normal leading-[1.2] ${isDarkMode ? "text-[#fafafa]" : "text-[#1e1e28]"
                     }`}
                 >
-                  <WordBlur text="Projects" baseDelay={0.15} />
+                  <WordBlur text="Selected Work" baseDelay={0.15} />
                 </h1>
                 <motion.p
                   {...fadeUpProps(0.4)}
                   className={`text-[16px] font-normal leading-[1.4] ${isDarkMode ? "text-[#a0a0a0]" : "text-[#47474f]"
                     }`}
                 >
-                  Here’s a collection of the work I’ve had the privilege to bring to life. Each
-                  project tells a unique story, crafted with creativity and attention to detail.
+                  A curated archive of digital products, design systems, and brand platforms crafted with precision, strategic intent, and relentless attention to detail.
                 </motion.p>
               </div>
 

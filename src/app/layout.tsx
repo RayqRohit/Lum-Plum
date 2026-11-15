@@ -22,7 +22,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${inter.variable} min-h-screen dark`}>
-      <body className="font-sans min-h-screen w-full antialiased">
+      <body className="font-sans min-h-screen w-full antialiased bg-[#fdfdfc] dark:bg-[#141414]">
         <ThemeProvider>{children}</ThemeProvider>
       </body>
     </html>

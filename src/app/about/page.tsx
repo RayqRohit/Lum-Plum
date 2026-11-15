@@ -13,7 +13,7 @@ export default function AboutPage() {
 
   return (
     <main
-      className={`min-h-screen w-full transition-colors duration-300 lg:h-screen lg:w-screen lg:overflow-hidden ${isDarkMode ? "bg-[#141414] text-[#fafafa]" : "bg-[#ffffff] text-[#1e1e28]"
+      className={`min-h-screen w-full transition-colors duration-300 lg:h-screen lg:w-screen lg:overflow-hidden ${isDarkMode ? "bg-[#141414] text-[#fafafa]" : "bg-[#fdfdfc] text-[#1e1e28]"
         }`}
     >
       <div className="flex flex-col lg:flex-row w-full min-h-screen lg:h-screen lg:overflow-hidden gap-4 lg:gap-[50px]">
@@ -49,7 +49,7 @@ export default function AboutPage() {
 
             {/* Floating Glass Pills: elevated higher on the image */}
             <div className="absolute inset-0 pointer-events-none z-10">
-              {/* Websites Pill */}
+              {/* Product Design Pill */}
               <div
                 className="absolute hidden sm:flex items-center justify-center h-[32px] px-4 rounded-full border border-white/20 bg-white/20 backdrop-blur-[5px] text-white text-[15px] font-medium leading-[1.2] shadow-sm select-none"
                 style={{
@@ -58,10 +58,10 @@ export default function AboutPage() {
                   transform: "translate(-50%, -50%)",
                 }}
               >
-                Websites
+                Product Design
               </div>
 
-              {/* Branding Pill */}
+              {/* Design Systems Pill */}
               <div
                 className="absolute hidden sm:flex items-center justify-center h-[32px] px-4 rounded-full border border-white/20 bg-white/20 backdrop-blur-[5px] text-white text-[15px] font-medium leading-[1.2] shadow-sm select-none"
                 style={{
@@ -70,19 +70,19 @@ export default function AboutPage() {
                   transform: "translate(-50%, -50%)",
                 }}
               >
-                Branding
+                Design Systems
               </div>
 
-              {/* Animation Pill */}
+              {/* UI/UX Strategy Pill */}
               <div
                 className="absolute hidden sm:flex items-center justify-center h-[32px] px-4 rounded-full border border-white/20 bg-white/20 backdrop-blur-[5px] text-white text-[15px] font-medium leading-[1.2] shadow-sm select-none"
                 style={{
-                  left: "8%",
+                  left: "10%",
                   top: "69%",
                   transform: "translate(-50%, -50%)",
                 }}
               >
-                Animation
+                UI/UX Strategy
               </div>
             </div>
 
@@ -90,7 +90,7 @@ export default function AboutPage() {
             <div className="relative z-10 flex flex-col sm:flex-row sm:items-end justify-between gap-4 p-6 pt-0">
               <div className="max-w-[432px] mb-8 lg:mb-14 xl:mb-16">
                 <h3 className="italic font-normal text-[21px] leading-[1.4] text-white/70 select-none">
-                  Designer with a passion for creating intuitive digital experiences.
+                  Multidisciplinary designer operating at the intersection of human clarity, scalable architecture, and visual craft.
                 </h3>
               </div>
 
@@ -214,13 +214,13 @@ export default function AboutPage() {
                 }`}
             >
               <p>
-                Hi, I’m Rayq, a Creative Director passionate about turning ideas into impactful visuals. I thrive on storytelling, design, and strategy, bringing brands to life with creativity and purpose.
+                Hi, I’m Rayq - a multidisciplinary designer specializing in Product Design, UI/UX architecture, and brand systems. Over the past several years, I’ve partnered with forward-thinking teams to transform complex problem spaces into refined, effortless digital experiences.
               </p>
               <p>
-                With a mix of vision, detail, and a love for bold ideas, I craft experiences that connect and inspire. Whether it’s branding, digital, or campaigns, I believe in pushing creative boundaries while keeping things meaningful.
+                My approach balances meticulous attention to craft with strategic business thinking. From establishing design tokens and component libraries in Figma to architecting frictionless user flows, I care deeply about how a product behaves just as much as how it looks.
               </p>
               <p>
-                Let’s create something amazing together!
+                Whether leading 0-to-1 product discovery or elevating an existing digital ecosystem, I believe great design should feel inevitable, invisible, and empowering.
               </p>
             </motion.div>
 

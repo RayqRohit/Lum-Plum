@@ -24,7 +24,7 @@ export default function BlogPostDetailPage() {
 
   return (
     <main
-      className={`min-h-screen w-full transition-colors duration-300 lg:h-screen lg:overflow-hidden ${isDarkMode ? "bg-[#141414] text-[#fafafa]" : "bg-[#ffffff] text-[#1e1e28]"
+      className={`min-h-screen w-full transition-colors duration-300 lg:h-screen lg:overflow-hidden ${isDarkMode ? "bg-[#141414] text-[#fafafa]" : "bg-[#fdfdfc] text-[#1e1e28]"
         }`}
     >
       <div className="flex flex-col lg:flex-row w-full min-h-screen lg:h-screen gap-4 lg:gap-[50px]">

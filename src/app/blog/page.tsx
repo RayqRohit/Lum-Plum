@@ -42,7 +42,7 @@ export default function BlogPage() {
 
   return (
     <main
-      className={`min-h-screen w-full transition-colors duration-300 lg:h-screen lg:w-screen lg:overflow-hidden ${isDarkMode ? "bg-[#141414] text-[#fafafa]" : "bg-[#ffffff] text-[#1e1e28]"
+      className={`min-h-screen w-full transition-colors duration-300 lg:h-screen lg:w-screen lg:overflow-hidden ${isDarkMode ? "bg-[#141414] text-[#fafafa]" : "bg-[#fdfdfc] text-[#1e1e28]"
         }`}
     >
       <div className="flex flex-col lg:flex-row w-full min-h-screen lg:h-screen lg:overflow-hidden gap-4 lg:gap-[50px]">
@@ -100,7 +100,7 @@ export default function BlogPage() {
                 href="/blog/beyond-the-pixels-why-we-interview-designers-makers-and-creative-thinkers"
                 className="font-medium text-[18px] sm:text-[20px] lg:text-[21px] leading-[1.3] text-white hover:opacity-85 transition-opacity max-w-[540px]"
               >
-                Beyond the Pixels: Why We Interview Designers, Makers, and Creative Thinkers
+                Beyond the Pixels: The Thinking, Friction, and Craft Behind Modern Digital Products
               </Link>
             </div>
           </div>
@@ -172,15 +172,14 @@ export default function BlogPage() {
               className={`text-[36px] sm:text-[44px] md:text-[50px] lg:text-[54px] font-semibold tracking-tight leading-[1.1] mb-4 ${isDarkMode ? "text-white" : "text-[#1e1e28]"
                 }`}
             >
-              <WordBlur text="Blog" baseDelay={0.15} />
+              <WordBlur text="Writing & Thoughts" baseDelay={0.15} />
             </h1>
             <motion.p
               {...fadeUpProps(0.4)}
               className={`text-[15px] sm:text-[16px] leading-relaxed mb-7 sm:mb-8 ${isDarkMode ? "text-[#8e8e93]" : "text-[#71717f]"
                 }`}
             >
-              Welcome to the blog, a space where I share insights, inspiration,
-              behind-the-scenes moments, and everything in between.
+              Observations on digital product design, systems architecture, design leadership, and the nuances of modern craft.
             </motion.p>
 
             {/* Newsletter Subscription Form with exact template delay 0.6s */}
@@ -195,7 +194,7 @@ export default function BlogPage() {
                   value={email}
                   disabled={isSubmitting}
                   onChange={(e) => setEmail(e.target.value)}
-                  placeholder="Enter your email"
+                  placeholder="Enter your email for monthly insights"
                   required
                   className={`flex-1 rounded-[8px] px-4 py-3 text-[14px] sm:text-[15px] outline-none transition-colors border ${isDarkMode
                     ? "bg-[#141414] border-[#222222] text-white placeholder:text-[#636366] focus:border-white/40"
@@ -259,7 +258,7 @@ export default function BlogPage() {
                   className={`text-[13px] font-medium ${isDarkMode ? "text-[#8e8e93]" : "text-[#71717f]"
                     }`}
                 >
-                  Trusted by 1,000+ Creators
+                  Read by 1,200+ product designers, founders & engineers
                 </span>
               </div>
             </motion.form>
@@ -376,15 +375,15 @@ export default function BlogPage() {
               className={`text-[21px] sm:text-[23px] font-semibold tracking-normal mb-2 ${isDarkMode ? "text-white" : "text-[#1e1e28]"
                 }`}
             >
-              Thank you
+              You’re on the list!
             </h3>
 
             {/* Subtitle */}
             <p
-              className={`text-[15px] sm:text-[15.5px] font-normal leading-normal text-center whitespace-normal sm:whitespace-nowrap ${isDarkMode ? "text-[#8e8e93]" : "text-[#71717f]"
+              className={`text-[15px] sm:text-[15.5px] font-normal leading-relaxed text-center max-w-[440px] mx-auto ${isDarkMode ? "text-[#8e8e93]" : "text-[#71717f]"
                 }`}
             >
-              You&apos;ve successfully subscribed to our blog updates.
+              Thank you for subscribing. Look forward to curated design insights once a month. No spam, ever.
             </p>
           </div>
         </div>

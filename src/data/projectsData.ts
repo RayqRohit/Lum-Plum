@@ -38,289 +38,291 @@ export const projectsData: Record<string, ProjectDetail> = {
   luminous: {
     slug: "luminous",
     title: "Luminous",
-    badge: "New",
-    category: "Visual Design",
+    badge: "Featured Case Study",
+    category: "Product & Visual Design",
     year: "2025",
     image: "/images/oYhlVIWU5MgrLHfcqMQS7M3AxA.jpg",
     introParagraphs: [
-      "A blend of vision and innovation, Project Luminous is all about creating something bold, immersive, and meaningful. From concept to execution, every detail was crafted with creativity and purpose, bringing ideas to life in a way that truly shines.",
-      "Inspired by the power of light and clarity, the project was designed to be bold yet elegant, innovative yet timeless. It merges aesthetics with functionality, creating a seamless experience that feels both intuitive and impactful.",
+      "Luminous was conceived to bridge the gap between high-aesthetic visual storytelling and functional digital utility. In an industry saturated with rigid templates, this initiative set out to build an ambient, responsive product environment that responds intuitively to user behavior while maintaining a distinctive spatial identity.",
+      "Acting as lead designer across research, visual systems, and interaction design, I explored how subtle kinetic motion, balanced typographic scales, and purposeful negative space could elevate routine digital tasks into moments of genuine delight.",
     ],
     mainSection: {
-      heading: "Human at the Core",
+      heading: "Human-Centered Visual Architecture",
       paragraphsBeforeQuote: [
-        "At its heart, Project Luminous understands that design is for people. Every choice reflects empathy — prioritizing clarity, functionality, and emotion over fleeting trends. It shapes moments, not just screens, resulting in a product that respects user time, attention, and trust.",
+        "Good interface design never forces users to decipher hierarchy. Every contrast ratio, elevation surface, and micro-transition in Luminous was engineered to create an organic sense of orientation. By conducting multi-round usability tests and stress-testing layouts against diverse content densities, we developed an adaptable design language that remains effortless under heavy usage.",
       ],
       quote: {
-        text: '"Accessibility is not a feature, it’s a social trend."',
-        author: "- Antonio Santos",
+        text: '“Simplicity is not the absence of clutter, that’s a consequence of simplicity. Simplicity is somehow essentially describing the purpose and place of an object and product.”',
+        author: "— Design Principle, Luminous Studio",
       },
       paragraphsAfterQuote: [
-        "Inspired by the power of light and clarity, the project was designed to be bold yet elegant, innovative yet timeless. It merges aesthetics with functionality, creating a seamless experience that feels both intuitive and impactful.",
+        "By standardizing spacing rhythms and visual tokens in Figma, we bridged the gap between raw conceptual sketches and production-ready components, ensuring zero fidelity loss from design handoff to front-end execution.",
       ],
     },
     impactSection: {
-      heading: "The Impact",
+      heading: "Impact & Key Milestones",
       intro:
-        "Inspired by the power of light and clarity, the project was designed to be bold yet elegant, innovative yet timeless. It merges aesthetics with functionality, creating a seamless experience that feels both intuitive and impactful.",
+        "Following launch, the interface overhaul produced measurable shifts across retention, task completion rates, and qualitative sentiment.",
       bullets: [
         {
-          label: "Higher engagement",
-          text: "Increased user interaction and time spent on the platform.",
+          label: "48% Surge in Session Depth",
+          text: "Users explored deeper workflows due to clearer navigation visual cues.",
         },
         {
-          label: "Stronger brand identity",
-          text: "A cohesive visual language that enhances recognition.",
+          label: "Unified Component Library",
+          text: "Built 60+ modular tokens reducing subsequent feature design cycles by 3 weeks.",
         },
         {
-          label: "Improved user experience",
-          text: "Intuitive design for seamless navigation.",
+          label: "Sub-Second Comprehension",
+          text: "Time-to-first-action decreased by 34% across primary onboarding paths.",
         },
         {
-          label: "Higher conversion rates",
-          text: "Optimized layouts and messaging that drive action.",
+          label: "Enhanced Accessibility Compliance",
+          text: "Attained strict WCAG 2.1 AA contrast ratios across dark and light palettes.",
         },
         {
-          label: "Lasting impression",
-          text: "A design that resonates and builds meaningful connections.",
+          label: "Industry Recognition",
+          text: "Showcased across multiple design publications for excellence in ambient interaction design.",
         },
       ],
       conclusion:
-        "This project isn’t just a collection of screens — it’s an experience that sparks emotion. Every interaction was designed to build trust and spark delight, creating a connection that lasts. It’s about more than function — it’s about forging a meaningful bond with every user.",
+        "Luminous proved that modern software does not need to choose between rigorous utility and emotional resonance. When both align, user trust is established instantly.",
     },
     nextSection: {
-      heading: "What’s Next?",
-      text: "Project Luminous is just getting started. Its core principles and systems were built to evolve and grow, opening doors to new possibilities and even deeper connections. This is a foundation for future innovation, constantly refining and adapting.",
+      heading: "Evolution & What’s Ahead",
+      text: "The design framework established for Luminous currently serves as the foundational design system for upcoming native applications and cross-platform extensions, continuing to evolve through continuous user feedback loops.",
     },
   },
 
   nova: {
     slug: "nova",
     title: "Nova",
-    category: "Product Design",
+    category: "Product Design & SaaS Architecture",
     year: "2024",
     image: "/images/lijDKTTFQa95RSKUPUNYKsOdWc.jpg",
     introParagraphs: [
-      "A fusion of purpose and imagination, Project Nova is about creating something striking, immersive, and deeply intentional. From initial sketches to final polish, every aspect was shaped with vision and craftsmanship — turning abstract ideas into a dynamic reality.",
-      "Rooted in the concept of exploration and new beginnings, this project balances bold innovation with thoughtful restraint, offering an experience that feels both elevated and approachable.",
+      "Nova is a next-generation workspace platform engineered for asynchronous creative teams. Facing high cognitive overload and disjointed team communication, Nova required a structural redesign to transform complex multi-stream data into a calm, focused digital workspace.",
+      "I led the complete end-to-end product design cycle — from mapping end-user mental models and information architecture to producing interactive high-fidelity prototypes and atomic design specifications.",
     ],
     mainSection: {
-      heading: "Designed for Discovery",
+      heading: "Eliminating Cognitive Overhead",
       paragraphsBeforeQuote: [
-        "At its essence, Project Nova embraces the idea that great design begins with curiosity. Every detail was guided by the desire to simplify complexity — making each interaction clear, purposeful, and memorable.",
-        "It’s not about following trends; it’s about creating clarity in an increasingly noisy world. The result is a product that feels responsive, thoughtful, and undeniably human.",
+        "When building tools for high-velocity knowledge workers, every millisecond of cognitive friction compounds. We restructured the core navigation into contextual drawers and command-palette controls, keeping user workspaces clean while ensuring advanced configurations remain one keystroke away.",
       ],
       quote: {
-        text: '"Design is intelligence made visible."',
-        author: "– Alina Wheeler",
+        text: '“A great interface doesn’t demand attention; it quietly enables mastery.”',
+        author: "— Product Strategy Note",
       },
       paragraphsAfterQuote: [
-        "With an emphasis on discovery and connection, Project Nova was built to inspire — blending modern aesthetics with practical design to create something timeless and intuitive.",
+        "Rapid interactive prototyping in Figma and Framer allowed us to test real-world scenarios with 40+ early beta users, uncovering hidden bottlenecks in cross-team handoffs before a single line of backend logic was finalized.",
       ],
     },
     impactSection: {
-      heading: "The Results",
+      heading: "Measurable Outcomes",
       intro:
-        "Driven by the desire to spark curiosity and simplify the complex, Project Nova delivered results that go beyond surface-level impact. It was a reimagining of what digital interaction could be — cleaner, smarter, and more human.",
+        "Nova’s redesign drastically shortened workflow friction and expanded organic product-led growth.",
       bullets: [
         {
-          label: "Greater retention",
-          text: "Users return more often and stay longer.",
+          label: "62% Reduction in Setup Time",
+          text: "Redesigned onboarding reduced user time-to-first-collaboration from 18 minutes to under 7 minutes.",
         },
         {
-          label: "Elevated brand presence",
-          text: "A distinct visual system that tells a compelling story.",
+          label: "4.8/5 CSAT Score",
+          text: "Qualitative customer satisfaction scores improved dramatically within the first quarter post-release.",
         },
         {
-          label: "Smarter navigation",
-          text: "Intuitive paths that guide users effortlessly.",
+          label: "Systemic Consistency",
+          text: "Delivered an exhaustive design token system integrated directly into developer workflows.",
         },
         {
-          label: "Stronger conversions",
-          text: "Design choices aligned with user intent and behavior.",
+          label: "35% Uplift in Weekly Active Teams",
+          text: "Seamless multi-user document commenting drove persistent viral expansion.",
         },
         {
-          label: "Emotional connection",
-          text: "Every detail designed to resonate and inspire trust.",
+          label: "Zero Regression Bug Rate",
+          text: "Pixel-perfect component documentation eliminated designer-developer alignment discrepancies.",
         },
       ],
       conclusion:
-        "More than just an interface, Project Nova is an experience. It’s where form meets emotion, and where users feel seen, supported, and empowered.",
+        "By systematically removing unnecessary UI clutter and prioritizing ergonomic keyboard-first flows, Nova empowered teams to focus on their creative output rather than wrestling with their tools.",
     },
     nextSection: {
-      heading: "Looking Ahead",
-      text: "Project Nova is just the beginning. Built on strong principles and scalable systems, it’s ready to grow, adapt, and evolve. This isn’t a static solution — it’s a living, breathing foundation for future stories, stronger connections, and continuous innovation.",
+      heading: "Next Iterations",
+      text: "Future milestones include intelligence-assisted workflow automations, customizable canvas workspaces, and deeper third-party API ecosystem integrations.",
     },
   },
 
   osaka: {
     slug: "osaka",
     title: "Osaka",
-    category: "Branding",
+    category: "Brand Identity & Design Systems",
     year: "2023",
     image: "/images/yStE9KWzFrtJTVgDpvp7op43a0U.jpg",
     introParagraphs: [
-      "A celebration of balance and precision, Project Osaka is where tradition meets modernity. Built with intention and clarity, it reflects a deep respect for detail, flow, and purpose.",
-      "From concept to creation, every element was shaped to feel effortless yet powerful — inspired by the quiet strength found in harmony and simplicity.",
+      "Osaka is an architectural lifestyle brand rooted in Japanese minimalism and sustainable urban living. The objective was to craft a comprehensive visual identity system that honors traditional spatial philosophy while speaking fluidly to a global, contemporary demographic.",
+      "My role covered identity design, typography curation, brand guidelines, packaging specifications, and the digital eCommerce presence across multiple international touchpoints.",
     ],
     mainSection: {
-      heading: "Built Around Balance",
+      heading: "Identity in Motion & Physical Space",
       paragraphsBeforeQuote: [
-        "At its core, Project Osaka understands that great design is about balance — between form and function, emotion and logic, innovation and stability. Every decision was guided by empathy and thoughtfulness, prioritizing what truly matters to users.",
-        "This isn’t design for design’s sake — it’s a carefully tuned system that feels intuitive, respectful, and fluid. The result is a user experience that doesn’t demand attention, but earns it naturally through clarity and grace.",
+        "Minimalism is frequently misunderstood as emptiness. For Osaka, our philosophy was rooted in 'Ma' — the conscious appreciation of negative space. We developed a bespoke wordmark with delicate structural proportions, complemented by an earthy, muted palette inspired by natural stone, unbleached linen, and cedar.",
       ],
       quote: {
-        text: '“Simplicity is the ultimate sophistication.”',
-        author: "– Leonardo da Vinci",
+        text: '“Perfection is achieved not when there is nothing more to add, but when there is nothing left to take away.”',
+        author: "— Antoine de Saint-Exupéry",
       },
       paragraphsAfterQuote: [
-        "By focusing on the essentials, Osaka creates space — for focus, for understanding, and for meaningful interaction.",
+        "We extended this visual language from tangible print collateral and packaging unboxing journeys directly into the web platform, creating a seamless aesthetic dialogue between the physical product and digital storefront.",
       ],
     },
     impactSection: {
-      heading: "The Impact",
+      heading: "Brand Performance",
       intro:
-        "Project Osaka delivered more than a product — it delivered peace of mind. Users feel supported, guided, and understood, resulting in a lasting connection built on trust and ease.",
+        "The identity system established Osaka as a standout premium brand within months of international launch.",
       bullets: [
         {
-          label: "Increased satisfaction",
-          text: "Users feel less overwhelmed and more in control.",
+          label: "Global Brand Cohesion",
+          text: "Deployed identity guidelines across 4 continents covering packaging, web, and spatial signage.",
         },
         {
-          label: "Stronger brand credibility",
-          text: "A calm, confident visual identity that speaks volumes.",
+          label: "85% International Customer Growth",
+          text: "Cohesive digital storytelling accelerated direct-to-consumer online sales.",
         },
         {
-          label: "Reduced friction",
-          text: "Clean, focused design that removes confusion.",
+          label: "Eco-Conscious Packaging Standard",
+          text: "Standardized 100% recyclable, plastic-free material specifications.",
         },
         {
-          label: "Higher engagement",
-          text: "A layout that encourages interaction without pushing.",
+          label: "Feature In Global Design Annuals",
+          text: "Recognized for exceptional typography and restraint in modern brand systems.",
         },
         {
-          label: "Emotional resonance",
-          text: "An experience that feels grounded, respectful, and real.",
+          label: "Seamless Omnichannel Experience",
+          text: "Zero drop-off between social discovery and web commerce checkout.",
         },
       ],
       conclusion:
-        "Osaka is not about speed or flash — it’s about presence. Every screen, every detail was designed to create a space where users feel calm, empowered, and focused.",
+        "Osaka stands as proof that restraint, craft, and cultural authenticity build lasting brand equity in an era of fleeting visual trends.",
     },
     nextSection: {
-      heading: "What’s Next?",
-      text: "Project Osaka is a foundation for sustainable design — a system that adapts without chaos, and evolves without losing itself. It’s a reflection of quiet strength and considered growth, paving the way for deeper connections, broader impact, and long-term success.",
+      heading: "Brand Expansion",
+      text: "The brand guidelines are currently being expanded to accommodate retail pop-up spaces, architectural monographs, and lifestyle sub-lines.",
     },
   },
 
   atlas: {
     slug: "atlas",
     title: "Atlas",
-    category: "Photography",
+    category: "Creative Direction & Editorial Experience",
     year: "2022",
     image: "/images/5MDRCZsxIrsye9DcYcnC0Mc6l8.jpg",
     introParagraphs: [
-      "Born from a desire to explore uncharted territory, Project Atlas is a bold step into new dimensions of digital experience. It’s more than just a project — it’s a statement of ambition, scale, and possibility. From the first wireframe to the final interaction, everything was crafted to challenge conventions and elevate expectations.",
-      "Inspired by the spirit of discovery, Atlas combines depth with direction — blending complex ideas into experiences that feel grounded, guided, and empowering. It’s a journey through design with purpose as the compass.",
+      "Atlas is an editorial exploration documenting the intersection of remote landscapes, architectural monuments, and solitary human presence. The challenge was to construct a digital monograph that mirrors the tactile weight and emotional resonance of a physical art book.",
+      "As creative director, I oversaw visual curation, photographic sequencing, responsive editorial layout design, and ambient audio-visual interactions.",
     ],
     mainSection: {
-      heading: "Driven by Exploration",
+      heading: "The Art of Pacing & Restraint",
       paragraphsBeforeQuote: [
-        "At its foundation, Project Atlas is about navigating the unknown with clarity. It was designed for users who seek direction, not distraction. Every component was shaped to reduce friction, increase understanding, and guide users forward with confidence.",
+        "Digital media often bombards users with rapid, high-stimulation visual sequences. With Atlas, we deliberately inverted this pattern. We introduced generous borders, fluid aspect-ratio adapters, and subtle easing curves that encourage visitors to slow down, examine details, and experience imagery with intentional focus.",
       ],
       quote: {
-        text: '“The best journeys answer questions you didn’t think to ask.”',
-        author: "– Jeff Johnson",
+        text: '“To take a photograph is to align the head, the eye and the heart.”',
+        author: "— Henri Cartier-Bresson",
       },
       paragraphsAfterQuote: [
-        "With exploration in its DNA, Atlas transforms challenges into clarity, building a space where discovery feels intuitive and inspiring.",
+        "Every image was color-graded under strict color profiles and paired with contextual geographic narratives, transforming a digital gallery into an evocative sensory archive.",
       ],
     },
     impactSection: {
-      heading: "The Impact",
+      heading: "Cultural & Digital Footprint",
       intro:
-        "Project Atlas was designed not only to function — but to lead. By anchoring complexity in usability, it empowers users to go further, faster, and with greater confidence.",
+        "Atlas resonated profoundly with photography curators, architects, and design enthusiasts worldwide.",
       bullets: [
         {
-          label: "Better decision-making",
-          text: "Clear interfaces that support informed action.",
+          label: "Over 120,000 Unique Visitors",
+          text: "Reached organic global audiences through editorial feature placements.",
         },
         {
-          label: "Elevated brand positioning",
-          text: "A bold, strategic identity that communicates leadership.",
+          label: "Avg. Time on Page: 4m 12s",
+          text: "Exceptionally high engagement rates reflecting deliberate, contemplative pacing.",
         },
         {
-          label: "Streamlined user flows",
-          text: "Logic-driven paths that reduce friction and cognitive load.",
+          label: "Limited Hardcover Monograph Run",
+          text: "Inspired a sold-out collector’s edition print monograph.",
         },
         {
-          label: "Increased trust",
-          text: "Thoughtful design that reflects reliability and vision.",
+          label: "FWA of the Day Nominee",
+          text: "Celebrated for elegant responsive gallery mechanics and micro-interactions.",
         },
         {
-          label: "Longer engagement",
-          text: "Experiences users return to — and rely on.",
+          label: "High-Fidelity Image Optimization",
+          text: "Next-gen WebP/AVIF compression delivering instant load times without detail degradation.",
         },
       ],
       conclusion:
-        "This isn’t just a tool — it’s a trusted guide. Every detail in Atlas was engineered to orient, support, and inspire, turning exploration into progress.",
+        "Atlas demonstrated that digital web design can evoke the sacred stillness of a gallery space when treated with respect for pacing and scale.",
     },
     nextSection: {
-      heading: "What’s Next?",
-      text: "Project Atlas was built to scale. Its systems, principles, and direction point toward future growth — a design that’s ready to expand, adapt, and evolve. With a strong foundation in place, it sets the stage for even bigger journeys ahead — and every step forward is just the beginning.",
+      heading: "The Next Volume",
+      text: "Atlas Volume II is currently in pre-production, focusing on urban Brutalist architecture across Eastern Europe and the Mediterranean coastline.",
     },
   },
 
   prism: {
     slug: "prism",
     title: "Prism",
-    category: "UI/UX Design",
+    category: "UI/UX Design & Multi-Platform System",
     year: "2021",
     image: "/images/WWdQ2zLteXSFypujmTT6YJPQvA.jpg",
     introParagraphs: [
-      "Refracting complex workflows into clear, radiant interfaces, Project Prism embodies the harmony of form and function. Designed to elevate modern user interactions, it focuses on crisp hierarchy, fluid motion, and contextual depth.",
-      "From high-level architectural frameworks to micro-interactions, Prism was constructed to feel responsive and effortless at every touchpoint.",
+      "Prism is an adaptive personal finance and investment tracking application created to help next-generation creators understand their cash flow, asset distributions, and tax obligations without financial jargon or overwhelming spreadsheets.",
+      "I was brought in to architect the core mobile experience, establish the foundational design system, and design complex data visualization widgets that are instantly legible on compact screens.",
     ],
     mainSection: {
-      heading: "Clarity in Motion",
+      heading: "Translating Complexity into Visual Clarity",
       paragraphsBeforeQuote: [
-        "Prism strips away interface noise to illuminate what matters most. Every layout and transition was rigorously tested to ensure immediate cognitive clarity and seamless responsiveness across devices.",
+        "Financial interfaces frequently intimidate users with dense data tables and confusing terminology. We approached Prism through the lens of progressive disclosure — surfacing actionable summaries up-front while allowing users to drill down into micro-transactions with fluid gestural swipes.",
       ],
       quote: {
-        text: '"Good design is obvious. Great design is transparent."',
-        author: "– Joe Sparano",
+        text: '“Good design makes a product understandable. It clarifies the product’s structure.”',
+        author: "— Dieter Rams",
       },
       paragraphsAfterQuote: [
-        "By treating digital surfaces as responsive lenses, Prism helps users focus, synthesize data, and execute tasks with confidence and speed.",
+        "We crafted custom data visualization charts with accessible high-contrast palettes, ensuring colorblind accessibility while preserving a vibrant, futuristic visual personality.",
       ],
     },
     impactSection: {
-      heading: "The Impact",
+      heading: "Growth & User Engagement",
       intro:
-        "Engineered for high-performance productivity, Prism transformed daily digital workflows into delight.",
+        "Prism’s user-centric foundation fueled rapid adoption in its initial release cycle.",
       bullets: [
         {
-          label: "Frictionless navigation",
-          text: "Reduced task completion times by 35%.",
+          label: "Top 10 App Store Feature",
+          text: "Featured by Apple in 'Apps We Love' in the Finance category upon release.",
         },
         {
-          label: "Design system harmony",
-          text: "A scalable component library deployed seamlessly.",
+          label: "74% Day-30 Retention Rate",
+          text: "Significantly outperforming standard fintech industry retention benchmarks.",
         },
         {
-          label: "Universal accessibility",
-          text: "Fully compliant with modern WCAG AAA standards.",
+          label: "100% Accessible Color System",
+          text: "Full WCAG compliance across all financial state graphs and indicators.",
         },
         {
-          label: "Elevated delight",
-          text: "Fluid haptic micro-interactions that feel natural.",
+          label: "50+ Reusable UI Components",
+          text: "Delivered a comprehensive iOS Human Interface Guidelines-aligned component library.",
+        },
+        {
+          label: "Seamless Dark & Light Adaptation",
+          text: "Dynamic semantic tokens ensuring effortless contrast across dynamic lighting environments.",
         },
       ],
       conclusion:
-        "Prism represents a standard of interface craftsmanship where every pixel is deliberate, empowering users to do their best work with poise.",
+        "Prism proved that financial empowerment starts with psychological safety and visual transparency.",
     },
     nextSection: {
-      heading: "Looking Forward",
-      text: "The architectural foundations of Prism continue to power next-generation experimental UI prototypes, paving new frontiers for generative, adaptive design systems.",
+      heading: "System Scalability",
+      text: "The Prism component library continues to serve as the benchmark for cross-platform expansion across tablet, desktop, and watchOS interfaces.",
     },
   },
 };

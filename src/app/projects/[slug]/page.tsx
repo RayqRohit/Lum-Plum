@@ -23,7 +23,7 @@ export default function ProjectDetailPage() {
 
   return (
     <main
-      className={`min-h-screen w-full transition-colors duration-300 lg:h-screen lg:overflow-hidden ${isDarkMode ? "bg-[#141414] text-[#fafafa]" : "bg-[#ffffff] text-[#1e1e28]"
+      className={`min-h-screen w-full transition-colors duration-300 lg:h-screen lg:overflow-hidden ${isDarkMode ? "bg-[#141414] text-[#fafafa]" : "bg-[#fdfdfc] text-[#1e1e28]"
         }`}
     >
       <div className="flex flex-col lg:flex-row w-full min-h-screen lg:h-screen gap-4 lg:gap-[50px]">
@@ -217,132 +217,137 @@ export default function ProjectDetailPage() {
               <WordBlur text={project.title} baseDelay={0.15} />
             </h1>
 
-            {/* Intro Paragraphs */}
+            {/* Content Body - Fade up smoothly together at 0.4s matching /blog/[slug] */}
             <motion.div
               {...fadeUpProps(0.4)}
-              className={`space-y-5 text-[16px] leading-[1.65] font-normal ${isDarkMode ? "text-[#a0a0a0]" : "text-[#47474f]"
-                }`}
+              className="flex flex-col gap-8 w-full"
             >
-              {project.introParagraphs.map((para, index) => (
-                <p key={index}>{para}</p>
-              ))}
-            </motion.div>
+              {/* Intro Paragraphs */}
+              <div
+                className={`space-y-5 text-[16px] leading-[1.65] font-normal ${isDarkMode ? "text-[#a0a0a0]" : "text-[#47474f]"
+                  }`}
+              >
+                {project.introParagraphs.map((para, index) => (
+                  <p key={index}>{para}</p>
+                ))}
+              </div>
 
-            {/* Main Section */}
-            {project.mainSection && (
-              <div className="flex flex-col gap-5 mt-4">
-                <h2
-                  className={`text-[22px] sm:text-[24px] md:text-[28px] font-semibold tracking-normal leading-[1.3] ${isDarkMode ? "text-[#fafafa]" : "text-[#1e1e28]"
-                    }`}
-                >
-                  {project.mainSection.heading}
-                </h2>
-
-                <div
-                  className={`space-y-5 text-[16px] leading-[1.65] font-normal ${isDarkMode ? "text-[#a0a0a0]" : "text-[#47474f]"
-                    }`}
-                >
-                  {project.mainSection.paragraphsBeforeQuote.map((p, i) => (
-                    <p key={i}>{p}</p>
-                  ))}
-                </div>
-
-                {/* Quote Block */}
-                {project.mainSection.quote && (
-                  <blockquote
-                    className={`my-2 pl-5 border-l-2 py-1 ${isDarkMode
-                      ? "border-[#fafafa] text-[#fafafa]"
-                      : "border-[#1e1e28] text-[#1e1e28]"
+              {/* Main Section */}
+              {project.mainSection && (
+                <div className="flex flex-col gap-5">
+                  <h2
+                    className={`text-[22px] sm:text-[24px] md:text-[28px] font-semibold tracking-normal leading-[1.3] ${isDarkMode ? "text-[#fafafa]" : "text-[#1e1e28]"
                       }`}
                   >
-                    <p className="text-[17px] sm:text-[18px] font-normal leading-[1.6] italic">
-                      {project.mainSection.quote.text}
-                    </p>
-                    {project.mainSection.quote.author && (
-                      <p
-                        className={`text-[15px] font-normal mt-1 not-italic ${isDarkMode ? "text-[#a0a0a0]" : "text-[#717179]"
-                          }`}
-                      >
-                        {project.mainSection.quote.author}
-                      </p>
-                    )}
-                  </blockquote>
-                )}
+                    {project.mainSection.heading}
+                  </h2>
 
-                <div
-                  className={`space-y-5 text-[16px] leading-[1.65] font-normal ${isDarkMode ? "text-[#a0a0a0]" : "text-[#47474f]"
-                    }`}
-                >
-                  {project.mainSection.paragraphsAfterQuote.map((p, i) => (
-                    <p key={i}>{p}</p>
-                  ))}
-                </div>
-              </div>
-            )}
+                  <div
+                    className={`space-y-5 text-[16px] leading-[1.65] font-normal ${isDarkMode ? "text-[#a0a0a0]" : "text-[#47474f]"
+                      }`}
+                  >
+                    {project.mainSection.paragraphsBeforeQuote.map((p, i) => (
+                      <p key={i}>{p}</p>
+                    ))}
+                  </div>
 
-            {/* Impact Section */}
-            {project.impactSection && (
-              <div className="flex flex-col gap-5 mt-4">
-                <h2
-                  className={`text-[22px] sm:text-[24px] md:text-[28px] font-semibold tracking-normal leading-[1.3] ${isDarkMode ? "text-[#fafafa]" : "text-[#1e1e28]"
-                    }`}
-                >
-                  {project.impactSection.heading}
-                </h2>
-
-                <p
-                  className={`text-[16px] leading-[1.65] font-normal ${isDarkMode ? "text-[#a0a0a0]" : "text-[#47474f]"
-                    }`}
-                >
-                  {project.impactSection.intro}
-                </p>
-
-                {/* Impact Bullet Points */}
-                <ul className="space-y-3 my-1 pl-4 list-disc marker:text-emerald-500">
-                  {project.impactSection.bullets.map((bullet, idx) => (
-                    <li
-                      key={idx}
-                      className={`text-[16px] leading-[1.65] ${isDarkMode ? "text-[#a0a0a0]" : "text-[#47474f]"
+                  {/* Quote Block */}
+                  {project.mainSection.quote && (
+                    <blockquote
+                      className={`my-2 pl-5 border-l-2 py-1 ${isDarkMode
+                        ? "border-[#fafafa] text-[#fafafa]"
+                        : "border-[#1e1e28] text-[#1e1e28]"
                         }`}
                     >
-                      <strong
-                        className={`font-semibold ${isDarkMode ? "text-[#fafafa]" : "text-[#1e1e28]"
+                      <p className="text-[17px] sm:text-[18px] font-normal leading-[1.6] italic">
+                        {project.mainSection.quote.text}
+                      </p>
+                      {project.mainSection.quote.author && (
+                        <p
+                          className={`text-[15px] font-normal mt-1 not-italic ${isDarkMode ? "text-[#a0a0a0]" : "text-[#717179]"
+                            }`}
+                        >
+                          {project.mainSection.quote.author}
+                        </p>
+                      )}
+                    </blockquote>
+                  )}
+
+                  <div
+                    className={`space-y-5 text-[16px] leading-[1.65] font-normal ${isDarkMode ? "text-[#a0a0a0]" : "text-[#47474f]"
+                      }`}
+                  >
+                    {project.mainSection.paragraphsAfterQuote.map((p, i) => (
+                      <p key={i}>{p}</p>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              {/* Impact Section */}
+              {project.impactSection && (
+                <div className="flex flex-col gap-5">
+                  <h2
+                    className={`text-[22px] sm:text-[24px] md:text-[28px] font-semibold tracking-normal leading-[1.3] ${isDarkMode ? "text-[#fafafa]" : "text-[#1e1e28]"
+                      }`}
+                  >
+                    {project.impactSection.heading}
+                  </h2>
+
+                  <p
+                    className={`text-[16px] leading-[1.65] font-normal ${isDarkMode ? "text-[#a0a0a0]" : "text-[#47474f]"
+                      }`}
+                  >
+                    {project.impactSection.intro}
+                  </p>
+
+                  {/* Impact Bullet Points */}
+                  <ul className="space-y-3 my-1 pl-4 list-disc marker:text-emerald-500">
+                    {project.impactSection.bullets.map((bullet, idx) => (
+                      <li
+                        key={idx}
+                        className={`text-[16px] leading-[1.65] ${isDarkMode ? "text-[#a0a0a0]" : "text-[#47474f]"
                           }`}
                       >
-                        {bullet.label}
-                      </strong>{" "}
-                      – {bullet.text}
-                    </li>
-                  ))}
-                </ul>
+                        <strong
+                          className={`font-semibold ${isDarkMode ? "text-[#fafafa]" : "text-[#1e1e28]"
+                            }`}
+                        >
+                          {bullet.label}
+                        </strong>{" "}
+                        – {bullet.text}
+                      </li>
+                    ))}
+                  </ul>
 
-                <p
-                  className={`text-[16px] leading-[1.65] font-normal ${isDarkMode ? "text-[#a0a0a0]" : "text-[#47474f]"
-                    }`}
-                >
-                  {project.impactSection.conclusion}
-                </p>
-              </div>
-            )}
+                  <p
+                    className={`text-[16px] leading-[1.65] font-normal ${isDarkMode ? "text-[#a0a0a0]" : "text-[#47474f]"
+                      }`}
+                  >
+                    {project.impactSection.conclusion}
+                  </p>
+                </div>
+              )}
 
-            {/* Next Section */}
-            {project.nextSection && (
-              <div className="flex flex-col gap-4 mt-4">
-                <h2
-                  className={`text-[22px] sm:text-[24px] md:text-[28px] font-semibold tracking-normal leading-[1.3] ${isDarkMode ? "text-[#fafafa]" : "text-[#1e1e28]"
-                    }`}
-                >
-                  {project.nextSection.heading}
-                </h2>
+              {/* Next Section */}
+              {project.nextSection && (
+                <div className="flex flex-col gap-4">
+                  <h2
+                    className={`text-[22px] sm:text-[24px] md:text-[28px] font-semibold tracking-normal leading-[1.3] ${isDarkMode ? "text-[#fafafa]" : "text-[#1e1e28]"
+                      }`}
+                  >
+                    {project.nextSection.heading}
+                  </h2>
 
-                <p
-                  className={`text-[16px] leading-[1.65] font-normal ${isDarkMode ? "text-[#a0a0a0]" : "text-[#47474f]"
-                    }`}
-                >
-                  {project.nextSection.text}
-                </p>
-              </div>
-            )}
+                  <p
+                    className={`text-[16px] leading-[1.65] font-normal ${isDarkMode ? "text-[#a0a0a0]" : "text-[#47474f]"
+                      }`}
+                  >
+                    {project.nextSection.text}
+                  </p>
+                </div>
+              )}
+            </motion.div>
           </div>
         </section>
       </div>
