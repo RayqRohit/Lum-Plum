@@ -11,8 +11,8 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Lum-Plum | I design & build products that inspire",
-  description: "Personal portfolio inspired by Axel & Lum-Plum",
+  title: "Lum Plum - Multidisciplinary Designer",
+  description: "Multidisciplinary designer specializing in Product Design, UI/UX architecture, design systems, and digital experiences.",
 };
 
 export default function RootLayout({
