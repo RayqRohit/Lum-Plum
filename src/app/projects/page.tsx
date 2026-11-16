@@ -322,10 +322,10 @@ export default function ProjectsPage() {
                     className={`group flex items-center justify-between w-full border-t transition-all duration-200 ease-out cursor-pointer hover:scale-[0.99] hover:opacity-70 active:scale-[0.98] origin-center ${isDarkMode ? "border-[#1e1e1e]" : "border-[#f0f0f0]"
                       }`}
                   >
-                    {/* Column 1: Title + optional Badge (framer-149ask0: flex 1, gap 12px, py-6) */}
-                    <div className="flex-[1_0_0px] min-w-0 flex items-center gap-3 py-6">
+                    {/* Column 1: Title + optional Badge */}
+                    <div className="flex-[1.1_0_0px] sm:flex-[1_0_0px] min-w-0 flex items-center gap-2 sm:gap-2.5 py-6">
                       <span
-                        className={`text-[14px] font-medium leading-[1.2] transition-colors duration-200 ${isDarkMode ? "text-[#fafafa]" : "text-[#1e1e28]"
+                        className={`text-[14px] font-medium leading-[1.2] shrink-0 transition-colors duration-200 ${isDarkMode ? "text-[#fafafa]" : "text-[#1e1e28]"
                           }`}
                       >
                         {project.title}
@@ -333,7 +333,7 @@ export default function ProjectsPage() {
 
                       {project.badge && (
                         <span
-                          className={`inline-flex items-center justify-center h-[24px] px-[10px] rounded-full text-[13px] font-semibold leading-none transition-colors duration-200 ${isDarkMode
+                          className={`inline-flex items-center justify-center shrink-0 whitespace-nowrap h-[20px] sm:h-[22px] px-2 sm:px-2.5 rounded-full text-[11px] sm:text-[12px] font-medium leading-none transition-colors duration-200 ${isDarkMode
                             ? "bg-[#1c2b22] text-[#7eea9b]"
                             : "bg-[#f5fbf7] text-[#008a1e]"
                             }`}
@@ -344,7 +344,7 @@ export default function ProjectsPage() {
                     </div>
 
                     {/* Column 2: Category (framer-1ka7y5u: flex 1, justify-start, py-6) */}
-                    <div className="flex-[1_0_0px] min-w-0 flex items-center justify-start py-6">
+                    <div className="flex-[1_0_0px] min-w-0 flex items-center justify-start py-6 pl-2 sm:pl-0">
                       <span
                         className={`text-[14px] font-normal leading-[1.2] transition-colors duration-200 ${isDarkMode ? "text-[#a0a0a0]" : "text-[#47474f]"
                           }`}
