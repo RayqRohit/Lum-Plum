@@ -33,14 +33,14 @@ const slides: Slide[] = [
     title: "Osaka",
     slug: "osaka",
     category: "Brand Identity & Systems",
-    image: "/images/lijDKTTFQa95RSKUPUNYKsOdWc.jpg",
+    image: "/images/c93f16a704e825bd51d68f2397ac40e2.webp",
   },
   {
     id: 3,
     title: "Atlas",
     slug: "atlas",
     category: "Design Systems & Direction",
-    image: "/images/oYhlVIWU5MgrLHfcqMQS7M3AxA.jpg",
+    image: "/images/7a42e9c615d803fb28e17a5946c0d731.webp",
   },
 ];
 
