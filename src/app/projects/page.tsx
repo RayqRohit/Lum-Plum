@@ -25,7 +25,7 @@ const slides: Slide[] = [
     title: "Luminous",
     slug: "luminous",
     category: "Product & Visual Design",
-    image: "/images/oYhlVIWU5MgrLHfcqMQS7M3AxA.jpg",
+    image: "/images/64e1a7c902d538bf17f46b395ac820de.png",
   },
   {
     id: 2,
@@ -39,7 +39,7 @@ const slides: Slide[] = [
     title: "Atlas",
     slug: "atlas",
     category: "Design Systems & Direction",
-    image: "/images/yStE9KWzFrtJTVgDpvp7op43a0U.jpg",
+    image: "/images/b86d24f1539e70ca41c8a625d037f19e.png",
   },
 ];
 

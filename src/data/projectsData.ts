@@ -41,7 +41,7 @@ export const projectsData: Record<string, ProjectDetail> = {
     badge: "Featured Case Study",
     category: "Product & Visual Design",
     year: "2025",
-    image: "/images/oYhlVIWU5MgrLHfcqMQS7M3AxA.jpg",
+    image: "/images/64e1a7c902d538bf17f46b395ac820de.png",
     introParagraphs: [
       "Luminous was conceived to bridge the gap between high-aesthetic visual storytelling and functional digital utility. In an industry saturated with rigid templates, this initiative set out to build an ambient, responsive product environment that responds intuitively to user behavior while maintaining a distinctive spatial identity.",
       "Acting as lead designer across research, visual systems, and interaction design, I explored how subtle kinetic motion, balanced typographic scales, and purposeful negative space could elevate routine digital tasks into moments of genuine delight.",
@@ -215,7 +215,7 @@ export const projectsData: Record<string, ProjectDetail> = {
     title: "Atlas",
     category: "Creative Direction & Editorial Experience",
     year: "2022",
-    image: "/images/5MDRCZsxIrsye9DcYcnC0Mc6l8.jpg",
+    image: "/images/b86d24f1539e70ca41c8a625d037f19e.png",
     introParagraphs: [
       "Atlas is an editorial exploration documenting the intersection of remote landscapes, architectural monuments, and solitary human presence. The challenge was to construct a digital monograph that mirrors the tactile weight and emotional resonance of a physical art book.",
       "As creative director, I oversaw visual curation, photographic sequencing, responsive editorial layout design, and ambient audio-visual interactions.",
